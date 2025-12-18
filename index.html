@@ -1,0 +1,1463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Care Home Landing (Ashiana-style)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+      /* =========================================================
+        SPOX THEME (Ashiana-like)
+      ========================================================= */
+      :root {
+        --spox-bg: #f6f7fb;
+        --spox-surface: #ffffff;
+        --spox-ink: #121417;
+        --spox-muted: #6b7280;
+        --spox-border: rgba(17, 24, 39, 0.08);
+
+        --spox-red: #d81f2a;
+        --spox-red-600: #be1b24;
+        --spox-red-soft: rgba(216, 31, 42, 0.1);
+
+        --spox-radius-xl: 18px;
+        --spox-radius-lg: 14px;
+        --spox-radius-md: 12px;
+
+        --spox-shadow: 0 10px 28px rgba(17, 24, 39, 0.08);
+        --spox-shadow-soft: 0 6px 18px rgba(17, 24, 39, 0.06);
+
+        --spox-max: 1180px;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Raleway', ui-sans-serif, system-ui, -apple-system, sans-serif;
+        background: var(--spox-bg);
+        color: var(--spox-ink);
+      }
+      h1, h2, h3, h4, h5, h6, .spox-nav-links, .spox-btn {
+        font-family: 'Raleway', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+
+      /* =========================================================
+        LAYOUT
+      ========================================================= */
+      .spox-container {
+        max-width: var(--spox-max);
+        margin: 0 auto;
+        padding: 0 18px;
+      }
+
+      .spox-section { padding: 34px 0; }
+      .spox-h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: -0.2px;
+      }
+      .spox-p {
+        margin: 0;
+        color: var(--spox-muted);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .spox-card {
+        background: var(--spox-surface);
+        border: 1px solid var(--spox-border);
+        border-radius: var(--spox-radius-xl);
+        box-shadow: var(--spox-shadow-soft);
+      }
+
+      .spox-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: var(--spox-red-soft);
+        color: var(--spox-red);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .spox-dot {
+        width: 8px; height: 8px; border-radius: 999px; background: var(--spox-red);
+      }
+
+      .spox-btn {
+        border: 0;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-weight: 900;
+        font-size: 13px;
+        transition: transform 0.08s ease, background 0.2s ease;
+      }
+      .spox-btn:active { transform: scale(0.98); }
+      .spox-btn-primary {
+        background: var(--spox-red);
+        color: #fff;
+      }
+      .spox-btn-primary:hover { background: var(--spox-red-600); }
+      .spox-btn-ghost {
+        background: #fff;
+        border: 1px solid var(--spox-border);
+        color: var(--spox-ink);
+      }
+
+      .spox-grid { display: grid; gap: 18px; }
+
+      /* =========================================================
+        TOP NAV (simple)
+      ========================================================= */
+      .spox-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(246, 247, 251, 0.82);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+      }
+      .spox-nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+      .spox-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 950;
+        letter-spacing: -0.2px;
+      }
+      .spox-logo {
+        width: 34px; height: 34px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(216,31,42,1), rgba(216,31,42,0.65));
+        box-shadow: 0 10px 18px rgba(216,31,42,0.22);
+      }
+      .spox-nav-links {
+        display: flex;
+        gap: 14px;
+        color: var(--spox-muted);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .spox-nav-links a:hover { color: var(--spox-ink); }
+
+      /* =========================================================
+        HERO (Ashiana-like)
+      ========================================================= */
+      .spox-hero {
+        padding: 18px 0 28px;
+      }
+      .spox-hero-banner {
+        position: relative;
+        overflow: visible;
+        border-radius: 0;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+        box-shadow: var(--spox-shadow);
+        min-height: 600px;
+        background: #0b1220;
+      }
+      .spox-hero-banner img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.02);
+      }
+      .spox-hero-overlay {
+        position: absolute;
+        inset: 0;
+        /* background:
+          linear-gradient(90deg, rgba(0,0,0,0.78), rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.1)),
+          radial-gradient(800px 500px at 20% 40%, rgba(216,31,42,0.22), transparent 60%); */
+      }
+      .spox-hero-content {
+        position: relative;
+        padding: 28px;
+        color: #fff;
+        display: grid;
+        gap: 14px;
+        max-width: 680px;
+      }
+      .spox-hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.88);
+      }
+      .spox-hero-title {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.12;
+        letter-spacing: -0.6px;
+        font-weight: 950;
+      }
+      .spox-hero-sub {
+        margin: 0;
+        color: rgba(255,255,255,0.84);
+        line-height: 1.65;
+        font-size: 14px;
+      }
+
+      /* floating info card inside hero (like the screenshot) */
+      .spox-hero-float {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: -38px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 14px;
+      }
+      .spox-hero-info {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid rgba(17,24,39,0.08);
+        box-shadow: var(--spox-shadow);
+        display: grid;
+        gap: 10px;
+      }
+      .spox-hero-info h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 950;
+      }
+      .spox-hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .spox-hero-mini {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        color: var(--spox-muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .spox-hero-mini span {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(17,24,39,0.04);
+        border: 1px solid rgba(17,24,39,0.06);
+      }
+
+      .spox-enquiry {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid rgba(17,24,39,0.08);
+        box-shadow: var(--spox-shadow);
+      }
+      .spox-enquiry-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .spox-enquiry-title b { font-size: 14px; }
+      .spox-enquiry-title small { color: var(--spox-red); font-weight: 900; }
+
+      .spox-form {
+        display: grid;
+        gap: 10px;
+      }
+      .spox-input {
+        width: 100%;
+        padding: 11px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(17,24,39,0.12);
+        outline: none;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .spox-input:focus {
+        border-color: rgba(216,31,42,0.45);
+        box-shadow: 0 0 0 4px rgba(216,31,42,0.12);
+      }
+
+      /* =========================================================
+        CONTENT ROW (About + right card)
+      ========================================================= */
+      .spox-row {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+      .spox-about {
+        padding: 18px;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 16px;
+      }
+      .spox-about-media {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #111827;
+        min-height: 190px;
+      }
+      .spox-about-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .spox-about-copy {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+      .spox-about-copy h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 950;
+        letter-spacing: -0.2px;
+      }
+
+      .spox-sidecard {
+        padding: 18px;
+        position: sticky;
+        top: 78px;
+      }
+      .spox-sidecard h4 {
+        margin: 0 0 8px;
+        font-size: 15px;
+        font-weight: 950;
+      }
+      .spox-side-list {
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .spox-side-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 10px;
+        border-radius: 14px;
+        background: rgba(17,24,39,0.03);
+        border: 1px solid rgba(17,24,39,0.06);
+      }
+      .spox-bullet {
+        width: 28px; height: 28px;
+        border-radius: 10px;
+        background: var(--spox-red-soft);
+        color: var(--spox-red);
+        display: grid;
+        place-items: center;
+        font-weight: 950;
+        flex: 0 0 auto;
+      }
+      .spox-side-list b { font-size: 13px; }
+      .spox-side-list p {
+        margin: 2px 0 0;
+        font-size: 12px;
+        color: var(--spox-muted);
+        line-height: 1.45;
+      }
+
+      /* =========================================================
+        Amenities Features (3 cards with image + title)
+      ========================================================= */
+      .spox-features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .spox-feature {
+        overflow: hidden;
+      }
+      .spox-feature-thumb { height: 150px; background: #0b1220; }
+      .spox-feature-thumb img {
+        width: 100%; height: 100%; object-fit: cover;
+      }
+      .spox-feature-body { padding: 14px; }
+      .spox-feature-k { font-size: 12px; color: var(--spox-red); font-weight: 950; }
+      .spox-feature-t { margin: 6px 0 0; font-weight: 950; font-size: 14px; }
+      .spox-feature-d { margin: 6px 0 0; font-size: 12px; color: var(--spox-muted); line-height: 1.5; }
+
+      /* =========================================================
+        Amenities Icon Grid (6 items)
+      ========================================================= */
+      .spox-icon-grid {
+        padding: 18px;
+      }
+      .spox-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .spox-icon-item {
+        display: flex;
+        gap: 12px;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(17,24,39,0.08);
+        background: #fff;
+      }
+      .spox-icon {
+        width: 42px; height: 42px;
+        border-radius: 14px;
+        background: var(--spox-red-soft);
+        display: grid;
+        place-items: center;
+        color: var(--spox-red);
+        font-weight: 950;
+        flex: 0 0 auto;
+      }
+      .spox-icon-text b { display: block; font-size: 13px; }
+      .spox-icon-text span { display: block; font-size: 12px; color: var(--spox-muted); margin-top: 2px; }
+
+      /* =========================================================
+        Why Us (USPs with center circle)
+      ========================================================= */
+      .spox-why {
+        padding: 18px;
+        background: #ffffff;
+      }
+      .spox-why-inner {
+        display: grid;
+        grid-template-columns: 1fr 260px 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+      .spox-usp-col { display: grid; gap: 12px; }
+      .spox-usp {
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(17,24,39,0.08);
+        background: rgba(17,24,39,0.02);
+      }
+      .spox-usp h4 { margin: 0 0 6px; font-size: 13px; font-weight: 950; }
+      .spox-usp p { margin: 0; font-size: 12px; color: var(--spox-muted); line-height: 1.5; }
+      .spox-center {
+        display: grid;
+        place-items: center;
+      }
+      .spox-circle {
+        width: 220px; height: 220px;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 10px solid rgba(216,31,42,0.10);
+        box-shadow: var(--spox-shadow-soft);
+      }
+      .spox-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* =========================================================
+        Highlight Moments (4 story cards)
+      ========================================================= */
+      .spox-stories {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .spox-story {
+        height: 190px;
+        overflow: hidden;
+        position: relative;
+      }
+      .spox-story img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.02);
+      }
+      .spox-story::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55));
+      }
+      .spox-story-label {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        color: #fff;
+        font-weight: 950;
+        font-size: 13px;
+        z-index: 2;
+      }
+
+      /* =========================================================
+        Words of Expert (quote + image)
+      ========================================================= */
+      .spox-expert {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .spox-quote {
+        padding: 18px;
+        background: linear-gradient(135deg, rgba(216,31,42,0.92), rgba(216,31,42,0.74));
+        color: #fff;
+        border-radius: var(--spox-radius-xl);
+        box-shadow: var(--spox-shadow-soft);
+        display: grid;
+        gap: 10px;
+      }
+      .spox-quote b { font-size: 13px; opacity: 0.95; }
+      .spox-quote p { margin: 0; line-height: 1.7; font-size: 14px; opacity: 0.95; }
+      .spox-expert-img {
+        border-radius: var(--spox-radius-xl);
+        overflow: hidden;
+      }
+      .spox-expert-img img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* =========================================================
+        Infra Image Gallery (3)
+      ========================================================= */
+      .spox-infra { grid-template-columns: repeat(3, 1fr); }
+      .spox-infra-card { overflow: hidden; }
+      .spox-infra-thumb { height: 150px; background: #0b1220; }
+      .spox-infra-thumb img { width: 100%; height: 100%; object-fit: cover; }
+      .spox-infra-cap { padding: 12px 14px; font-weight: 950; font-size: 13px; }
+
+      /* =========================================================
+        Testimonies (3 play cards)
+      ========================================================= */
+      .spox-test { grid-template-columns: repeat(3, 1fr); }
+      .spox-video {
+        height: 160px;
+        background: #0b1220;
+        border-radius: var(--spox-radius-xl);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(17,24,39,0.08);
+      }
+      .spox-video img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        opacity: 0.95;
+      }
+      .spox-video::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(500px 220px at 50% 60%, rgba(216,31,42,0.18), transparent 55%),
+          linear-gradient(180deg, rgba(0,0,0,0.20), rgba(0,0,0,0.55));
+      }
+      .spox-play {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        z-index: 2;
+      }
+      .spox-play-btn {
+        width: 62px; height: 62px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.15);
+        border: 2px solid rgba(255,255,255,0.65);
+        display: grid;
+        place-items: center;
+        backdrop-filter: blur(6px);
+      }
+      .spox-play-btn::before {
+        content: "";
+        width: 0; height: 0;
+        border-left: 16px solid #fff;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        margin-left: 4px;
+      }
+
+      /* =========================================================
+        RESPONSIVE
+      ========================================================= */
+      /* Services Grid (Section 4) */
+      .spox-services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 30px;
+      }
+      .spox-service-card {
+        background: #fff;
+        border-radius: 30px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+        padding: 40px 24px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        border: 1px solid transparent;
+      }
+      .spox-service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+      }
+      .spox-service-card.active {
+        background: #eef0f4; /* Light grey as seen in image for 2nd item */
+      }
+      .service-icon-circle {
+        width: 90px; height: 90px;
+        border-radius: 50%;
+        background: #fff5f5; /* Light pink bg */
+        display: grid;
+        place-items: center;
+        margin: 0 auto;
+      }
+      .service-icon-circle svg {
+        width: 48px; height: 48px;
+        fill: #be1b24; /* Ashiana Red */
+        color: #be1b24;
+      }
+      .service-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111;
+        margin: 0;
+      }
+      
+      /* Why Us (Section 5) */
+      .usp-icon-shape {
+        width: 70px; height: 70px;
+        background: #fff;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border: 1px solid rgba(255,255,255,0.6);
+      }
+      .usp-icon-shape svg { width: 32px; height: 32px; color: #555; stroke-width: 1.5; }
+      
+      @media (max-width: 980px) {
+        .spox-hero-float { grid-template-columns: 1fr; bottom: -78px; }
+        .spox-row { grid-template-columns: 1fr; }
+        .spox-sidecard { position: relative; top: auto; }
+        .spox-about { grid-template-columns: 1fr; }
+        .spox-features { grid-template-columns: 1fr; }
+        .spox-icons { grid-template-columns: 1fr; }
+        .spox-why-inner { grid-template-columns: 1fr; }
+        .spox-stories { grid-template-columns: repeat(2, 1fr); }
+        .spox-expert { grid-template-columns: 1fr; }
+        .spox-infra { grid-template-columns: 1fr; }
+        .spox-test { grid-template-columns: 1fr; }
+        
+        .spox-bento {
+          grid-template-columns: 1fr !important;
+          grid-template-rows: auto !important;
+        }
+        .item-monitoring, .item-medical, .item-rooms, .item-physio, .item-meals, .item-doctors {
+            grid-column: auto !important; grid-row: auto !important; height: 260px;
+        }
+        .spox-services-grid { grid-template-columns: 1fr; }
+        .usp-grid-responsive { grid-template-columns: 1fr !important; text-align: center !important; }
+        .usp-left-col, .usp-right-col { text-align: center !important; }
+        .usp-item { flex-direction: column !important; align-items: center !important; }
+        .usp-center-circles { display: none; }
+      }
+
+      /* Bento Grid Styles */
+      .spox-bento {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 280px);
+        gap: 16px;
+      }
+      .spox-bento-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .spox-bento-item img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .spox-bento-item:hover img { transform: scale(1.05); }
+      .spox-bento-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7));
+        display: flex;
+        align-items: flex-end;
+        padding: 24px;
+      }
+      .spox-bento-text {
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.3;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      }
+      
+      /* Grid Placements */
+      .item-monitoring { grid-column: span 2; grid-row: 1; }
+      .item-medical { grid-column: 1; grid-row: 2; }
+      .item-rooms { grid-column: 2; grid-row: 2; }
+      .item-physio { grid-column: 3; grid-row: span 2; }
+      .item-meals { grid-column: 4; grid-row: 1; }
+      .item-doctors { grid-column: 4; grid-row: 2; }
+    </style>
+      <style>
+        .spox-faq-item {
+            background: #fff;
+            border-radius: 50px;
+            padding: 20px 32px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        .spox-faq-item:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .spox-faq-item[open] {
+             border-radius: 30px; /* Slightly less rounded when open looks better with content */
+        }
+        .spox-faq-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            font-weight: 700;
+            color: #0b1220;
+            font-size: 18px;
+        }
+        .spox-faq-summary::-webkit-details-marker {
+            display: none;
+        }
+        .spox-faq-answer {
+            margin-top: 16px;
+            color: #555;
+            line-height: 1.6;
+            font-size: 15px;
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .spox-faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .spox-faq-item[open] .spox-faq-icon {
+            transform: rotate(180deg);
+        }
+      </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <header class="spox-nav">
+      <div class="spox-container">
+        <div class="spox-nav-inner">
+          <div class="spox-brand">
+            <div class="spox-logo"></div>
+            <span>Care Homes</span>
+          </div>
+
+          <nav class="spox-nav-links">
+            <a href="#amenities">Amenities</a>
+            <a href="#whyus">Why Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#testimonials">Testimonials</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="spox-hero">
+      <div class="spox-hero-banner">
+        <!-- Replace with your real banner -->
+        <img src="https://www.ashianahousing.com/assets/images/care-home-desktop-banner-new.webp" alt="Care Home Hero" />
+        <div class="spox-hero-overlay"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT + RIGHT INFO -->
+    <!-- 2ND SECTION - INLINE STYLED AS REQUESTED -->
+    <section style="background-color: #ffffff; padding: 72px 0; position: relative;">
+      <div class="spox-container">
+        
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom: 50px;">
+          <h2 style="margin: 0; font-size: 36px; color: #111827; font-weight: 600; letter-spacing: -0.5px;">Ashiana Care Home</h2>
+          <p style="margin: 10px 0 0; font-size: 20px; color: #111; font-weight: 600;">Caring for Seniors with Compassion and Comfort</p>
+        </div>
+
+        <!-- Content Row -->
+        <div style="display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
+          
+          <!-- Left: Overlapping Images/Shapes -->
+          <div style="flex: 1; min-width: 300px; position: relative; height: 400px; display: flex; align-items: center; justify-content: center;">
+             <!-- Back Shape (Top Left) -->
+             <div style="position: absolute; top: 0; left: 10%; width: 280px; height: 320px; background-color: #fdba2d; border-radius: 20px; overflow: hidden; transform: rotate(-3deg);">
+                <img src="assets/about-1.webp" alt="Care 1" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+             </div>
+             <!-- Front Shape (Bottom Right) -->
+             <div style="position: absolute; bottom: 0; right: 10%; width: 280px; height: 320px; background-color: #d81f2a; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); transform: rotate(2deg);">
+                <img src="assets/about-2.webp" alt="Care 2" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+             </div>
+          </div>
+
+          <!-- Right: Text Content -->
+          <div style="flex: 1; min-width: 300px;">
+            <p style="margin: 0; font-size: 18px; line-height: 1.8; color: #333; text-align: justify; font-weight: 500;">
+              Assisted Living offers senior residents personalised care tailored to their
+              medical and wellness needs while ensuring a warm, familiar, home-like
+              environment. With premium services, modern amenities, and 24/7 support, your
+              loved ones get the attention they deserve—while enjoying independence and dignity.
+              <br><br>
+              We provide support for seniors managing progressive health conditions like Alzheimer’s, Dementia, Parkinson’s, Arthritis, and Age-related mobility issues.
+            </p>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AMENITIES - FEATURES (Bento Grid) -->
+    <section class="spox-section" id="amenities" style="background-color: #fff;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 30px; font-weight: 600; color: #111827;">Amenities — Features</h2>
+        
+        <div class="spox-bento">
+          <!-- 1. Regular Monitoring (Top Left Wide) -->
+          <div class="spox-bento-item item-monitoring">
+            <img src="https://image.pollinations.ai/prompt/nurse%20monitoring%20blood%20pressure%20senior%20citizen%20care%20home" alt="Regular Monitoring" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Regular Monitoring</div>
+            </div>
+          </div>
+
+          <!-- 2. Medical Support (Bottom Left 1) -->
+          <div class="spox-bento-item item-medical">
+            <img src="https://image.pollinations.ai/prompt/physiotherapist%20helping%20elderly%20patient%20exercises" alt="Medical Support" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Round-the-Clock<br>Medical Support</div>
+            </div>
+          </div>
+
+          <!-- 3. Senior Friendly Rooms (Bottom Left 2) -->
+          <div class="spox-bento-item item-rooms">
+            <img src="https://image.pollinations.ai/prompt/luxury%20senior%20living%20bedroom%20accident%20proof" alt="Senior Friendly Rooms" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Senior Friendly<br>Rooms</div>
+            </div>
+          </div>
+
+          <!-- 4. Physiotherapy (Center Tall) -->
+          <div class="spox-bento-item item-physio">
+            <img src="https://image.pollinations.ai/prompt/physiotherapist%20helping%20elderly%20patient%20exercises" alt="Physiotherapy" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Physiotherapy and<br>Rehabilitation</div>
+            </div>
+          </div>
+
+          <!-- 5. Meals (Top Right) -->
+          <div class="spox-bento-item item-meals">
+            <img src="https://image.pollinations.ai/prompt/healthy%20nutritious%20food%20plate%20senior%20dining" alt="Meals" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Nutritionally<br>Assisted Meals</div>
+            </div>
+          </div>
+
+          <!-- 6. On-call Doctors (Bottom Right) -->
+          <div class="spox-bento-item item-doctors">
+            <img src="https://image.pollinations.ai/prompt/friendly%20doctor%20consulting%20patient%20clinic" alt="Doctors" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">On-call Doctors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARE & SERVICES - ICON GRID -->
+    <section class="spox-section" style="background-color: #fafbfc;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; color: #111827; font-weight: 600; margin-bottom: 30px;">Care and Services </h2>
+
+        <div class="spox-services-grid">
+          <!-- 1. Assisted Living -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+              <!-- Wheelchair / Home Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/><path d="M10 13c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg> 
+            </div>
+            <h3 class="service-title">Assisted Living</h3>
+          </div>
+
+          <!-- 2. Dementia Care (Active/Hovered Look) -->
+          <div class="spox-service-card ">
+            <div class="service-icon-circle">
+              <!-- Head / Mind Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+            </div>
+            <h3 class="service-title">Dementia Care</h3>
+          </div>
+
+          <!-- 3. Dementia Day Care Program -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Brain/Flower Icon Concept -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.21.8 4.24 2.12 5.83L3 21l4.17-2.12C8.76 20.2 10.29 21 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 12c-1.66 0-3.14-.6-4.22-1.58l.74-.74C9.55 17.55 10.72 18 12 18s2.45-.45 3.48-1.32l.74.74C15.14 18.4 13.66 19 12 19zm4.22-2.58l-.74-.74C14.45 14.55 13.28 14 12 14s-2.45.45-3.48 1.32l-.74-.74A6.97 6.97 0 0 1 12 12c1.66 0 3.14.6 4.22 1.58z"/></svg>
+            </div>
+            <h3 class="service-title">Dementia Day Care Program</h3>
+          </div>
+
+          <!-- 4. Palliative Care -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Hands Holding Heart -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5zm-5.5-1.5c1.62 0 3.03.88 3.79 2.21l1.71-1.71 1.71 1.71c.76-1.33 2.17-2.21 3.79-2.21 2.37 0 4.34 1.83 4.5 4.19.01.07.01.12.01.18 0 .5-.19.95-.49 1.29l-3.37 3.79c-.31.35-.74.55-1.19.55s-.89-.2-1.19-.55L12.5 17.5V17l-3.5 3.93c-.3.35-.73.55-1.18.55s-.89-.2-1.19-.55L3.26 17.18c-.3-.34-.49-.79-.49-1.29 0-.06 0-.11.01-.18.16-2.36 2.13-4.19 4.5-4.19zM12 5.5l-3.5 3.93c-.3.35-.73.55-1.18.55s-.89-.2-1.19-.55L3 6l3.5-3.93c.3-.35.73-.55 1.18-.55s.89.2 1.19.55L12 5.5z"/></svg>
+            </div>
+            <h3 class="service-title">Palliative Care</h3>
+          </div>
+
+          <!-- 5. Parkinson's Disease Care -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Elderly Support / Walker -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3h2zm0 10c0 1.1.9 2 2 2h3v-2H8v-8h10v8h-3v2h3c1.1 0 2-.9 2-2v-4h2v-2h-2v-2h-4v2H8v-2H6v4h2v6H6z"/></svg>
+            </div>
+            <h3 class="service-title">Parkinson's Disease Care</h3>
+          </div>
+
+          <!-- 6. Recovery & Rehabilitation -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Medical Cross / Cycle -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 14h-2v-4H7v-2h4V7h2v4h4v2h-4v4z"/></svg>
+            </div>
+            <h3 class="service-title">Recovery & Rehabilitation</h3>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US - USPs -->
+    <!-- Title Bar -->
+    <div style="background: #fff; padding: 24px; text-align: center;">
+      <h2 style="margin: 0; color: #111827; font-size: 32px; font-weight: 600;">Why Us - USPs</h2>
+    </div>
+
+    <!-- Main Content with White BG -->
+    <section class="spox-section" id="whyus" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        
+        <div class="usp-grid-responsive" style="display: grid; grid-template-columns: 1fr 300px 1fr; gap: 40px; align-items: center;">
+          
+          <!-- LEFT COLUMN -->
+          <div class="usp-left-col" style="display: flex; flex-direction: column; gap: 40px; text-align: right;">
+            
+            <!-- Item 1 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Better Quality of Life</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   We believe every senior deserves a life full of joy and respect. Making residents feel valued at every stage.
+                 </p>
+               </div>
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 4px 20px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+               </div>
+            </div>
+            
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 2 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Open Environment</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Our homes are designed to be open spaces close to nature. Warmth and companionship in every corner.
+                 </p>
+               </div>
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 4px 20px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+               </div>
+            </div>
+
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 3 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Holistic Satisfaction</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   We prioritize complete wellness—physical, emotional, and social needs are all met with care.
+                 </p>
+               </div>
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 4px 20px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+               </div>
+            </div>
+
+          </div>
+
+          <!-- CENTER IMAGE -->
+          <div class="usp-center-circles" style="position: relative; display: flex; justify-content: center;">
+            <div style="width: 280px; height: 280px; border-radius: 50%; overflow: hidden; border: 6px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2;">
+               <img src="https://image.pollinations.ai/prompt/happy%20indian%20seniors%20celebrating%20outdoors%20garden" alt="Seniors Celebrating" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <!-- Decorative circle -->
+            <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; border: 1px solid #fff; top: -10px; z-index: 1;"></div>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="usp-right-col" style="display: flex; flex-direction: column; gap: 40px; text-align: left;">
+            
+            <!-- Item 4 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-start; gap: 18px;">
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 20px 4px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+               </div>
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Luxurious Standards</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Thoughtfully designed spaces reflecting a commitment to luxury and cherished memories.
+                 </p>
+               </div>
+            </div>
+
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 5 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-start; gap: 18px;">
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 20px 4px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+               </div>
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Exemplary Care</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Parallel care empowering seniors to thrive in an environment where they feel valued.
+                 </p>
+               </div>
+            </div>
+
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 6 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-start; gap: 18px;">
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 20px 4px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+               </div>
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">More Than Wellness</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Harmony of body, mind, and spirit. Celebrating the beauty of growing older.
+                 </p>
+               </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HIGHLIGHT MOMENTS -->
+    <!-- Yellow Background wrapper -->
+    <section class="spox-section" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Highlight Moments</h2>
+        
+        <!-- Grid of 4 Tall Cards -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+            
+            <!-- Card 1 -->
+            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+               <img src="https://image.pollinations.ai/prompt/happy%20indian%20grandmother%20laughing%20garden%20portrait" alt="Moment 1" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            </div>
+
+            <!-- Card 2 -->
+            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+               <img src="https://image.pollinations.ai/prompt/senior%20couple%20playing%20chess%20indoors" alt="Moment 2" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            </div>
+
+            <!-- Card 3 -->
+            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+               <img src="https://image.pollinations.ai/prompt/elderly%20group%20yoga%20session%20morning" alt="Moment 3" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            </div>
+
+            <!-- Card 4 -->
+            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+               <img src="https://image.pollinations.ai/prompt/senior%20couple%20playing%20chess%20indoors" alt="Moment 4" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            </div>
+
+        </div>
+      </div>
+      
+      <!-- Responsive Styles for this section specifically -->
+      <style>
+        @media (max-width: 980px) {
+           section[style*="background-color: #FDBA2D"] div[style*="grid-template-columns: repeat(4, 1fr)"] {
+             grid-template-columns: repeat(2, 1fr) !important; 
+           }
+        }
+        @media (max-width: 600px) {
+           section[style*="background-color: #FDBA2D"] div[style*="grid-template-columns: repeat(4, 1fr)"] {
+             grid-template-columns: 1fr !important; 
+           }
+        }
+      </style>
+    </section>
+
+    <!-- WORDS OF EXPERT -->
+    <!-- WORDS OF EXPERT -->
+    <section class="spox-section" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Words of Expert</h2>
+        
+        <div class="expert-row" style="display: flex; gap: 30px; align-items: stretch;">
+            
+            <!-- Left: Red Card -->
+            <div style="flex: 2; background-color: #d11f2f; border-radius: 24px; padding: 40px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="opacity: 0.5; margin-bottom: 20px;"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"/></svg>
+                <p style="font-size: 20px; line-height: 1.6; margin: 0 0 24px;">
+                    “Our caregivers are selected carefully and trained to support seniors with warmth, dignity, and professionalism. From daily routines to emergency readiness, we focus on comfort, safety, and emotional well-being—so residents feel truly at home.”
+                </p>
+                
+                <div style="margin-bottom: 24px;">
+                    <h4 style="margin: 0; font-size: 22px; font-weight: 700;">Dr. Nishant</h4>
+                    <p style="margin: 4px 0 0; opacity: 0.9;">Care Home Manager (Bhiwadi)</p>
+                </div>
+
+                <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                    <button class="spox-btn" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 8px; cursor: pointer;">
+                        Leave a query to our doctor
+                    </button>
+                    <button class="spox-btn" style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); padding: 12px 24px; font-weight: 700; border-radius: 8px; cursor: pointer;">
+                        Schedule a Call
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Image -->
+            <div style="flex: 1; min-height: 400px;">
+                <img src="https://image.pollinations.ai/prompt/professional%20indian%20male%20doctor%20manager%20portrait%20smiling" alt="Expert Dr. Nishant" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
+            </div>
+
+        </div>
+      </div>
+
+      <style>
+          @media (max-width: 768px) {
+              .expert-row { flex-direction: column; }
+              .expert-row > div { width: 100%; }
+          }
+      </style>
+    </section>
+
+
+    <!-- INFRA IMAGE GALLERY -->
+    <!-- Title Bar -->
+    <div style="background: #fff; padding: 24px; text-align: center;">
+      <h2 style="margin: 0; color: #111827; font-size: 36px; font-weight: 600;">Infra Image Gallery</h2>
+    </div>
+
+    <!-- Gallery Content -->
+    <section class="spox-section" id="gallery" style="background-color: #fafbfc; padding: 60px 0;">
+      <div class="spox-container">
+        
+        <!-- Navigation Arrows (Visual only for now) -->
+        <div style="position: relative;">
+          
+          <!-- Left Arrow -->
+          <div style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.2); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 4px;">&lt;</div>
+          
+          <!-- Right Arrow -->
+          <div style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.2); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 4px;">&gt;</div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            
+            <!-- Item 1: Swimming Pool -->
+            <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="https://image.pollinations.ai/prompt/happy%20seniors%20sitting%20by%20swimming%20pool%20resort" alt="Swimming Pool" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Swimming Pool
+                 </div>
+               </div>
+            </div>
+
+            <!-- Item 2: Cards -->
+            <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="https://image.pollinations.ai/prompt/indian%20seniors%20playing%20cards%20laughing" alt="Cards" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Cards
+                 </div>
+               </div>
+            </div>
+
+            <!-- Item 3: Meditation -->
+            <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="https://image.pollinations.ai/prompt/senior%20woman%20meditating%20peaceful%20sunlight" alt="Meditation" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Meditation
+                 </div>
+               </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      
+      <style>
+         @media (max-width: 900px) {
+            section[id="gallery"] div[style*="grid-template-columns: repeat(3, 1fr)"] {
+               grid-template-columns: 1fr !important;
+            }
+         }
+      </style>
+    </section>
+
+    <!-- TESTIMONIES -->
+    <!-- TESTIMONIES -->
+    <section class="spox-section" id="testimonials" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Testimonies</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+           
+           <!-- Video Card 1 -->
+           <div class="testimony-card" style="background-color: #d11f2f; height: 260px; border-radius: 20px; display: grid; place-items: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(209, 31, 47, 0.2);">
+              <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center; transition: transform 0.3s ease;">
+                 <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+           </div>
+
+           <!-- Video Card 2 -->
+           <div class="testimony-card" style="background-color: #d11f2f; height: 260px; border-radius: 20px; display: grid; place-items: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(209, 31, 47, 0.2);">
+              <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center; transition: transform 0.3s ease;">
+                 <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+           </div>
+
+           <!-- Video Card 3 -->
+           <div class="testimony-card" style="background-color: #d11f2f; height: 260px; border-radius: 20px; display: grid; place-items: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(209, 31, 47, 0.2);">
+              <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center; transition: transform 0.3s ease;">
+                 <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+           </div>
+
+        </div>
+      </div>
+
+      </style>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="spox-section" id="faq" style="background-color: #f9f9fb; padding: 80px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: left; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Frequently Asked Questions</h2>
+
+        <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- Question 1 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    What services are included in assisted living?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Our assisted living plans cover 24/7 nursing support, daily housekeeping, nutritious meals, laundry services, and recreational activities designed for senior wellness.
+                </div>
+            </details>
+
+            <!-- Question 2 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    Is there a doctor available on campus?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Yes, we have on-call doctors available for regular check-ups and emergencies. We also have a dedicated nursing station functional 24 hours a day.
+                </div>
+            </details>
+
+            <!-- Question 3 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    Can family members visit?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Absolutely. We encourage family visits and have dedicated guest rooms if they wish to stay overnight. Visiting hours are flexible to ensure quality family time.
+                </div>
+            </details>
+
+            <!-- Question 4 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    Do you provide specialized care for dementia patients?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Yes, we offer specialized Dementia Care programs that focus on memory support, safety, and cognitive engagement in a secure environment.
+                </div>
+            </details>
+
+            <!-- Question 5 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    What are the dining options?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    We serve freshly prepared, nutritionist-approved vegetarian meals. Special dietary requirements (e.g., diabetic-friendly, low sodium) are catered to with care.
+                </div>
+            </details>
+
+            <!-- Question 6 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    How secure is the facility?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    The entire campus is under CCTV surveillance with 24/7 security guards. We also have emergency pull cords in rooms and bathrooms for immediate assistance.
+                </div>
+            </details>
+
+        </div>
+      </div>
+      
+    
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section class="spox-section" id="blog" style="background-color: #fffbf0; padding: 80px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: left; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Latest Insights</h2>
+
+        <div class="blog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            
+            <!-- Blog Card 1 -->
+            <div class="blog-card" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
+                <div style="height: 220px; overflow: hidden;">
+                    <img src="https://image.pollinations.ai/prompt/interior%20design%20luxury%20living%20room%20india" alt="Blog 1" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+                </div>
+                <div style="padding: 24px; flex: 1; display: flex; flex-direction: column;">
+                    <div style="color: #db2b39; font-weight: 600; font-size: 14px; margin-bottom: 8px;">30 Jun, 2023</div>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #111; margin: 0 0 12px; line-height: 1.4;">5 Tips for Renting Out Your Home in Jaipur</h3>
+                    <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0 0 24px; flex: 1;">
+                        Renting out your home/flat is one of the most common methods of passive income for most people. Renting out your home brings several benefits. It off...
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="color: #999; font-size: 13px; font-weight: 600;">5 mins read</span>
+                        <a href="#" class="blog-arrow-btn" style="width: 40px; height: 40px; background: #d11f2f; border-radius: 50%; display: grid; place-items: center; color: #fff; text-decoration: none; transition: transform 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
+                <div style="height: 220px; overflow: hidden;">
+                    <img src="https://image.pollinations.ai/prompt/nurse%20talking%20to%20elderly%20woman%20smiling%20hospital%20garden" alt="Blog 2" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+                </div>
+                <div style="padding: 24px; flex: 1; display: flex; flex-direction: column;">
+                    <div style="color: #db2b39; font-weight: 600; font-size: 14px; margin-bottom: 8px;">26 Feb, 2022</div>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #111; margin: 0 0 12px; line-height: 1.4;">What is a residential care home for elderly & steps to follow?</h3>
+                    <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0 0 24px; flex: 1;">
+                        According to the last Census conducted in 2011, India has 104 million senior citizens and is expected to increase 3 times to 340 million by 2050. A su...
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="color: #999; font-size: 13px; font-weight: 600;">5 mins read</span>
+                        <a href="#" class="blog-arrow-btn" style="width: 40px; height: 40px; background: #d11f2f; border-radius: 50%; display: grid; place-items: center; color: #fff; text-decoration: none; transition: transform 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
+                <div style="height: 220px; overflow: hidden;">
+                    <img src="https://image.pollinations.ai/prompt/group%20of%20elderly%20indian%20people%20socializing%20living%20room" alt="Blog 3" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+                </div>
+                <div style="padding: 24px; flex: 1; display: flex; flex-direction: column;">
+                    <div style="color: #db2b39; font-weight: 600; font-size: 14px; margin-bottom: 8px;">15 Dec, 2015</div>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #111; margin: 0 0 12px; line-height: 1.4;">13 Things You Probably Don't Know About Retirement Communities</h3>
+                    <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0 0 24px; flex: 1;">
+                        A continuing care retirement community (CCRC) is an alternative residential option for senior citizens (usually 65 years of age and older) who wa...
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="color: #999; font-size: 13px; font-weight: 600;">5 mins read</span>
+                        <a href="#" class="blog-arrow-btn" style="width: 40px; height: 40px; background: #d11f2f; border-radius: 50%; display: grid; place-items: center; color: #fff; text-decoration: none; transition: transform 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+      
+      <style>
+          .blog-arrow-btn:hover {
+              transform: translateX(4px);
+              background: #e68200 !important;
+          }
+          @media (max-width: 900px) {
+              .blog-grid { grid-template-columns: 1fr !important; }
+          }
+      </style>
+
+    <!-- FIXED BOTTOM BAR -->
+    <div id="spox-fixed-bar" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999; width: 94%; max-width: 1000px; transition: transform 0.3s ease;">
+      <div style="background: #000; border-radius: 100px; padding: 12px 16px 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; box-shadow: 0 16px 40px rgba(0,0,0,0.3);  border: 2px solid rgba(255,255,255,0.1);">
+        
+        <div style="display: flex; align-items: center; gap: 16px; flex: 1;">
+           <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+           </div>
+           <div style="color: #fff;">
+              <div style="font-weight: 800; font-size: 16px; line-height: 1.2;">Need help choosing?</div>
+              <div style="font-size: 13px; opacity: 0.9;">Talk to our care experts.</div>
+           </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <button class="spox-btn" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 17 17 0 0017 17c.55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+              +91 12345 67890
+            </button>
+            
+            <button class="spox-btn" style="background: #d11f2f; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 12px 24px; font-weight: 600; border-radius: 50px; cursor: pointer; font-size: 14px; white-space: nowrap; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.4)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
+              Request Callback
+            </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COPYRIGHT FOOTER -->
+    <!-- <footer style="background: #0b1220; color: #6b7280; padding: 60px 0 100px; text-align: center; font-size: 14px;">
+        <div class="spox-container">
+            &copy; 2024 Ashiana Housing Ltd. All Rights Reserved.
+        </div>
+    </footer> -->
+  </body>
+</html>
