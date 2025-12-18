@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Care Home Landing (Ashiana-style)</title>
+    <title>Care Home Landing</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +124,7 @@
         position: sticky;
         top: 0;
         z-index: 50;
-        background: rgba(246, 247, 251, 0.82);
+        background: #fff;
         backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(17, 24, 39, 0.06);
       }
@@ -763,8 +763,8 @@
       <div class="spox-container">
         <div class="spox-nav-inner">
           <div class="spox-brand">
-            <div class="spox-logo"></div>
-            <span>Care Homes</span>
+            <img src="https://www.ashianahousing.com/assets/images/logo.jpg" alt="Ashiana Logo" style="height: 48px; width: auto; margin-right: 12px;">
+            <!-- <span style="border-left: 1px solid #fff; padding-left: 16px; height: 32px; display: flex; align-items: center; font-size: 18px; color: #374151;">Care Homes</span> -->
           </div>
 
           <nav class="spox-nav-links">
@@ -832,7 +832,7 @@
     <!-- AMENITIES - FEATURES (Bento Grid) -->
     <section class="spox-section" id="amenities" style="background-color: #fff;">
       <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 30px; font-weight: 600; color: #111827;">Amenities — Features</h2>
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 30px; font-weight: 600; color: #111827;">Amenities </h2>
         
         <div class="spox-bento">
           <!-- 1. Regular Monitoring (Top Left Wide) -->
@@ -1073,13 +1073,13 @@
 
 
     <!-- HIGHLIGHT MOMENTS -->
-    <!-- Yellow Background wrapper -->
-    <section class="spox-section" style="background-color: #fff; padding: 60px 0;">
+    <!-- HIGHLIGHT MOMENTS -->
+    <section class="spox-section" id="highlight-moments" style="background-color: #fff; padding: 60px 0;">
       <div class="spox-container">
         <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Highlight Moments</h2>
         
         <!-- Grid of 4 Tall Cards -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+        <div class="highlight-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
             
             <!-- Card 1 -->
             <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
@@ -1107,13 +1107,17 @@
       <!-- Responsive Styles for this section specifically -->
       <style>
         @media (max-width: 980px) {
-           section[style*="background-color: #FDBA2D"] div[style*="grid-template-columns: repeat(4, 1fr)"] {
+           .highlight-grid {
              grid-template-columns: repeat(2, 1fr) !important; 
            }
         }
         @media (max-width: 600px) {
-           section[style*="background-color: #FDBA2D"] div[style*="grid-template-columns: repeat(4, 1fr)"] {
-             grid-template-columns: 1fr !important; 
+           .highlight-grid {
+             grid-template-columns: 1fr !important;
+             gap: 16px !important;
+           }
+           #highlight-moments div[style*="height: 480px"] {
+             height: 360px !important; /* Shorter cards on mobile */
            }
         }
       </style>
@@ -1166,10 +1170,9 @@
     </section>
 
 
-    <!-- INFRA IMAGE GALLERY -->
     <!-- Title Bar -->
     <div style="background: #fff; padding: 24px; text-align: center;">
-      <h2 style="margin: 0; color: #111827; font-size: 36px; font-weight: 600;">Infra Image Gallery</h2>
+      <h2 style="margin: 0; color: #111827; font-size: 36px; font-weight: 600;">Image Gallery</h2>
     </div>
 
     <!-- Gallery Content -->
@@ -1237,32 +1240,53 @@
       <div class="spox-container">
         <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Testimonies</h2>
         
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <div class="testimonies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+           
            
            <!-- Video Card 1 -->
-           <div class="testimony-card" style="background-color: #d11f2f; height: 260px; border-radius: 20px; display: grid; place-items: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(209, 31, 47, 0.2);">
-              <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center; transition: transform 0.3s ease;">
-                 <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+              <img src="https://image.pollinations.ai/prompt/happy%20indian%20grandmother%20talking%20home%20video%20testimonial" alt="Testimony 1" style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
+              <div style="position: absolute; inset: 0; display: grid; place-items: center;">
+                 <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center;  transition: transform 0.3s ease;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                 </div>
               </div>
            </div>
 
            <!-- Video Card 2 -->
-           <div class="testimony-card" style="background-color: #d11f2f; height: 260px; border-radius: 20px; display: grid; place-items: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(209, 31, 47, 0.2);">
-              <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center; transition: transform 0.3s ease;">
-                 <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+              <img src="https://image.pollinations.ai/prompt/indian%20senior%20couple%20sitting%20sofa%20talking%20testimonial" alt="Testimony 2" style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
+              <div style="position: absolute; inset: 0; display: grid; place-items: center;">
+                 <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center;  transition: transform 0.3s ease;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                 </div>
               </div>
            </div>
 
            <!-- Video Card 3 -->
-           <div class="testimony-card" style="background-color: #d11f2f; height: 260px; border-radius: 20px; display: grid; place-items: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(209, 31, 47, 0.2);">
-              <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center; transition: transform 0.3s ease;">
-                 <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+              <img src="https://image.pollinations.ai/prompt/middle%20aged%20indian%20woman%20giving%20feedback%20testimonial" alt="Testimony 3" style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
+              <div style="position: absolute; inset: 0; display: grid; place-items: center;">
+                 <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center;  transition: transform 0.3s ease;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                 </div>
               </div>
            </div>
 
         </div>
       </div>
 
+      <style>
+        @media (max-width: 900px) {
+           .testimonies-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
+           .testimonies-grid { grid-template-columns: 1fr !important; }
+           .testimony-card { height: 220px !important; }
+        }
       </style>
     </section>
 
@@ -1426,32 +1450,152 @@
       </style>
 
     <!-- FIXED BOTTOM BAR -->
-    <div id="spox-fixed-bar" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999; width: 94%; max-width: 1000px; transition: transform 0.3s ease;">
-      <div style="background: #000; border-radius: 100px; padding: 12px 16px 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; box-shadow: 0 16px 40px rgba(0,0,0,0.3);  border: 2px solid rgba(255,255,255,0.1);">
+    <div id="spox-fixed-bar" class="spox-fixed-bar-api">
+      <div class="fixed-bar-inner">
         
-        <div style="display: flex; align-items: center; gap: 16px; flex: 1;">
-           <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;">
+        <div class="fixed-bar-left">
+           <div class="fixed-bar-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
            </div>
-           <div style="color: #fff;">
-              <div style="font-weight: 800; font-size: 16px; line-height: 1.2;">Need help choosing?</div>
-              <div style="font-size: 13px; opacity: 0.9;">Talk to our care experts.</div>
+           <div class="fixed-bar-text">
+              <div class="fixed-bar-head">Need help choosing?</div>
+              <div class="fixed-bar-sub">Talk to our care experts.</div>
            </div>
         </div>
 
-        <div style="display: flex; gap: 10px; align-items: center;">
-            <button class="spox-btn" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div class="fixed-bar-actions">
+            <!-- Call Button -->
+            <button class="spox-btn btn-call" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 17 17 0 0017 17c.55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
-              +91 12345 67890
-            </button>
+              Call Now
+            </button>   
             
-            <button class="spox-btn" style="background: #d11f2f; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 12px 24px; font-weight: 600; border-radius: 50px; cursor: pointer; font-size: 14px; white-space: nowrap; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.4)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
-              Request Callback
+            <!-- Site Visit Button -->
+            <button class="spox-btn btn-visit" style="background: #d11f2f; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 12px 24px; font-weight: 600; border-radius: 50px; cursor: pointer; font-size: 14px; white-space: nowrap; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.4)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
+              Site Visit
             </button>
         </div>
 
       </div>
     </div>
+    
+    <style>
+      .spox-fixed-bar-api {
+        position: fixed; 
+        bottom: 30px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        z-index: 9999; 
+        width: 94%; 
+        max-width: 1000px;
+        transition: transform 0.3s ease;
+      }
+      .fixed-bar-inner {
+        background: #000; 
+        border-radius: 100px; 
+        padding: 12px 16px 12px 32px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 20px; 
+        box-shadow: 0 16px 40px rgba(0,0,0,0.3);  
+        border: 2px solid rgba(255,255,255,0.1);
+      }
+      .fixed-bar-left {
+        display: flex; align-items: center; gap: 16px; flex: 1;
+      }
+      .fixed-bar-icon {
+        width: 48px; height: 48px; 
+        background: rgba(255,255,255,0.2); 
+        border-radius: 50%; 
+        display: grid; place-items: center; flex-shrink: 0;
+      }
+      .fixed-bar-text { color: #fff; }
+      .fixed-bar-head { font-weight: 800; font-size: 16px; line-height: 1.2; }
+      .fixed-bar-sub { font-size: 13px; opacity: 0.9; }
+      .fixed-bar-actions { display: flex; gap: 10px; align-items: center; }
+
+      /* Responsive Logic */
+      @media (max-width: 768px) {
+         .fixed-bar-sub { display: none; }
+         .fixed-bar-icon { width: 40px; height: 40px; }
+         .fixed-bar-head { font-size: 14px; }
+         .fixed-bar-inner { padding-left: 16px; }
+      }
+      @media (max-width: 600px) {
+         .fixed-bar-icon { display: none; }
+         .fixed-bar-inner { padding: 10px; justify-content: center; }
+         .fixed-bar-left { flex: 0 0 auto; margin-right: auto; } /* Keep text on left */
+         .fixed-bar-actions button { padding: 10px 16px !important; font-size: 13px !important; }
+      }
+      @media (max-width: 480px) {
+         .spox-fixed-bar-api { width: 96%; bottom: 12px; }
+         .fixed-bar-text { display: none; } /* Hide text completely, show buttons only */
+         .fixed-bar-inner { padding: 8px; gap: 8px; }
+         .fixed-bar-actions { width: 100%; gap: 8px; }
+         .fixed-bar-actions button { flex: 1; justify-content: center; }
+         .fixed-bar-left { display: none; }
+      }
+    </style>
+    
+    <style>
+      .spox-fixed-bar-api {
+        position: fixed; 
+        bottom: 30px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        z-index: 9999; 
+        width: 94%; 
+        max-width: 1000px;
+        transition: transform 0.3s ease;
+      }
+      .fixed-bar-inner {
+        background: #000; 
+        border-radius: 100px; 
+        padding: 12px 16px 12px 32px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 20px; 
+        box-shadow: 0 16px 40px rgba(0,0,0,0.3);  
+        border: 2px solid rgba(255,255,255,0.1);
+      }
+      .fixed-bar-left {
+        display: flex; align-items: center; gap: 16px; flex: 1;
+      }
+      .fixed-bar-icon {
+        width: 48px; height: 48px; 
+        background: rgba(255,255,255,0.2); 
+        border-radius: 50%; 
+        display: grid; place-items: center; flex-shrink: 0;
+      }
+      .fixed-bar-text { color: #fff; }
+      .fixed-bar-head { font-weight: 800; font-size: 16px; line-height: 1.2; }
+      .fixed-bar-sub { font-size: 13px; opacity: 0.9; }
+      .fixed-bar-actions { display: flex; gap: 10px; align-items: center; }
+
+      /* Responsive Logic */
+      @media (max-width: 768px) {
+         .fixed-bar-sub { display: none; }
+         .fixed-bar-icon { width: 40px; height: 40px; }
+         .fixed-bar-head { font-size: 14px; }
+         .fixed-bar-inner { padding-left: 16px; }
+      }
+      @media (max-width: 600px) {
+         .fixed-bar-icon { display: none; }
+         .fixed-bar-inner { padding: 10px; justify-content: center; }
+         .fixed-bar-left { flex: 0 0 auto; margin-right: auto; } /* Keep text on left */
+         .fixed-bar-actions button { padding: 10px 16px !important; font-size: 13px !important; }
+      }
+      @media (max-width: 480px) {
+         .spox-fixed-bar-api { width: 96%; bottom: 12px; }
+         .fixed-bar-text { display: none; } /* Hide text completely, show buttons only */
+         .fixed-bar-inner { padding: 8px; gap: 8px; }
+         .fixed-bar-actions { width: 100%; gap: 8px; }
+         .fixed-bar-actions button { flex: 1; justify-content: center; }
+         .fixed-bar-left { display: none; }
+      }
+    </style>
 
     <!-- COPYRIGHT FOOTER -->
     <!-- <footer style="background: #0b1220; color: #6b7280; padding: 60px 0 100px; text-align: center; font-size: 14px;">
