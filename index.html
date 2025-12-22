@@ -166,11 +166,11 @@
         position: relative;
         overflow: visible;
         border-radius: 0;
-        border-top: 1px solid rgba(255,255,255,0.12);
-        border-bottom: 1px solid rgba(255,255,255,0.12);
+        /* border-top: 1px solid rgba(255,255,255,0.12);
+        border-bottom: 1px solid rgba(255,255,255,0.12); */
         box-shadow: var(--spox-shadow);
-        min-height: 600px;
-        background: #0b1220;
+        min-height: 650px;
+        /* background: #0b1220; */
       }
       .spox-hero-banner img {
         position: absolute;
@@ -219,7 +219,6 @@
         font-size: 14px;
       }
 
-      /* floating info card inside hero (like the screenshot) */
       .spox-hero-float {
         position: absolute;
         left: 18px;
@@ -754,6 +753,247 @@
         .spox-faq-item[open] .spox-faq-icon {
             transform: rotate(180deg);
         }
+
+
+
+        
+
+        /* Enquiry Form Container */
+        .hero-enquiry-container {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 420px;
+            z-index: 20;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 980px) {
+           .spox-hero-banner {
+               min-height: auto; /* Allow banner to grow */
+               background: #0b1220; /* Fallback bg */
+           }
+           .hero-enquiry-container {
+               position: relative;
+               left: 0; right: 0; top: 0; 
+               transform: none;
+               width: 100%;
+               max-width: 90%;
+               margin: 20px auto; 
+               z-index: 10;
+           }
+           .glass-form-card {
+               backdrop-filter: none;
+               background: #111827; /* Solid dark background on mobile for better readability */
+               border: 1px solid rgba(255,255,255,0.1);
+           }
+        }
+
+        /* NEW Glass Form Styles */
+        .glass-form-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: 20px;
+            padding: 24px 24px; /* Reduced vertical padding */
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+        }
+        .glass-header h3 {
+            margin: 0 0 16px; /* Reduced margin */
+            font-size: 26px; /* Slightly smaller font */
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .glass-field {
+            margin-bottom: 14px; /* Reduced margin */
+        }
+        .glass-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .glass-label svg {
+            width: 18px; height: 18px; stroke-width: 2;
+        }
+        .glass-input {
+            width: 100%;
+            background: rgba(235, 237, 240, 0.9);
+            border: 2px solid transparent;
+            border-radius: 10px; /* Tighter radius */
+            padding: 10px 14px; /* Compact padding */
+            font-size: 14px; /* Slightly smaller font */
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-weight: 500;
+        }
+        .glass-input:focus {
+            border-color: #f472b6; /* Pinkish focus ring */
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.2);
+        }
+        .glass-input::placeholder {
+            color: #9ca3af;
+            font-weight: 500;
+        }
+        .glass-error-text {
+            display: block;
+            color: #fca5a5; /* Light pink/red text */
+            font-size: 13px;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+        .glass-submit-btn {
+            width: 100%;
+            background: #d81f2a; /* Deep pink/magenta */
+            color: white;
+            border: none;
+            padding: 12px; /* Compact padding */
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px; /* Reduced margin */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(214, 51, 108, 0.4);
+        }
+        .glass-submit-btn:hover {
+            background: #be185d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(214, 51, 108, 0.6);
+        }
+        .glass-checkbox {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-top: 16px; /* Reduced margin */
+            font-size: 12px; /* Smaller font */
+            line-height: 1.4;
+            color: rgba(255,255,255,0.9);
+        }
+        .glass-checkbox input {
+            accent-color: #d6336c;
+            width: 18px; height: 18px;
+            margin-top: 2px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* Featured Property Section Styles */
+        .spox-featured-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 24px;
+            align-items: stretch; /* Stretch to same height */
+        }
+        .spox-prop-card {
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Light subtle shadow */
+            border: 1px solid #eee;
+            border-radius: 4px; /* Standard edges per screenshot */
+            overflow: hidden;
+        }
+        .spox-prop-img {
+            height: 220px;
+            background: #eee;
+            position: relative;
+        }
+        .spox-prop-img img { width: 100%; height: 100%; object-fit: cover; }
+        .spox-prop-body {
+            padding: 20px;
+        }
+        .spox-prop-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+        }
+        .spox-prop-loc {
+            margin: 4px 0 12px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        .spox-prop-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #16a34a; /* Green */
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        .spox-prop-badge svg { width: 14px; height: 14px; fill: currentColor; }
+        
+        .spox-prop-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: #f9fafb;
+            border-radius: 4px;
+        }
+        .spox-prop-row b { color: #222; font-weight: 600; }
+        .spox-prop-tag {
+            background: #e5e7eb; 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            font-size: 12px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .spox-prop-action {
+            margin-top: 20px;
+        }
+        .spox-btn-enquire {
+            background: #d81f2a;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            text-transform: capitalize;
+            cursor: pointer;
+            border: none;
+            width: 150px;
+            font-size: 14px;
+            display: block;
+        }
+        .spox-btn-enquire:hover { background: #d81f2a; }
+
+        .spox-prop-video {
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 100%; /* Fill the grid cell */
+            /* aspect-ratio removed to adapt to card height */
+            position: relative;
+        }
+        .spox-prop-video iframe {
+            width: 100%; height: 100%; border: none; 
+            position: absolute; inset: 0; /* Ensure it covers the area */
+        }
+
+        @media (max-width: 980px) {
+           .spox-featured-grid { grid-template-columns: 1fr !important; }
+           .spox-prop-card, .spox-prop-video { min-height: 300px; }
+        }
       </style>
   </head>
 
@@ -783,6 +1023,83 @@
         <!-- Replace with your real banner -->
         <img src="https://www.ashianahousing.com/assets/images/care-home-desktop-banner-new.webp" alt="Care Home Hero" />
         <div class="spox-hero-overlay"></div>
+
+        <!-- Enquiry Form Left Side -->
+        <div class="hero-enquiry-container">
+            <div class="glass-form-card">
+                <div class="glass-header">
+                    <h3 style="text-align: center; text-transform: uppercase;">ENQUIRE</h3>
+                    <div style="width: 50px; height: 4px; background: #d6336c; margin: -16px auto 24px; border-radius: 2px;"></div>
+                </div>
+                <form>
+                    <!-- Name Field -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                            Name
+                        </label>
+                        <input type="text" class="glass-input" placeholder="Name" />
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            Email ID
+                        </label>
+                        <input type="email" class="glass-input" placeholder="Email ID" />
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                            Mobile number
+                        </label>
+                        <input type="tel" class="glass-input" placeholder="Mobile number" />
+                    </div>
+
+                    <!-- Property Dropdown -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM9 10a1 1 0 011-1h4a1 1 0 110 2h-4a1 1 0 01-1-1z" /></svg>
+                            Ashiana Care Home
+                        </label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9);">
+                                <option value="ashiana-care-home" selected>Ashiana Care Home</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">
+                                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1L6 6L11 1"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rental Dropdown -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                            Rental
+                        </label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9);">
+                                <option value="rental" selected>Rental</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">
+                                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1L6 6L11 1"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-checkbox">
+                        <input type="checkbox" checked />
+                        <span>Please contact me, <a href="#" style="color: #fca510; text-decoration: underline;">TERMS OF SERVICE</a> and <a href="#" style="color: #fca510; text-decoration: underline;">PRIVACY POLICY</a></span>
+                    </div>
+
+                    <button type="submit" class="glass-submit-btn">SUBMIT</button>
+                </form>
+            </div>
+        </div>
       </div>
     </section>
 
@@ -804,11 +1121,11 @@
           <div style="flex: 1; min-width: 300px; position: relative; height: 400px; display: flex; align-items: center; justify-content: center;">
              <!-- Back Shape (Top Left) -->
              <div style="position: absolute; top: 0; left: 10%; width: 280px; height: 320px; background-color: #fdba2d; border-radius: 20px; overflow: hidden; transform: rotate(-3deg);">
-                <img src="assets/about-1.webp" alt="Care 1" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+                <img src="assets/care-home-about-back.png" alt="Care 1" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
              </div>
              <!-- Front Shape (Bottom Right) -->
              <div style="position: absolute; bottom: 0; right: 10%; width: 280px; height: 320px; background-color: #d81f2a; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); transform: rotate(2deg);">
-                <img src="assets/about-2.webp" alt="Care 2" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+                <img src="assets/care-home-about-front.png" alt="Care 2" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
              </div>
           </div>
 
@@ -829,6 +1146,50 @@
       </div>
     </section>
 
+    <!-- FEATURED PROPERTY (New Section) -->
+    <section class="spox-section" style="background: #ffffff; padding-bottom: 50px;">
+        <div class="spox-container">
+            <div class="spox-featured-grid">
+                
+                <!-- Left: Property Card -->
+                <div class="spox-prop-card">
+                    <div class="spox-prop-img">
+                        <!-- Use a real image -->
+                        <img src="https://www.ashianahousing.com/uploads/property/370x200_1-1738836679.jpg" alt="Property Image" />
+                    </div>
+                    <div class="spox-prop-body">
+                        <h3 class="spox-prop-title">Ashiana Care Home</h3>
+                        <p class="spox-prop-loc">Bhiwadi</p>
+                        
+                        <div class="spox-prop-badge">
+                            <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Ready to move in
+                        </div>
+                        
+                        <div style="font-size: 13px; color: #777; margin-bottom: 6px;">
+                            Available : <span class="spox-prop-tag">Single and double occupancy</span>
+                        </div>
+                        
+                        <div style="margin-top: 14px; border-top: 1px solid #f0f0f0; padding-top: 14px; font-size: 13px; color: #555;">
+                            Rental Starting: <b style="color: #222; font-size: 14px;">₹80 Thousand - ₹1.20 Thousand</b>
+                        </div>
+                        
+                        <div class="spox-prop-action">
+                             <button class="spox-btn-enquire" onclick="openEnquiry()">Enquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Video -->
+                <div class="spox-prop-video">
+                    <!-- YouTube Embed -->
+<iframe width="660" height="315" src="https://www.youtube.com/embed/CasNYKBDjDM?si=Y-0pmXjp_wWetTLq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
+
+            </div>
+        </div>
+    </section>
+
+  
     <!-- AMENITIES - FEATURES (Bento Grid) -->
     <section class="spox-section" id="amenities" style="background-color: #fff;">
       <div class="spox-container">
@@ -837,7 +1198,7 @@
         <div class="spox-bento">
           <!-- 1. Regular Monitoring (Top Left Wide) -->
           <div class="spox-bento-item item-monitoring">
-            <img src="https://image.pollinations.ai/prompt/nurse%20monitoring%20blood%20pressure%20senior%20citizen%20care%20home" alt="Regular Monitoring" />
+            <img src="assets/amenities/regular-monitoring.png" alt="Regular Monitoring" />
             <div class="spox-bento-overlay">
               <div class="spox-bento-text">Regular Monitoring</div>
             </div>
@@ -845,7 +1206,7 @@
 
           <!-- 2. Medical Support (Bottom Left 1) -->
           <div class="spox-bento-item item-medical">
-            <img src="https://image.pollinations.ai/prompt/physiotherapist%20helping%20elderly%20patient%20exercises" alt="Medical Support" />
+            <img src="assets/amenities/Round-the-Clock.png" alt="Medical Support" />
             <div class="spox-bento-overlay">
               <div class="spox-bento-text">Round-the-Clock<br>Medical Support</div>
             </div>
@@ -853,7 +1214,7 @@
 
           <!-- 3. Senior Friendly Rooms (Bottom Left 2) -->
           <div class="spox-bento-item item-rooms">
-            <img src="https://image.pollinations.ai/prompt/luxury%20senior%20living%20bedroom%20accident%20proof" alt="Senior Friendly Rooms" />
+            <img src="assets/amenities/Senior Friendly.png" alt="Senior Friendly Rooms" />
             <div class="spox-bento-overlay">
               <div class="spox-bento-text">Senior Friendly<br>Rooms</div>
             </div>
@@ -861,7 +1222,7 @@
 
           <!-- 4. Physiotherapy (Center Tall) -->
           <div class="spox-bento-item item-physio">
-            <img src="https://image.pollinations.ai/prompt/physiotherapist%20helping%20elderly%20patient%20exercises" alt="Physiotherapy" />
+            <img src="assets/amenities/Physiotherapy.png" alt="Physiotherapy" />
             <div class="spox-bento-overlay">
               <div class="spox-bento-text">Physiotherapy and<br>Rehabilitation</div>
             </div>
@@ -869,7 +1230,7 @@
 
           <!-- 5. Meals (Top Right) -->
           <div class="spox-bento-item item-meals">
-            <img src="https://image.pollinations.ai/prompt/healthy%20nutritious%20food%20plate%20senior%20dining" alt="Meals" />
+            <img src="assets/amenities/Nutritionally.png" alt="Meals" />
             <div class="spox-bento-overlay">
               <div class="spox-bento-text">Nutritionally<br>Assisted Meals</div>
             </div>
@@ -877,7 +1238,7 @@
 
           <!-- 6. On-call Doctors (Bottom Right) -->
           <div class="spox-bento-item item-doctors">
-            <img src="https://image.pollinations.ai/prompt/friendly%20doctor%20consulting%20patient%20clinic" alt="Doctors" />
+            <img src="assets/amenities/On-call Doctors.png" alt="Doctors" />
             <div class="spox-bento-overlay">
               <div class="spox-bento-text">On-call Doctors</div>
             </div>
@@ -886,71 +1247,7 @@
       </div>
     </section>
 
-    <!-- CARE & SERVICES - ICON GRID -->
-    <section class="spox-section" style="background-color: #fafbfc;">
-      <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: center; font-size: 36px; color: #111827; font-weight: 600; margin-bottom: 30px;">Care and Services </h2>
-
-        <div class="spox-services-grid">
-          <!-- 1. Assisted Living -->
-          <div class="spox-service-card">
-            <div class="service-icon-circle">
-              <!-- Wheelchair / Home Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/><path d="M10 13c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg> 
-            </div>
-            <h3 class="service-title">Dedicated Care for Seniors</h3>
-          </div>
-
-          <!-- 2. Dementia Care (Active/Hovered Look) -->
-          <div class="spox-service-card ">
-            <div class="service-icon-circle">
-              <!-- Head / Mind Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
-            </div>
-            <h3 class="service-title">Trained Caregivers</h3>
-          </div>
-
-          <!-- 3. Dementia Day Care Program -->
-          <div class="spox-service-card">
-            <div class="service-icon-circle">
-               <!-- Brain/Flower Icon Concept -->
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.21.8 4.24 2.12 5.83L3 21l4.17-2.12C8.76 20.2 10.29 21 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 12c-1.66 0-3.14-.6-4.22-1.58l.74-.74C9.55 17.55 10.72 18 12 18s2.45-.45 3.48-1.32l.74.74C15.14 18.4 13.66 19 12 19zm4.22-2.58l-.74-.74C14.45 14.55 13.28 14 12 14s-2.45.45-3.48 1.32l-.74-.74A6.97 6.97 0 0 1 12 12c1.66 0 3.14.6 4.22 1.58z"/></svg>
-            </div>
-            <h3 class="service-title">24/7 Emergency Care for Seniors</h3>
-          </div>
-
-          <!-- 4. Palliative Care -->
-          <div class="spox-service-card">
-            <div class="service-icon-circle">
-               <!-- Hands Holding Heart -->
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5zm-5.5-1.5c1.62 0 3.03.88 3.79 2.21l1.71-1.71 1.71 1.71c.76-1.33 2.17-2.21 3.79-2.21 2.37 0 4.34 1.83 4.5 4.19.01.07.01.12.01.18 0 .5-.19.95-.49 1.29l-3.37 3.79c-.31.35-.74.55-1.19.55s-.89-.2-1.19-.55L12.5 17.5V17l-3.5 3.93c-.3.35-.73.55-1.18.55s-.89-.2-1.19-.55L3.26 17.18c-.3-.34-.49-.79-.49-1.29 0-.06 0-.11.01-.18.16-2.36 2.13-4.19 4.5-4.19zM12 5.5l-3.5 3.93c-.3.35-.73.55-1.18.55s-.89-.2-1.19-.55L3 6l3.5-3.93c.3-.35.73-.55 1.18-.55s.89.2 1.19.55L12 5.5z"/></svg>
-            </div>
-            <h3 class="service-title">Comprehensive Facilities for a Comfortable Lifestyle</h3>
-          </div>
-
-          <!-- 5. Parkinson's Disease Care -->
-          <div class="spox-service-card">
-            <div class="service-icon-circle">
-               <!-- Elderly Support / Walker -->
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3h2zm0 10c0 1.1.9 2 2 2h3v-2H8v-8h10v8h-3v2h3c1.1 0 2-.9 2-2v-4h2v-2h-2v-2h-4v2H8v-2H6v4h2v6H6z"/></svg>
-            </div>
-            <h3 class="service-title">Enriching Social Engagement for Seniors</h3>
-          </div>
-
-          <!-- 6. Recovery & Rehabilitation -->
-          <div class="spox-service-card">
-            <div class="service-icon-circle">
-               <!-- Medical Cross / Cycle -->
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 14h-2v-4H7v-2h4V7h2v4h4v2h-4v4z"/></svg>
-            </div>
-            <h3 class="service-title">Keeping Families Connected – Regular Updates for NOK</h3>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY US - USPs -->
+       <!-- WHY US - USPs -->
     <!-- Title Bar -->
     <div style="background: #fff; padding: 24px; text-align: center;">
       <h2 style="margin: 0; color: #111827; font-size: 32px; font-weight: 600;">Why Us - USPs</h2>
@@ -1013,7 +1310,7 @@
           <!-- CENTER IMAGE -->
           <div class="usp-center-circles" style="position: relative; display: flex; justify-content: center;">
             <div style="width: 280px; height: 280px; border-radius: 50%; overflow: hidden; border: 6px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2;">
-               <img src="https://image.pollinations.ai/prompt/happy%20indian%20seniors%20celebrating%20outdoors%20garden" alt="Seniors Celebrating" style="width: 100%; height: 100%; object-fit: cover;" />
+               <img src="assets/why-us.png" alt="Seniors Celebrating" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <!-- Decorative circle -->
             <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; border: 1px solid #fff; top: -10px; z-index: 1;"></div>
@@ -1071,8 +1368,72 @@
       </div>
     </section>
 
+    <!-- CARE & SERVICES - ICON GRID -->
+    <section class="spox-section" style="background-color: #fafbfc;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; color: #111827; font-weight: 600; margin-bottom: 30px;">Care and Services </h2>
 
-    <!-- HIGHLIGHT MOMENTS -->
+        <div class="spox-services-grid">
+          <!-- 1. Assisted Living -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+              <!-- Hand Holding Heart: Dedicated Care -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 
+            </div>
+            <h3 class="service-title">Dedicated Care for Seniors</h3>
+          </div>
+
+          <!-- 2. Dementia Care (Active/Hovered Look) -->
+          <div class="spox-service-card ">
+            <div class="service-icon-circle">
+              <!-- Doctor/Caregiver Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/></svg>
+            </div>
+            <h3 class="service-title">Trained Caregivers</h3>
+          </div>
+
+          <!-- 3. Dementia Day Care Program -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Emergency/Ambulance/Cross -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8.5 13.5h-1v-3H6.5v-1h3v-3h1v3h3v1h-3v3z"/></svg>
+            </div>
+            <h3 class="service-title">24/7 Emergency Care for Seniors</h3>
+          </div>
+
+          <!-- 4. Palliative Care -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Home/Facilities -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </div>
+            <h3 class="service-title">Comprehensive Facilities for a Comfortable Lifestyle</h3>
+          </div>
+
+          <!-- 5. Parkinson's Disease Care -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Social/Group -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            <h3 class="service-title">Enriching Social Engagement for Seniors</h3>
+          </div>
+
+          <!-- 6. Recovery & Rehabilitation -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Connected/Family/Message -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            </div>
+            <h3 class="service-title">Keeping Families Connected – Regular Updates for NOK</h3>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+ 
+
     <!-- HIGHLIGHT MOMENTS -->
     <section class="spox-section" id="highlight-moments" style="background-color: #fff; padding: 60px 0;">
       <div class="spox-container">
@@ -1082,30 +1443,255 @@
         <div class="highlight-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
             
             <!-- Card 1 -->
-            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-               <img src="https://image.pollinations.ai/prompt/happy%20indian%20grandmother%20laughing%20garden%20portrait" alt="Moment 1" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            <div class="highlight-card" onclick="openStory(0, 6)">
+               <img src="assets/moments/story1/moments-1main.webp" alt="Moment 1" />
             </div>
 
             <!-- Card 2 -->
-            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-               <img src="https://image.pollinations.ai/prompt/senior%20couple%20playing%20chess%20indoors" alt="Moment 2" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            <div class="highlight-card" onclick="openStory(6, 11)">
+               <img src="assets/moments/story2/moments-2main.webp" alt="Moment 2" />
             </div>
 
             <!-- Card 3 -->
-            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-               <img src="https://image.pollinations.ai/prompt/elderly%20group%20yoga%20session%20morning" alt="Moment 3" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            <div class="highlight-card" onclick="openStory(17, 11)">
+               <img src="assets/moments/story3/moments-3main.webp" alt="Moment 3" />
             </div>
 
             <!-- Card 4 -->
-            <div style="background-color: #d11f2f; border-radius: 20px; overflow: hidden; height: 480px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-               <img src="https://image.pollinations.ai/prompt/senior%20couple%20playing%20chess%20indoors" alt="Moment 4" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            <div class="highlight-card" onclick="openStory(28, 10)">
+               <img src="assets/moments/story4/moments-4main.webp" alt="Moment 4" />
             </div>
 
         </div>
       </div>
       
       <!-- Responsive Styles for this section specifically -->
+      <!-- Story Modal (Hidden by default) -->
+      <div id="story-modal" class="story-modal">
+        <!-- Controls removed from here, now inside story-content -->
+        
+        <div class="story-content">
+            <!-- Controls moved INSIDE the card -->
+            <button class="story-close" onclick="closeStory()">&times;</button>
+            <button class="story-nav story-prev" onclick="prevStory()">&#10094;</button>
+            <button class="story-nav story-next" onclick="nextStory()">&#10095;</button>
+
+            <div class="story-track" id="story-track">
+                <!-- STORY 1 (6 Images) -->
+                <div class="story-slide"><img src="assets/moments/story1/moments-1main.webp" alt="Story 1-1"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-1.webp" alt="Story 1-2"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-2.webp" alt="Story 1-3"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-3.webp" alt="Story 1-4"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-4.webp" alt="Story 1-5"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-5.webp" alt="Story 1-6"></div>
+                
+                <!-- STORY 2 (11 Images) -->
+                <div class="story-slide"><img src="assets/moments/story2/moments-2main.webp" alt="Story 2-Main"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-1.webp" alt="Story 2-1"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-2.webp" alt="Story 2-2"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-3.webp" alt="Story 2-3"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-4.webp" alt="Story 2-4"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-5.webp" alt="Story 2-5"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-6.webp" alt="Story 2-6"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-7.webp" alt="Story 2-7"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-8.webp" alt="Story 2-8"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-9.webp" alt="Story 2-9"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-10.webp" alt="Story 2-10"></div>
+
+                <!-- STORY 3 -->
+                <div class="story-slide"><img src="assets/moments/story3/moments-3main.webp" alt="Story 3-Main"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-1.webp" alt="Story 3-1"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-2.webp" alt="Story 3-2"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-4.webp" alt="Story 3-3"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-5.webp" alt="Story 3-4"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-6.webp" alt="Story 3-5"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-7.webp" alt="Story 3-6"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-8.webp" alt="Story 3-7"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-9.webp" alt="Story 3-8"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-10.webp" alt="Story 3-9"></div>
+
+                <!-- STORY 4 -->
+                <div class="story-slide"><img src="assets/moments/story4/moments-4main.webp" alt="Story 4"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-1.webp" alt="Story 4-1"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-2.webp" alt="Story 4-2"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-3.webp" alt="Story 4-3"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-4.webp" alt="Story 4-4"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-5.webp" alt="Story 4-5"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-6.webp" alt="Story 4-6"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-7.webp" alt="Story 4-7"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-8.webp" alt="Story 4-8"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-9.webp" alt="Story 4-9"></div>
+            </div>
+            <!-- Progress Bar -->
+            <div class="story-progress-container">
+                <!-- Story 1 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-0"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-1"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-2"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-3"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-4"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-5"></div></div>
+                <!-- Story 2 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-6"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-7"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-8"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-9"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-10"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-11"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-12"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-13"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-14"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-15"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-16"></div></div>
+                <!-- Story 3 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-17"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-18"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-19"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-20"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-21"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-22"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-23"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-24"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-25"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-26"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-27"></div></div>
+                <!-- Story 4 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-28"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-29"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-30"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-31"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-32"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-33"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-34"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-35"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-36"></div></div>
+                <!-- <div class="story-bar"><div class="story-fill" id="fill-37"></div></div> -->
+
+            </div>
+        </div>
+      </div>
+
+      <!-- Styles for Section & Modal -->
       <style>
+        /* Highlight Grid Hover Effect */
+        .highlight-card {
+            cursor: pointer;
+            background-color: #d11f2f; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            height: 480px; 
+            position: relative; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        .highlight-card:hover { transform: scale(1.02); }
+        .highlight-card img {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .story-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.15); /* Very light tint */
+            backdrop-filter: blur(5px); /* Gentle blur */
+            -webkit-backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        .story-content {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 85vh; /* Slightly taller */
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .story-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .story-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+        .story-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Show full image */
+            display: block;
+        }
+
+        /* Navigation */
+        /* Navigation */
+        .story-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 36px; height: 36px;
+            font-size: 24px;
+            color: #fff;
+            background: #d81f2a; /* Brand Red */
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10001;
+            display: grid;
+            place-items: center;
+            padding: 0 0 2px 1px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .story-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px; height: 44px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10001;
+            display: grid; place-items: center;
+            transition: background 0.2s;
+        }
+        .story-nav:hover { background: rgba(255,255,255,0.4); }
+        .story-prev { left: 16px; }
+        .story-next { right: 16px; }
+
+        /* Progress Bars */
+        .story-progress-container {
+            position: absolute;
+            top: 10px; left: 10px; right: 10px;
+            display: flex; gap: 6px;
+            z-index: 2;
+        }
+        .story-bar {
+            flex: 1;
+            height: 3px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .story-fill {
+            height: 100%;
+            width: 0;
+            background: #fff;
+            transition: width 0.1s linear;
+        }
+        .story-fill.active { width: 100%; }
+
         @media (max-width: 980px) {
            .highlight-grid {
              grid-template-columns: repeat(2, 1fr) !important; 
@@ -1116,14 +1702,223 @@
              grid-template-columns: 1fr !important;
              gap: 16px !important;
            }
-           #highlight-moments div[style*="height: 480px"] {
+           .highlight-card {
              height: 360px !important; /* Shorter cards on mobile */
+           }
+           /* Mobile Story Modal: Almost full screen but floating */
+           .story-content { 
+             width: 100%; 
+             height: 100%;
+             max-width: 100%;
+             border-radius: 0;
+           }
+           .story-close {
+             top: 20px; right: 20px; 
+             background: #ffffff; /* White bg */
+             color: #d81f2a; /* Brand Red Icon */
+             display: grid !important; /* Force show */
+             z-index: 10002 !important; /* Always on top */
+           }
+           .story-slide {
+             background: #000;
+           }
+           .story-slide img {
+             width: 100%;
+             height: 100%;
+             object-fit: contain !important; /* Ensure image fits within screen without cropping */
            }
         }
       </style>
+
+      <!-- Script for functionality -->
+      <script>
+        let currentStory = 0;
+        let storySetStart = 0;
+        let storySetCount = 0;
+        
+        // Total physical slides in DOM
+        const absoluteTotal = 38;
+        
+        const modal = document.getElementById('story-modal');
+        const track = document.getElementById('story-track'); 
+
+        // New signature: openStory(startIndex, count)
+        function openStory(index, count) {
+            currentStory = index;
+            storySetStart = index;
+            storySetCount = count;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; /* Lock scroll */
+            updateCarousel();
+        }
+
+        function closeStory() {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; /* Unlock scroll */
+        }
+
+        function nextStory() {
+            // Local index within the set
+            let localIndex = currentStory - storySetStart;
+            
+            if (localIndex < storySetCount - 1) {
+                currentStory++;
+            } else {
+                currentStory = storySetStart; // Loop back to start of THIS set
+            }
+            updateCarousel();
+        }
+
+        function prevStory() {
+            let localIndex = currentStory - storySetStart;
+            
+            if (localIndex > 0) {
+                currentStory--;
+            } else {
+                currentStory = storySetStart + storySetCount - 1; // Loop to end of THIS set
+            }
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            // Move track based on global index logic
+            const offset = -currentStory * 100;
+            track.style.transform = `translateX(${offset}%)`;
+
+            // Update Bars: Only show bars relevant to the current set
+            for (let i = 0; i < absoluteTotal; i++) {
+                const barWrapper = document.getElementById(`fill-${i}`).parentElement;
+                
+                // Show/Hide bar wrapper based on set usage
+                if (i >= storySetStart && i < (storySetStart + storySetCount)) {
+                    barWrapper.style.display = 'block';
+                    barWrapper.style.flex = '1'; /* Ensure they take space */
+                } else {
+                    barWrapper.style.display = 'none';
+                }
+                
+                // Update fill
+                const fill = document.getElementById(`fill-${i}`);
+                if (i < currentStory) {
+                    fill.style.width = '100%';
+                    fill.style.transition = 'none'; 
+                } else if (i === currentStory) {
+                    fill.style.width = '100%'; 
+                    fill.style.transition = 'width 5s linear'; 
+                } else {
+                    fill.style.width = '0%';
+                    fill.style.transition = 'none';
+                }
+            }
+        }
+        
+        // Close on clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeStory();
+        });
+
+        /* --- ENQUIRY MODAL LOGIC --- */
+        const enquiryModal = document.getElementById('enquiry-modal');
+        function openEnquiry() {
+            enquiryModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeEnquiry() {
+            enquiryModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        enquiryModal.addEventListener('click', (e) => {
+            if (e.target === enquiryModal) closeEnquiry();
+        });
+
+        /* --- SCROLL LISTENER FOR FIXED BAR --- */
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('spox-fixed-bar');
+            // Show after scrolling past 600px (approx height of hero + about start)
+            if (window.scrollY > 600) {
+                bar.style.transform = "translateX(-50%) translateY(0)";
+            } else {
+                bar.style.transform = "translateX(-50%) translateY(200%)";
+            }
+        });
+
+        /* --- SWIPE SUPPORT FOR STORY --- */
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const storyContainer = document.querySelector('.story-content'); 
+        
+        if(storyContainer) {
+            storyContainer.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            storyContainer.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+        }
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextStory();
+            if (touchEndX > touchStartX + 50) prevStory();
+        }
+      </script>
+
+      <!-- Enquiry Modal (Same Form as Hero) -->
+      <div id="enquiry-modal" class="story-modal" style="display:none; z-index: 10000;">
+         <div style="position: relative; width: 100%; max-width: 420px; border-radius: 20px;">
+             <!-- Close Btn -->
+             <button onclick="closeEnquiry()" style="position: absolute; right: 10px; top: 10px; background: rgba(255,255,255,0.2); border: none; font-size: 24px; color: #fff; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; z-index: 2;">&times;</button>
+             
+             <!-- Reused Glass Form Style -->
+             <div class="glass-form-card" style="box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+                 <div class="glass-header">
+                    <h3 style="text-align: center; text-transform: uppercase;">ENQUIRE</h3>
+                    <div style="width: 50px; height: 4px; background: #d6336c; margin: -16px auto 24px; border-radius: 2px;"></div>
+                 </div>
+                 <form>
+                    <div class="glass-field">
+                        <label class="glass-label">Name</label>
+                        <input type="text" class="glass-input" placeholder="Name" />
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Email ID</label>
+                        <input type="email" class="glass-input" placeholder="Email ID" />
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Mobile number</label>
+                        <input type="tel" class="glass-input" placeholder="Mobile number" />
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Ashiana Care Home</label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none;">
+                                <option value="ashiana-care-home" selected>Ashiana Care Home</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">▼</div>
+                        </div>
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Rental</label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none;">
+                                <option value="rental" selected>Rental</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">▼</div>
+                        </div>
+                    </div>
+                    <div class="glass-checkbox">
+                        <input type="checkbox" checked />
+                        <span>Please contact me, <a href="#" style="color: #fca510; text-decoration: underline;">TERMS OF SERVICE</a> and <a href="#" style="color: #fca510; text-decoration: underline;">PRIVACY POLICY</a></span>
+                    </div>
+                    <button type="submit" class="glass-submit-btn">SUBMIT</button>
+                 </form>
+             </div>
+         </div>
+      </div>
     </section>
 
-    <!-- WORDS OF EXPERT -->
     <!-- WORDS OF EXPERT -->
     <section class="spox-section" style="background-color: #fff; padding: 60px 0;">
       <div class="spox-container">
@@ -1135,17 +1930,17 @@
             <div style="flex: 2; background-color: #d11f2f; border-radius: 24px; padding: 40px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="opacity: 0.5; margin-bottom: 20px;"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"/></svg>
                 <p style="font-size: 20px; line-height: 1.6; margin: 0 0 24px;">
-                    “Our caregivers are selected carefully and trained to support seniors with warmth, dignity, and professionalism. From daily routines to emergency readiness, we focus on comfort, safety, and emotional well-being-so residents feel truly at home.”
+                    “Caregivers at Ashiana Care Homes are selected carefully and they undergo 114 hour training on basics of geriatric care, health, hygiene, incident / emergency management, soft skills, and managing conditions like dementia etc. Due to this training, caregivers can effectively handle a wide range of behaviour issues which may range from anxiety to anger and agitation to depression. From organising an outing to creating a song and dance party, they do everything to keep residents positive and happy. Caregivers pick up on the body-language of residents to know if they are hungry, irritated, anxious or going through a health problem. Apart from human qualities like warmth.”
                 </p>
                 
                 <div style="margin-bottom: 24px;">
                     <h4 style="margin: 0; font-size: 22px; font-weight: 700;">Dr. Nishant</h4>
-                    <p style="margin: 4px 0 0; opacity: 0.9;">Care Home Manager (Bhiwadi)</p>
+                    <p style="margin: 4px 0 0; opacity: 0.9;">(Care Home Manager Bhiwadi)</p>
                 </div>
 
                 <div style="display:flex; gap:16px; flex-wrap:wrap;">
                     <button class="spox-btn" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 8px; cursor: pointer;">
-                        Leave a query to our doctor
+                        Leave a query to our expert
                     </button>
                     <button class="spox-btn" style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); padding: 12px 24px; font-weight: 700; border-radius: 8px; cursor: pointer;">
                         Schedule a Call
@@ -1155,16 +1950,19 @@
 
             <!-- Right: Image -->
             <div style="flex: 1; min-height: 400px;">
-                <img src="https://image.pollinations.ai/prompt/professional%20indian%20male%20doctor%20manager%20portrait%20smiling" alt="Expert Dr. Nishant" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
+                <img src="assets/expert.webp" alt="Expert Dr. Nishant" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
             </div>
 
         </div>
       </div>
 
       <style>
+          /* Expert Section Mobile */
           @media (max-width: 768px) {
               .expert-row { flex-direction: column; }
               .expert-row > div { width: 100%; }
+              /* Hide the image container (2nd child) on mobile */
+              .expert-row > div:last-child { display: none; }
           }
       </style>
     </section>
@@ -1175,66 +1973,184 @@
       <h2 style="margin: 0; color: #111827; font-size: 36px; font-weight: 600;">Image Gallery</h2>
     </div>
 
-    <!-- Gallery Content -->
+    <!-- Gallery Content with Slider -->
     <section class="spox-section" id="gallery" style="background-color: #fafbfc; padding: 60px 0;">
       <div class="spox-container">
         
-        <!-- Navigation Arrows (Visual only for now) -->
-        <div style="position: relative;">
+        <!-- Slider Container relative for arrows -->
+        <div class="gallery-slider-container" style="position: relative; overflow: hidden; padding: 0 20px;">
           
           <!-- Left Arrow -->
-          <div style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.2); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 4px;">&lt;</div>
+          <div class="gallery-arrow gallery-prev" onclick="moveGallery(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.5); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 50%; z-index: 10;">&lt;</div>
           
           <!-- Right Arrow -->
-          <div style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.2); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 4px;">&gt;</div>
+          <div class="gallery-arrow gallery-next" onclick="moveGallery(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.5); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 50%; z-index: 10;">&gt;</div>
 
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+          <!-- Track -->
+          <div class="gallery-track" id="gallery-track" style="display: flex; gap: 30px; transition: transform 0.5s ease-in-out;">
             
             <!-- Item 1: Swimming Pool -->
-            <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
-                 <img src="https://image.pollinations.ai/prompt/happy%20seniors%20sitting%20by%20swimming%20pool%20resort" alt="Swimming Pool" style="width: 100%; height: 100%; object-fit: cover;" />
-                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                 <img src="assets/gallery/moments-1.webp" alt="Swimming Pool" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
                     Swimming Pool
-                 </div>
+                 </div> -->
                </div>
             </div>
 
             <!-- Item 2: Cards -->
-            <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
-                 <img src="https://image.pollinations.ai/prompt/indian%20seniors%20playing%20cards%20laughing" alt="Cards" style="width: 100%; height: 100%; object-fit: cover;" />
-                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                 <img src="assets/gallery/moments-2.webp" alt="Cards" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
                     Cards
-                 </div>
+                 </div> -->
                </div>
             </div>
 
             <!-- Item 3: Meditation -->
-            <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
-                 <img src="https://image.pollinations.ai/prompt/senior%20woman%20meditating%20peaceful%20sunlight" alt="Meditation" style="width: 100%; height: 100%; object-fit: cover;" />
-                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                 <img src="assets/gallery/moments-3.webp" alt="Meditation" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
                     Meditation
-                 </div>
+                 </div> -->
                </div>
             </div>
 
-          </div>
+             <!-- Item 4: Gardening (Duplicate/Extra for slide demo) -->
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-4.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-5.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-6.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+              <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-7.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+              <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-8.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+             <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-9.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+          </div>  
         </div>
 
       </div>
       
       <style>
          @media (max-width: 900px) {
-            section[id="gallery"] div[style*="grid-template-columns: repeat(3, 1fr)"] {
-               grid-template-columns: 1fr !important;
+            .gallery-item {
+               min-width: 100% !important; /* Full width on mobile */
+            }
+            .gallery-track {
+                gap: 0 !important; /* Remove gap on mobile to simplify math or keep it consistent */
             }
          }
       </style>
+
+      <script>
+        const galleryTrack = document.getElementById('gallery-track');
+        let galleryIndex = 0;
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const totalGalleryItems = galleryItems.length;
+        let galleryInterval;
+
+        // Function to move gallery
+        function moveGallery(direction) {
+            const itemsVisible = window.innerWidth <= 900 ? 1 : 3;
+            const itemWidth = 100 / itemsVisible; // Percentage
+            
+            galleryIndex += direction;
+
+            // Loop logic
+            if (galleryIndex > totalGalleryItems - itemsVisible) {
+                galleryIndex = 0;
+            } else if (galleryIndex < 0) {
+                galleryIndex = totalGalleryItems - itemsVisible;
+            }
+
+            // Calculation for transform
+            // We need to account for the gap if we want precision, but for simplicity with percentage width:
+            // If itemsVisible is 1, translate is index * 100%
+            // If itemsVisible is 3, translate is index * (33.333% + gap compensation?)
+            // A simpler approach for the gap is to use a container width based shift or just percent.
+            // Let's use simple percent based on item count.
+            
+            // Adjust translation. 
+            // Note: The 'gap: 30px' in CSS might mess up exact % based translation if not careful.
+            // For a robust slider with gaps, usually we calculate px widths.
+            // Let's stick to a simpler approximation or remove gap in JS calculation contexts.
+            
+            // Re-selecting to ensure responsiveness
+            const trackWidth = galleryTrack.parentElement.offsetWidth;
+            const singleItemWidth = galleryTrack.children[0].offsetWidth; 
+            const gap = 30; // matched css
+            
+            // Calculate move distance in pixels
+            const moveAmount = (singleItemWidth + gap) * galleryIndex;
+            
+            galleryTrack.style.transform = `translateX(-${moveAmount}px)`;
+            
+            resetGalleryTimer();
+        }
+
+        function startGalleryTimer() {
+            galleryInterval = setInterval(() => {
+                moveGallery(1);
+            }, 3000); // 3 seconds
+        }
+
+        function resetGalleryTimer() {
+             clearInterval(galleryInterval);
+             startGalleryTimer();
+        }
+
+        // Initialize
+        startGalleryTimer();
+        
+        // Handle Resize to reset positions or re-calc
+        window.addEventListener('resize', () => {
+            moveGallery(0); // Recalculate position
+        });
+      </script>
     </section>
 
-    <!-- TESTIMONIES -->
     <!-- TESTIMONIES -->
     <section class="spox-section" id="testimonials" style="background-color: #fff; padding: 60px 0;">
       <div class="spox-container">
@@ -1243,38 +2159,18 @@
         <div class="testimonies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
            
            
-           <!-- Video Card 1 -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-              <img src="https://image.pollinations.ai/prompt/happy%20indian%20grandmother%20talking%20home%20video%20testimonial" alt="Testimony 1" style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
-              <div style="position: absolute; inset: 0; display: grid; place-items: center;">
-                 <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center;  transition: transform 0.3s ease;">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-                 </div>
-              </div>
+           <!-- Video Card 1 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/LdL84elJXEk?si=eFDWFhscJj3-H3NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>
            </div>
 
-           <!-- Video Card 2 -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-              <img src="https://image.pollinations.ai/prompt/indian%20senior%20couple%20sitting%20sofa%20talking%20testimonial" alt="Testimony 2" style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
-              <div style="position: absolute; inset: 0; display: grid; place-items: center;">
-                 <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center;  transition: transform 0.3s ease;">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-                 </div>
-              </div>
-           </div>
+           <!-- Video Card 2 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+<iframe width="100%" height="100%" style="border: none;" src="https://www.youtube.com/embed/Ia_OgZ9H9Tg?si=WSVWSZ56NdDkfFWV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>           </div>
 
-           <!-- Video Card 3 -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-              <img src="https://image.pollinations.ai/prompt/middle%20aged%20indian%20woman%20giving%20feedback%20testimonial" alt="Testimony 3" style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
-              <div style="position: absolute; inset: 0; display: grid; place-items: center;">
-                 <div style="width: 80px; height: 80px; border: 4px solid #fff; border-radius: 50%; display: grid; place-items: center;  transition: transform 0.3s ease;">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-                 </div>
-              </div>
-           </div>
+           <!-- Video Card 3 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+<iframe width="100%" height="100%" style="border: none;" src="https://www.youtube.com/embed/jWPo14CDfHA?si=pTbGBwrhO_E-y6Pa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>           </div>
 
         </div>
       </div>
@@ -1465,9 +2361,9 @@
 
         <div class="fixed-bar-actions">
             <!-- Call Button -->
-            <button class="spox-btn btn-call" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <button class="spox-btn btn-call" onclick="openEnquiry()" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
               <!-- <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 17 17 0 0017 17c.55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg> -->
-              Call Now
+              Enquire Now
             </button>   
             
             <!-- Site Visit Button -->
@@ -1484,7 +2380,7 @@
         position: fixed; 
         bottom: 30px; 
         left: 50%; 
-        transform: translateX(-50%); 
+        transform: translateX(-50%) translateY(200%); 
         z-index: 9999; 
         width: 94%; 
         max-width: 1000px;
@@ -1529,7 +2425,7 @@
          .fixed-bar-actions button { padding: 10px 16px !important; font-size: 13px !important; }
       }
       @media (max-width: 480px) {
-         .spox-fixed-bar-api { width: 96%; bottom: 12px; }
+         .spox-fixed-bar-api { width: 72%; bottom: 12px; }
          .fixed-bar-text { display: none; } /* Hide text completely, show buttons only */
          .fixed-bar-inner { padding: 8px; gap: 8px; }
          .fixed-bar-actions { width: 100%; gap: 8px; }
@@ -1538,65 +2434,7 @@
       }
     </style>
     
-    <style>
-      .spox-fixed-bar-api {
-        position: fixed; 
-        bottom: 30px; 
-        left: 50%; 
-        transform: translateX(-50%); 
-        z-index: 9999; 
-        width: 94%; 
-        max-width: 1000px;
-        transition: transform 0.3s ease;
-      }
-      .fixed-bar-inner {
-        background: #000; 
-        border-radius: 100px; 
-        padding: 12px 16px 12px 32px; 
-        display: flex; 
-        align-items: center; 
-        justify-content: space-between; 
-        gap: 20px; 
-        box-shadow: 0 16px 40px rgba(0,0,0,0.3);  
-        border: 2px solid rgba(255,255,255,0.1);
-      }
-      .fixed-bar-left {
-        display: flex; align-items: center; gap: 16px; flex: 1;
-      }
-      .fixed-bar-icon {
-        width: 48px; height: 48px; 
-        background: rgba(255,255,255,0.2); 
-        border-radius: 50%; 
-        display: grid; place-items: center; flex-shrink: 0;
-      }
-      .fixed-bar-text { color: #fff; }
-      .fixed-bar-head { font-weight: 800; font-size: 16px; line-height: 1.2; }
-      .fixed-bar-sub { font-size: 13px; opacity: 0.9; }
-      .fixed-bar-actions { display: flex; gap: 10px; align-items: center; }
-
-      /* Responsive Logic */
-      @media (max-width: 768px) {
-         .fixed-bar-sub { display: none; }
-         .fixed-bar-icon { width: 40px; height: 40px; }
-         .fixed-bar-head { font-size: 14px; }
-         .fixed-bar-inner { padding-left: 16px; }
-      }
-      @media (max-width: 600px) {
-         .fixed-bar-icon { display: none; }
-         .fixed-bar-inner { padding: 10px; justify-content: center; }
-         .fixed-bar-left { flex: 0 0 auto; margin-right: auto; } /* Keep text on left */
-         .fixed-bar-actions button { padding: 10px 16px !important; font-size: 13px !important; }
-      }
-      @media (max-width: 480px) {
-         .spox-fixed-bar-api { width: 96%; bottom: 12px; }
-         .fixed-bar-text { display: none; } /* Hide text completely, show buttons only */
-         .fixed-bar-inner { padding: 8px; gap: 8px; }
-         .fixed-bar-actions { width: 100%; gap: 8px; }
-         .fixed-bar-actions button { flex: 1; justify-content: center; }
-         .fixed-bar-left { display: none; }
-      }
-    </style>
-
+      
     <!-- COPYRIGHT FOOTER -->
     <!-- <footer style="background: #0b1220; color: #6b7280; padding: 60px 0 100px; text-align: center; font-size: 14px;">
         <div class="spox-container">
