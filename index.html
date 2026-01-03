@@ -1921,7 +1921,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <!-- </div> -->
 </div>    </header>
-
+<div id="spox-zoom-container">
     <!-- HERO -->
     <section class="spox-hero">
       <div class="spox-hero-banner">
@@ -5290,6 +5290,7 @@ $(window).on('scroll', function () {
             
 </script>      
     </footer>
+</div>
 
     <!-- ZOOM WIDGET -->
     <div id="spox-zoom-widget-container" class="spox-zoom-widget">
@@ -5410,7 +5411,18 @@ $(window).on('scroll', function () {
                 spoxZoomDisplay.innerText = Math.round(currentSpoxZoomLvl * 100) + '%';
             }
             // Apply Zoom
-            document.body.style.zoom = currentSpoxZoomLvl;
+            const container = document.getElementById('spox-zoom-container');
+            if(container) {
+                container.style.zoom = currentSpoxZoomLvl;
+                // Fallback for browsers that don't support zoom (like Firefox)
+                if (typeof container.style.zoom === 'undefined' || container.style.zoom === '') {
+                     container.style.transform = `scale(${currentSpoxZoomLvl})`;
+                     container.style.transformOrigin = 'top center';
+                }
+            } else {
+                 // Fallback if container not found (though it should be there)
+                 document.body.style.zoom = currentSpoxZoomLvl;
+            }
         }
     </script>
   </body>
