@@ -5225,5 +5225,128 @@ $(window).on('scroll', function () {
             
 </script>      
     </footer>
+
+    <!-- ZOOM WIDGET -->
+    <div id="spox-zoom-widget-container" class="spox-zoom-widget">
+        <button class="spox-zoom-btn" onclick="updateSpoxZoom(0.1)" title="Zoom In">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="spox-zoom-level" onclick="resetSpoxZoom()" title="Reset Zoom">100%</div>
+        <button class="spox-zoom-btn" onclick="updateSpoxZoom(-0.1)" title="Zoom Out">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+    </div>
+
+    <style>
+        .spox-zoom-widget {
+            position: fixed;
+            bottom: 140px;
+            right: 24px;
+            z-index: 9990;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .spox-zoom-widget:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .spox-zoom-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.05);
+            background: #fff;
+            color: #111827;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .spox-zoom-btn:hover {
+            background: #d11f2f;
+            color: #fff;
+            border-color: #d11f2f;
+            transform: scale(1.1);
+        }
+        .spox-zoom-btn:active {
+            transform: scale(0.95);
+        }
+        .spox-zoom-level {
+            font-size: 11px;
+            font-weight: 800;
+            color: #111;
+            padding: 4px 6px;
+            background: rgba(0,0,0,0.04);
+            border-radius: 6px;
+            cursor: pointer;
+            min-width: 36px;
+            text-align: center;
+            user-select: none;
+        }
+        .spox-zoom-level:hover {
+            background: rgba(0,0,0,0.08);
+            color: #d11f2f;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .spox-zoom-widget {
+                bottom: 110px; /* Shifted slightly to clear bottom fixed bar */
+                right: 16px;
+                transform: scale(0.95); /* Slightly bigger on tablets than previous */
+            }
+        }
+        @media (max-width: 480px) {
+            .spox-zoom-widget {
+                bottom: 100px;
+                right: 12px;
+                padding: 6px;
+                gap: 6px;
+                transform: none; /* Keep natural size for touch targets */
+            }
+            .spox-zoom-btn {
+                width: 40px; height: 40px; /* Slightly smaller but still touchable */
+            }
+        }
+    </style>
+
+    <script>
+        let currentSpoxZoomLvl = 1.0;
+        const spoxZoomDisplay = document.querySelector('.spox-zoom-level');
+
+        function updateSpoxZoom(delta) {
+            currentSpoxZoomLvl += delta;
+            // Clamp
+            if (currentSpoxZoomLvl < 0.5) currentSpoxZoomLvl = 0.5;
+            if (currentSpoxZoomLvl > 2.0) currentSpoxZoomLvl = 2.0;
+            
+            applySpoxZoomEffect();
+        }
+
+        function resetSpoxZoom() {
+            currentSpoxZoomLvl = 1.0;
+            applySpoxZoomEffect();
+        }
+
+        function applySpoxZoomEffect() {
+            // Update Text
+            if(spoxZoomDisplay) {
+                spoxZoomDisplay.innerText = Math.round(currentSpoxZoomLvl * 100) + '%';
+            }
+            // Apply Zoom
+            document.body.style.zoom = currentSpoxZoomLvl;
+        }
+    </script>
   </body>
 </html>

@@ -1,0 +1,2567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Care Home Landing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+      /* =========================================================
+        SPOX THEME (Ashiana-like)
+      ========================================================= */
+      :root {
+        --spox-bg: #f6f7fb;
+        --spox-surface: #ffffff;
+        --spox-ink: #121417;
+        --spox-muted: #6b7280;
+        --spox-border: rgba(17, 24, 39, 0.08);
+
+        --spox-red: #d81f2a;
+        --spox-red-600: #be1b24;
+        --spox-red-soft: rgba(216, 31, 42, 0.1);
+
+        --spox-radius-xl: 18px;
+        --spox-radius-lg: 14px;
+        --spox-radius-md: 12px;
+
+        --spox-shadow: 0 10px 28px rgba(17, 24, 39, 0.08);
+        --spox-shadow-soft: 0 6px 18px rgba(17, 24, 39, 0.06);
+
+        --spox-max: 1180px;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Raleway', ui-sans-serif, system-ui, -apple-system, sans-serif;
+        background: var(--spox-bg);
+        color: var(--spox-ink);
+      }
+      h1, h2, h3, h4, h5, h6, .spox-nav-links, .spox-btn {
+        font-family: 'Raleway', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+
+      /* =========================================================
+        LAYOUT
+      ========================================================= */
+      .spox-container {
+        max-width: var(--spox-max);
+        margin: 0 auto;
+        padding: 0 18px;
+      }
+
+      .spox-section { padding: 34px 0; }
+      .spox-h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: -0.2px;
+      }
+      .spox-p {
+        margin: 0;
+        color: var(--spox-muted);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .spox-card {
+        background: var(--spox-surface);
+        border: 1px solid var(--spox-border);
+        border-radius: var(--spox-radius-xl);
+        box-shadow: var(--spox-shadow-soft);
+      }
+
+      .spox-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: var(--spox-red-soft);
+        color: var(--spox-red);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .spox-dot {
+        width: 8px; height: 8px; border-radius: 999px; background: var(--spox-red);
+      }
+
+      .spox-btn {
+        border: 0;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-weight: 900;
+        font-size: 13px;
+        transition: transform 0.08s ease, background 0.2s ease;
+      }
+      .spox-btn:active { transform: scale(0.98); }
+      .spox-btn-primary {
+        background: var(--spox-red);
+        color: #fff;
+      }
+      .spox-btn-primary:hover { background: var(--spox-red-600); }
+      .spox-btn-ghost {
+        background: #fff;
+        border: 1px solid var(--spox-border);
+        color: var(--spox-ink);
+      }
+
+      .spox-grid { display: grid; gap: 18px; }
+
+      /* =========================================================
+        TOP NAV (simple)
+      ========================================================= */
+      .spox-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #fff;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+      }
+      .spox-nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+      .spox-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 950;
+        letter-spacing: -0.2px;
+      }
+      .spox-logo {
+        width: 34px; height: 34px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(216,31,42,1), rgba(216,31,42,0.65));
+        box-shadow: 0 10px 18px rgba(216,31,42,0.22);
+      }
+      .spox-nav-links {
+        display: flex;
+        gap: 14px;
+        color: var(--spox-muted);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .spox-nav-links a:hover { color: var(--spox-ink); }
+
+      /* =========================================================
+        HERO (Ashiana-like)
+      ========================================================= */
+      .spox-hero {
+        padding: 18px 0 28px;
+      }
+      .spox-hero-banner {
+        position: relative;
+        overflow: visible;
+        border-radius: 0;
+        /* border-top: 1px solid rgba(255,255,255,0.12);
+        border-bottom: 1px solid rgba(255,255,255,0.12); */
+        box-shadow: var(--spox-shadow);
+        min-height: 650px;
+        /* background: #0b1220; */
+      }
+      .spox-hero-banner img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.02);
+      }
+      .spox-hero-overlay {
+        position: absolute;
+        inset: 0;
+        /* background:
+          linear-gradient(90deg, rgba(0,0,0,0.78), rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.1)),
+          radial-gradient(800px 500px at 20% 40%, rgba(216,31,42,0.22), transparent 60%); */
+      }
+      .spox-hero-content {
+        position: relative;
+        padding: 28px;
+        color: #fff;
+        display: grid;
+        gap: 14px;
+        max-width: 680px;
+      }
+      .spox-hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.88);
+      }
+      .spox-hero-title {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.12;
+        letter-spacing: -0.6px;
+        font-weight: 950;
+      }
+      .spox-hero-sub {
+        margin: 0;
+        color: rgba(255,255,255,0.84);
+        line-height: 1.65;
+        font-size: 14px;
+      }
+
+      .spox-hero-float {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: -38px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 14px;
+      }
+      .spox-hero-info {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid rgba(17,24,39,0.08);
+        box-shadow: var(--spox-shadow);
+        display: grid;
+        gap: 10px;
+      }
+      .spox-hero-info h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 950;
+      }
+      .spox-hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .spox-hero-mini {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        color: var(--spox-muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .spox-hero-mini span {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(17,24,39,0.04);
+        border: 1px solid rgba(17,24,39,0.06);
+      }
+
+      .spox-enquiry {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid rgba(17,24,39,0.08);
+        box-shadow: var(--spox-shadow);
+      }
+      .spox-enquiry-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .spox-enquiry-title b { font-size: 14px; }
+      .spox-enquiry-title small { color: var(--spox-red); font-weight: 900; }
+
+      .spox-form {
+        display: grid;
+        gap: 10px;
+      }
+      .spox-input {
+        width: 100%;
+        padding: 11px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(17,24,39,0.12);
+        outline: none;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .spox-input:focus {
+        border-color: rgba(216,31,42,0.45);
+        box-shadow: 0 0 0 4px rgba(216,31,42,0.12);
+      }
+
+      /* =========================================================
+        CONTENT ROW (About + right card)
+      ========================================================= */
+      .spox-row {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+      .spox-about {
+        padding: 18px;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 16px;
+      }
+      .spox-about-media {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #111827;
+        min-height: 190px;
+      }
+      .spox-about-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .spox-about-copy {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+      .spox-about-copy h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 950;
+        letter-spacing: -0.2px;
+      }
+
+      .spox-sidecard {
+        padding: 18px;
+        position: sticky;
+        top: 78px;
+      }
+      .spox-sidecard h4 {
+        margin: 0 0 8px;
+        font-size: 15px;
+        font-weight: 950;
+      }
+      .spox-side-list {
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .spox-side-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 10px;
+        border-radius: 14px;
+        background: rgba(17,24,39,0.03);
+        border: 1px solid rgba(17,24,39,0.06);
+      }
+      .spox-bullet {
+        width: 28px; height: 28px;
+        border-radius: 10px;
+        background: var(--spox-red-soft);
+        color: var(--spox-red);
+        display: grid;
+        place-items: center;
+        font-weight: 950;
+        flex: 0 0 auto;
+      }
+      .spox-side-list b { font-size: 13px; }
+      .spox-side-list p {
+        margin: 2px 0 0;
+        font-size: 12px;
+        color: var(--spox-muted);
+        line-height: 1.45;
+      }
+
+      /* =========================================================
+        Amenities Features (3 cards with image + title)
+      ========================================================= */
+      .spox-features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .spox-feature {
+        overflow: hidden;
+      }
+      .spox-feature-thumb { height: 150px; background: #0b1220; }
+      .spox-feature-thumb img {
+        width: 100%; height: 100%; object-fit: cover;
+      }
+      .spox-feature-body { padding: 14px; }
+      .spox-feature-k { font-size: 12px; color: var(--spox-red); font-weight: 950; }
+      .spox-feature-t { margin: 6px 0 0; font-weight: 950; font-size: 14px; }
+      .spox-feature-d { margin: 6px 0 0; font-size: 12px; color: var(--spox-muted); line-height: 1.5; }
+
+      /* =========================================================
+        Amenities Icon Grid (6 items)
+      ========================================================= */
+      .spox-icon-grid {
+        padding: 18px;
+      }
+      .spox-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .spox-icon-item {
+        display: flex;
+        gap: 12px;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(17,24,39,0.08);
+        background: #fff;
+      }
+      .spox-icon {
+        width: 42px; height: 42px;
+        border-radius: 14px;
+        background: var(--spox-red-soft);
+        display: grid;
+        place-items: center;
+        color: var(--spox-red);
+        font-weight: 950;
+        flex: 0 0 auto;
+      }
+      .spox-icon-text b { display: block; font-size: 13px; }
+      .spox-icon-text span { display: block; font-size: 12px; color: var(--spox-muted); margin-top: 2px; }
+
+      /* =========================================================
+        Why Us (USPs with center circle)
+      ========================================================= */
+      .spox-why {
+        padding: 18px;
+        background: #ffffff;
+      }
+      .spox-why-inner {
+        display: grid;
+        grid-template-columns: 1fr 260px 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+      .spox-usp-col { display: grid; gap: 12px; }
+      .spox-usp {
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(17,24,39,0.08);
+        background: rgba(17,24,39,0.02);
+      }
+      .spox-usp h4 { margin: 0 0 6px; font-size: 13px; font-weight: 950; }
+      .spox-usp p { margin: 0; font-size: 12px; color: var(--spox-muted); line-height: 1.5; }
+      .spox-center {
+        display: grid;
+        place-items: center;
+      }
+      .spox-circle {
+        width: 220px; height: 220px;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 10px solid rgba(216,31,42,0.10);
+        box-shadow: var(--spox-shadow-soft);
+      }
+      .spox-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* =========================================================
+        Highlight Moments (4 story cards)
+      ========================================================= */
+      .spox-stories {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .spox-story {
+        height: 190px;
+        overflow: hidden;
+        position: relative;
+      }
+      .spox-story img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.02);
+      }
+      .spox-story::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55));
+      }
+      .spox-story-label {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        color: #fff;
+        font-weight: 950;
+        font-size: 13px;
+        z-index: 2;
+      }
+
+      /* =========================================================
+        Words of Expert (quote + image)
+      ========================================================= */
+      .spox-expert {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .spox-quote {
+        padding: 18px;
+        background: linear-gradient(135deg, rgba(216,31,42,0.92), rgba(216,31,42,0.74));
+        color: #fff;
+        border-radius: var(--spox-radius-xl);
+        box-shadow: var(--spox-shadow-soft);
+        display: grid;
+        gap: 10px;
+      }
+      .spox-quote b { font-size: 13px; opacity: 0.95; }
+      .spox-quote p { margin: 0; line-height: 1.7; font-size: 14px; opacity: 0.95; }
+      .spox-expert-img {
+        border-radius: var(--spox-radius-xl);
+        overflow: hidden;
+      }
+      .spox-expert-img img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* =========================================================
+        Infra Image Gallery (3)
+      ========================================================= */
+      .spox-infra { grid-template-columns: repeat(3, 1fr); }
+      .spox-infra-card { overflow: hidden; }
+      .spox-infra-thumb { height: 150px; background: #0b1220; }
+      .spox-infra-thumb img { width: 100%; height: 100%; object-fit: cover; }
+      .spox-infra-cap { padding: 12px 14px; font-weight: 950; font-size: 13px; }
+
+      /* =========================================================
+        Testimonies (3 play cards)
+      ========================================================= */
+      .spox-test { grid-template-columns: repeat(3, 1fr); }
+      .spox-video {
+        height: 160px;
+        background: #0b1220;
+        border-radius: var(--spox-radius-xl);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(17,24,39,0.08);
+      }
+      .spox-video img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        opacity: 0.95;
+      }
+      .spox-video::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(500px 220px at 50% 60%, rgba(216,31,42,0.18), transparent 55%),
+          linear-gradient(180deg, rgba(0,0,0,0.20), rgba(0,0,0,0.55));
+      }
+      .spox-play {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        z-index: 2;
+      }
+      .spox-play-btn {
+        width: 62px; height: 62px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.15);
+        border: 2px solid rgba(255,255,255,0.65);
+        display: grid;
+        place-items: center;
+        backdrop-filter: blur(6px);
+      }
+      .spox-play-btn::before {
+        content: "";
+        width: 0; height: 0;
+        border-left: 16px solid #fff;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        margin-left: 4px;
+      }
+
+      /* =========================================================
+        RESPONSIVE
+      ========================================================= */
+      /* Services Grid (Section 4) */
+      .spox-services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 30px;
+      }
+      .spox-service-card {
+        background: #fff;
+        border-radius: 30px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+        padding: 40px 24px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        border: 1px solid transparent;
+      }
+      .spox-service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+      }
+      .spox-service-card.active {
+        background: #eef0f4; /* Light grey as seen in image for 2nd item */
+      }
+      .service-icon-circle {
+        width: 90px; height: 90px;
+        border-radius: 50%;
+        background: #fff5f5; /* Light pink bg */
+        display: grid;
+        place-items: center;
+        margin: 0 auto;
+      }
+      .service-icon-circle svg {
+        width: 48px; height: 48px;
+        fill: #be1b24; /* Ashiana Red */
+        color: #be1b24;
+      }
+      .service-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111;
+        margin: 0;
+      }
+      
+      /* Why Us (Section 5) */
+      .usp-icon-shape {
+        width: 70px; height: 70px;
+        background: #fff;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border: 1px solid rgba(255,255,255,0.6);
+      }
+      .usp-icon-shape svg { width: 32px; height: 32px; color: #555; stroke-width: 1.5; }
+      
+      @media (max-width: 980px) {
+        .spox-hero-float { grid-template-columns: 1fr; bottom: -78px; }
+        .spox-row { grid-template-columns: 1fr; }
+        .spox-sidecard { position: relative; top: auto; }
+        .spox-about { grid-template-columns: 1fr; }
+        .spox-features { grid-template-columns: 1fr; }
+        .spox-icons { grid-template-columns: 1fr; }
+        .spox-why-inner { grid-template-columns: 1fr; }
+        .spox-stories { grid-template-columns: repeat(2, 1fr); }
+        .spox-expert { grid-template-columns: 1fr; }
+        .spox-infra { grid-template-columns: 1fr; }
+        .spox-test { grid-template-columns: 1fr; }
+        
+        .spox-bento {
+          grid-template-columns: 1fr !important;
+          grid-template-rows: auto !important;
+        }
+        .item-monitoring, .item-medical, .item-rooms, .item-physio, .item-meals, .item-doctors {
+            grid-column: auto !important; grid-row: auto !important; height: 260px;
+        }
+        .spox-services-grid { grid-template-columns: 1fr; }
+        .usp-grid-responsive { grid-template-columns: 1fr !important; text-align: center !important; }
+        .usp-left-col, .usp-right-col { text-align: center !important; }
+        .usp-item { flex-direction: column !important; align-items: center !important; }
+        .usp-center-circles { display: none; }
+      }
+
+      /* Bento Grid Styles */
+      .spox-bento {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 280px);
+        gap: 16px;
+      }
+      .spox-bento-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .spox-bento-item img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .spox-bento-item:hover img { transform: scale(1.05); }
+      .spox-bento-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7));
+        display: flex;
+        align-items: flex-end;
+        padding: 24px;
+      }
+      .spox-bento-text {
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.3;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      }
+      
+      /* Grid Placements */
+      .item-monitoring { grid-column: span 2; grid-row: 1; }
+      .item-medical { grid-column: 1; grid-row: 2; }
+      .item-rooms { grid-column: 2; grid-row: 2; }
+      .item-physio { grid-column: 3; grid-row: span 2; }
+      .item-meals { grid-column: 4; grid-row: 1; }
+      .item-doctors { grid-column: 4; grid-row: 2; }
+    </style>
+      <style>
+        .spox-faq-item {
+            background: #fff;
+            border-radius: 50px;
+            padding: 20px 32px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        .spox-faq-item:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .spox-faq-item[open] {
+             border-radius: 30px; /* Slightly less rounded when open looks better with content */
+        }
+        .spox-faq-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            font-weight: 700;
+            color: #0b1220;
+            font-size: 18px;
+        }
+        .spox-faq-summary::-webkit-details-marker {
+            display: none;
+        }
+        .spox-faq-answer {
+            margin-top: 16px;
+            color: #555;
+            line-height: 1.6;
+            font-size: 15px;
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .spox-faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .spox-faq-item[open] .spox-faq-icon {
+            transform: rotate(180deg);
+        }
+
+
+
+        
+
+        /* Enquiry Form Container */
+        .hero-enquiry-container {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 420px;
+            z-index: 20;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 980px) {
+           .spox-hero-banner {
+               min-height: auto; /* Allow banner to grow */
+               background: #0b1220; /* Fallback bg */
+           }
+           .hero-enquiry-container {
+               position: relative;
+               left: 0; right: 0; top: 0; 
+               transform: none;
+               width: 100%;
+               max-width: 90%;
+               margin: 20px auto; 
+               z-index: 10;
+           }
+           .glass-form-card {
+               backdrop-filter: none;
+               background: #111827; /* Solid dark background on mobile for better readability */
+               border: 1px solid rgba(255,255,255,0.1);
+           }
+        }
+
+        /* NEW Glass Form Styles */
+        .glass-form-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: 20px;
+            padding: 24px 24px; /* Reduced vertical padding */
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+        }
+        .glass-header h3 {
+            margin: 0 0 16px; /* Reduced margin */
+            font-size: 26px; /* Slightly smaller font */
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .glass-field {
+            margin-bottom: 14px; /* Reduced margin */
+        }
+        .glass-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .glass-label svg {
+            width: 18px; height: 18px; stroke-width: 2;
+        }
+        .glass-input {
+            width: 100%;
+            background: rgba(235, 237, 240, 0.9);
+            border: 2px solid transparent;
+            border-radius: 10px; /* Tighter radius */
+            padding: 10px 14px; /* Compact padding */
+            font-size: 14px; /* Slightly smaller font */
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-weight: 500;
+        }
+        .glass-input:focus {
+            border-color: #f472b6; /* Pinkish focus ring */
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.2);
+        }
+        .glass-input::placeholder {
+            color: #9ca3af;
+            font-weight: 500;
+        }
+        .glass-error-text {
+            display: block;
+            color: #fca5a5; /* Light pink/red text */
+            font-size: 13px;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+        .glass-submit-btn {
+            width: 100%;
+            background: #d81f2a; /* Deep pink/magenta */
+            color: white;
+            border: none;
+            padding: 12px; /* Compact padding */
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px; /* Reduced margin */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(214, 51, 108, 0.4);
+        }
+        .glass-submit-btn:hover {
+            background: #be185d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(214, 51, 108, 0.6);
+        }
+        .glass-checkbox {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-top: 16px; /* Reduced margin */
+            font-size: 12px; /* Smaller font */
+            line-height: 1.4;
+            color: rgba(255,255,255,0.9);
+        }
+        .glass-checkbox input {
+            accent-color: #d6336c;
+            width: 18px; height: 18px;
+            margin-top: 2px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* Featured Property Section Styles */
+        .spox-featured-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 24px;
+            align-items: stretch; /* Stretch to same height */
+        }
+        .spox-prop-card {
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Light subtle shadow */
+            border: 1px solid #eee;
+            border-radius: 4px; /* Standard edges per screenshot */
+            overflow: hidden;
+        }
+        .spox-prop-img {
+            height: 220px;
+            background: #eee;
+            position: relative;
+        }
+        .spox-prop-img img { width: 100%; height: 100%; object-fit: cover; }
+        .spox-prop-body {
+            padding: 20px;
+        }
+        .spox-prop-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+        }
+        .spox-prop-loc {
+            margin: 4px 0 12px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        .spox-prop-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #16a34a; /* Green */
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        .spox-prop-badge svg { width: 14px; height: 14px; fill: currentColor; }
+        
+        .spox-prop-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: #f9fafb;
+            border-radius: 4px;
+        }
+        .spox-prop-row b { color: #222; font-weight: 600; }
+        .spox-prop-tag {
+            background: #e5e7eb; 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            font-size: 12px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .spox-prop-action {
+            margin-top: 20px;
+        }
+        .spox-btn-enquire {
+            background: #d81f2a;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            text-transform: capitalize;
+            cursor: pointer;
+            border: none;
+            width: 150px;
+            font-size: 14px;
+            display: block;
+        }
+        .spox-btn-enquire:hover { background: #d81f2a; }
+
+        .spox-prop-video {
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 100%; /* Fill the grid cell */
+            /* aspect-ratio removed to adapt to card height */
+            position: relative;
+        }
+        .spox-prop-video iframe {
+            width: 100%; height: 100%; border: none; 
+            position: absolute; inset: 0; /* Ensure it covers the area */
+        }
+
+        @media (max-width: 980px) {
+           .spox-featured-grid { grid-template-columns: 1fr !important; }
+           .spox-prop-card, .spox-prop-video { min-height: 300px; }
+        }
+      </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <header class="spox-nav">
+      <div class="spox-container">
+        <div class="spox-nav-inner">
+          <div class="spox-brand">
+            <img src="https://www.ashianahousing.com/assets/images/logo.jpg" alt="Ashiana Logo" style="height: 48px; width: auto; margin-right: 12px;">
+            <!-- <span style="border-left: 1px solid #fff; padding-left: 16px; height: 32px; display: flex; align-items: center; font-size: 18px; color: #374151;">Care Homes</span> -->
+          </div>
+
+          <nav class="spox-nav-links">
+            <a href="#amenities">Amenities</a>
+            <a href="#whyus">Why Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#testimonials">Testimonials</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="spox-hero">
+      <div class="spox-hero-banner">
+        <!-- Replace with your real banner -->
+        <img src="https://www.ashianahousing.com/assets/images/care-home-desktop-banner-new.webp" alt="Care Home Hero" />
+        <div class="spox-hero-overlay"></div>
+
+        <!-- Enquiry Form Left Side -->
+        <div class="hero-enquiry-container">
+            <div class="glass-form-card">
+                <div class="glass-header">
+                    <h3 style="text-align: center; text-transform: uppercase;">ENQUIRE</h3>
+                    <div style="width: 50px; height: 4px; background: #d6336c; margin: -16px auto 24px; border-radius: 2px;"></div>
+                </div>
+                <form>
+                    <!-- Name Field -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                            Name
+                        </label>
+                        <input type="text" class="glass-input" placeholder="Name" />
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            Email ID
+                        </label>
+                        <input type="email" class="glass-input" placeholder="Email ID" />
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                            Mobile number
+                        </label>
+                        <input type="tel" class="glass-input" placeholder="Mobile number" />
+                    </div>
+
+                    <!-- Property Dropdown -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM9 10a1 1 0 011-1h4a1 1 0 110 2h-4a1 1 0 01-1-1z" /></svg>
+                            Ashiana Care Home
+                        </label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9);">
+                                <option value="ashiana-care-home" selected>Ashiana Care Home</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">
+                                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1L6 6L11 1"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rental Dropdown -->
+                    <div class="glass-field">
+                        <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                            Rental
+                        </label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9);">
+                                <option value="rental" selected>Rental</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">
+                                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1L6 6L11 1"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-checkbox">
+                        <input type="checkbox" checked />
+                        <span>Please contact me, <a href="#" style="color: #fca510; text-decoration: underline;">TERMS OF SERVICE</a> and <a href="#" style="color: #fca510; text-decoration: underline;">PRIVACY POLICY</a></span>
+                    </div>
+
+                    <button type="submit" class="glass-submit-btn">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + RIGHT INFO -->
+    <!-- 2ND SECTION - INLINE STYLED AS REQUESTED -->
+    <section style="background-color: #ffffff; padding: 72px 0; position: relative;">
+      <div class="spox-container">
+        
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom: 50px;">
+          <h2 style="margin: 0; font-size: 36px; color: #111827; font-weight: 600; letter-spacing: -0.5px;">Ashiana Care Home</h2>
+          <p style="margin: 10px 0 0; font-size: 20px; color: #111; font-weight: 600;">Caring for Seniors with Compassion and Comfort</p>
+        </div>
+
+        <!-- Content Row -->
+        <div style="display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
+          
+          <!-- Left: Overlapping Images/Shapes -->
+          <div style="flex: 1; min-width: 300px; position: relative; height: 400px; display: flex; align-items: center; justify-content: center;">
+             <!-- Back Shape (Top Left) -->
+             <div style="position: absolute; top: 0; left: 10%; width: 280px; height: 320px; background-color: #fdba2d; border-radius: 20px; overflow: hidden; transform: rotate(-3deg);">
+                <img src="assets/care-home-about-back.png" alt="Care 1" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+             </div>
+             <!-- Front Shape (Bottom Right) -->
+             <div style="position: absolute; bottom: 0; right: 10%; width: 280px; height: 320px; background-color: #d81f2a; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); transform: rotate(2deg);">
+                <img src="assets/care-home-about-front.png" alt="Care 2" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+             </div>
+          </div>
+
+          <!-- Right: Text Content -->
+          <div style="flex: 1; min-width: 300px;">
+            <p style="margin: 0; font-size: 18px; line-height: 1.8; color: #333; text-align: justify; font-weight: 500;">
+              Assisted Living offers senior residents personalised care tailored to their
+              medical and wellness needs while ensuring a warm, familiar, home-like
+              environment. With premium services, modern amenities, and 24/7 support, your
+              loved ones get the attention they deserve-while enjoying independence and dignity.
+              <br><br>
+              We provide support for seniors managing progressive health conditions like Alzheimer’s, Dementia, Parkinson’s, Arthritis, and Age-related mobility issues.
+            </p>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROPERTY (New Section) -->
+    <section class="spox-section" style="background: #ffffff; padding-bottom: 50px;">
+        <div class="spox-container">
+            <div class="spox-featured-grid">
+                
+                <!-- Left: Property Card -->
+                <div class="spox-prop-card">
+                    <div class="spox-prop-img">
+                        <!-- Use a real image -->
+                        <img src="https://www.ashianahousing.com/uploads/property/370x200_1-1738836679.jpg" alt="Property Image" />
+                    </div>
+                    <div class="spox-prop-body">
+                        <h3 class="spox-prop-title">Ashiana Care Home</h3>
+                        <p class="spox-prop-loc">Bhiwadi</p>
+                        
+                        <div class="spox-prop-badge">
+                            <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Ready to move in
+                        </div>
+                        
+                        <div style="font-size: 13px; color: #777; margin-bottom: 6px;">
+                            Available : <span class="spox-prop-tag">Single and double occupancy</span>
+                        </div>
+                        
+                        <div style="margin-top: 14px; border-top: 1px solid #f0f0f0; padding-top: 14px; font-size: 13px; color: #555;">
+                            Rental Starting: <b style="color: #222; font-size: 14px;">₹80 Thousand - ₹1.20 Thousand</b>
+                        </div>
+                        
+                        <div class="spox-prop-action">
+                             <button class="spox-btn-enquire" onclick="openEnquiry()">Enquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Video -->
+                <div class="spox-prop-video">
+                    <!-- YouTube Embed -->
+<iframe width="660" height="315" src="https://www.youtube.com/embed/CasNYKBDjDM?si=Y-0pmXjp_wWetTLq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
+
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- AMENITIES - FEATURES (Bento Grid) -->
+    <section class="spox-section" id="amenities" style="background-color: #fff;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 30px; font-weight: 600; color: #111827;">Amenities </h2>
+        
+        <div class="spox-bento">
+          <!-- 1. Regular Monitoring (Top Left Wide) -->
+          <div class="spox-bento-item item-monitoring">
+            <img src="assets/amenities/regular-monitoring.png" alt="Regular Monitoring" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Regular Monitoring</div>
+            </div>
+          </div>
+
+          <!-- 2. Medical Support (Bottom Left 1) -->
+          <div class="spox-bento-item item-medical">
+            <img src="assets/amenities/Round-the-Clock.png" alt="Medical Support" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Round-the-Clock<br>Medical Support</div>
+            </div>
+          </div>
+
+          <!-- 3. Senior Friendly Rooms (Bottom Left 2) -->
+          <div class="spox-bento-item item-rooms">
+            <img src="assets/amenities/Senior Friendly.png" alt="Senior Friendly Rooms" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Senior Friendly<br>Rooms</div>
+            </div>
+          </div>
+
+          <!-- 4. Physiotherapy (Center Tall) -->
+          <div class="spox-bento-item item-physio">
+            <img src="assets/amenities/physiotherapy.png" alt="Physiotherapy" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Physiotherapy and<br>Rehabilitation</div>
+            </div>
+          </div>
+
+          <!-- 5. Meals (Top Right)-->
+          <div class="spox-bento-item item-meals">
+            <img src="assets/amenities/Nutritionally.png" alt="Meals" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">Nutritionally<br>Assisted Meals</div>
+            </div>
+          </div>
+
+          <!-- 6. On-call Doctors (Bottom Right) -->
+          <div class="spox-bento-item item-doctors">
+            <img src="assets/amenities/On-call Doctors.png" alt="Doctors" />
+            <div class="spox-bento-overlay">
+              <div class="spox-bento-text">On-call Doctors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+       <!-- WHY US - USPs -->
+    <!-- Title Bar -->
+    <div style="background: #fff; padding: 24px; text-align: center;">
+      <h2 style="margin: 0; color: #111827; font-size: 32px; font-weight: 600;">Why Us - USPs</h2>
+    </div>
+
+    <!-- Main Content with White BG -->
+    <section class="spox-section" id="whyus" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        
+        <div class="usp-grid-responsive" style="display: grid; grid-template-columns: 1fr 300px 1fr; gap: 40px; align-items: center;">
+          
+          <!-- LEFT COLUMN -->
+          <div class="usp-left-col" style="display: flex; flex-direction: column; gap: 40px; text-align: right;">
+            
+            <!-- Item 1 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Better Quality of Life</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   We believe every senior deserves a life full of joy and respect.
+                 </p>
+               </div>
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 4px 20px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+               </div>
+            </div>
+            
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 2 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Open Environment</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Our homes are designed to be open spaces close to nature. 
+                 </p>
+               </div>
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 4px 20px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+               </div>
+            </div>
+
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 3 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Holistic Satisfaction</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   We prioritize complete wellness-physical, emotional, and social needs  with care.
+                 </p>
+               </div>
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 4px 20px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+               </div>
+            </div>
+
+          </div>
+
+          <!-- CENTER IMAGE -->
+          <div class="usp-center-circles" style="position: relative; display: flex; justify-content: center;">
+            <div style="width: 280px; height: 280px; border-radius: 50%; overflow: hidden; border: 6px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2;">
+               <img src="assets/why-us.png" alt="Seniors Celebrating" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <!-- Decorative circle -->
+            <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; border: 1px solid #fff; top: -10px; z-index: 1;"></div>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="usp-right-col" style="display: flex; flex-direction: column; gap: 40px; text-align: left;">
+            
+            <!-- Item 4 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-start; gap: 18px;">
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 20px 4px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+               </div>
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Luxurious Standards</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Thoughtfully designed spaces reflecting a commitment to luxury and cherished memories.
+                 </p>
+               </div>
+            </div>
+
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 5 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-start; gap: 18px;">
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 20px 4px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+               </div>
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Exemplary Care</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Parallel care empowering seniors to thrive in an environment where they feel valued.
+                 </p>
+               </div>
+            </div>
+
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
+
+            <!-- Item 6 -->
+            <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-start; gap: 18px;">
+               <div class="usp-icon-shape" style="border-radius: 20px 20px 20px 4px;">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="#d11f2f"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+               </div>
+               <div style="flex: 1;">
+                 <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">More Than Wellness</h4>
+                 <p style="color: #444; font-size: 13px; line-height: 1.5; margin: 0;">
+                   Harmony of body, mind, and spirit. Celebrating the beauty of growing older.
+                 </p>
+               </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CARE & SERVICES - ICON GRID -->
+    <section class="spox-section" style="background-color: #fafbfc;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; color: #111827; font-weight: 600; margin-bottom: 30px;">Care and Services </h2>
+
+        <div class="spox-services-grid">
+          <!-- 1. Assisted Living -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+              <!-- Hand Holding Heart: Dedicated Care -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 
+            </div>
+            <h3 class="service-title">Dedicated Care for Seniors</h3>
+          </div>
+
+          <!-- 2. Dementia Care (Active/Hovered Look) -->
+          <div class="spox-service-card ">
+            <div class="service-icon-circle">
+              <!-- Doctor/Caregiver Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/></svg>
+            </div>
+            <h3 class="service-title">Trained Caregivers</h3>
+          </div>
+
+          <!-- 3. Dementia Day Care Program -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Emergency/Ambulance/Cross -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8.5 13.5h-1v-3H6.5v-1h3v-3h1v3h3v1h-3v3z"/></svg>
+            </div>
+            <h3 class="service-title">24/7 Emergency Care for Seniors</h3>
+          </div>
+
+          <!-- 4. Palliative Care -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Home/Facilities -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </div>
+            <h3 class="service-title">Comprehensive Facilities for a Comfortable Lifestyle</h3>
+          </div>
+
+          <!-- 5. Parkinson's Disease Care -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Social/Group -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            <h3 class="service-title">Enriching Social Engagement for Seniors</h3>
+          </div>
+
+          <!-- 6. Recovery & Rehabilitation -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Connected/Family/Message -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            </div>
+            <h3 class="service-title">Keeping Families Connected – Regular Updates for NOK</h3>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <!-- HIGHLIGHT MOMENTS -->
+    <section class="spox-section" id="highlight-moments" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Highlight Moments</h2>
+        
+        <!-- Grid of 4 Tall Cards -->
+        <div class="highlight-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+            
+            <!-- Card 1 -->
+            <div class="highlight-card" onclick="openStory(0, 6)">
+               <img src="assets/moments/story1/moments-1main.webp" alt="Moment 1" />
+            </div>
+
+            <!-- Card 2 -->
+            <div class="highlight-card" onclick="openStory(6, 11)">
+               <img src="assets/moments/story2/moments-2main.webp" alt="Moment 2" />
+            </div>
+
+            <!-- Card 3 -->
+            <div class="highlight-card" onclick="openStory(17, 11)">
+               <img src="assets/moments/story3/moments-3main.webp" alt="Moment 3" />
+            </div>
+
+            <!-- Card 4 -->
+            <div class="highlight-card" onclick="openStory(28, 10)">
+               <img src="assets/moments/story4/moments-4main.webp" alt="Moment 4" />
+            </div>
+
+        </div>
+      </div>
+      
+      <!-- Responsive Styles for this section specifically -->
+      <!-- Story Modal (Hidden by default) -->
+      <div id="story-modal" class="story-modal">
+        <!-- Controls removed from here, now inside story-content -->
+        
+        <div class="story-content">
+            <!-- Controls moved INSIDE the card -->
+            <button class="story-close" onclick="closeStory()">&times;</button>
+            <button class="story-nav story-prev" onclick="prevStory()">&#10094;</button>
+            <button class="story-nav story-next" onclick="nextStory()">&#10095;</button>
+
+            <div class="story-track" id="story-track">
+                <!-- STORY 1 (6 Images) -->
+                <div class="story-slide"><img src="assets/moments/story1/moments-1main.webp" alt="Story 1-1"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-1.webp" alt="Story 1-2"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-2.webp" alt="Story 1-3"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-3.webp" alt="Story 1-4"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-4.webp" alt="Story 1-5"></div>
+                <div class="story-slide"><img src="assets/moments/story1/moments-5.webp" alt="Story 1-6"></div>
+                
+                <!-- STORY 2 (11 Images) -->
+                <div class="story-slide"><img src="assets/moments/story2/moments-2main.webp" alt="Story 2-Main"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-1.webp" alt="Story 2-1"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-2.webp" alt="Story 2-2"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-3.webp" alt="Story 2-3"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-4.webp" alt="Story 2-4"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-5.webp" alt="Story 2-5"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-6.webp" alt="Story 2-6"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-7.webp" alt="Story 2-7"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-8.webp" alt="Story 2-8"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-9.webp" alt="Story 2-9"></div>
+                <div class="story-slide"><img src="assets/moments/story2/moments-10.webp" alt="Story 2-10"></div>
+
+                <!-- STORY 3 -->
+                <div class="story-slide"><img src="assets/moments/story3/moments-3main.webp" alt="Story 3-Main"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-1.webp" alt="Story 3-1"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-2.webp" alt="Story 3-2"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-4.webp" alt="Story 3-3"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-5.webp" alt="Story 3-4"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-6.webp" alt="Story 3-5"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-7.webp" alt="Story 3-6"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-8.webp" alt="Story 3-7"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-9.webp" alt="Story 3-8"></div>
+                <div class="story-slide"><img src="assets/moments/story3/moments-10.webp" alt="Story 3-9"></div>
+
+                <!-- STORY 4 -->
+                <div class="story-slide"><img src="assets/moments/story4/moments-4main.webp" alt="Story 4"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-1.webp" alt="Story 4-1"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-2.webp" alt="Story 4-2"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-3.webp" alt="Story 4-3"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-4.webp" alt="Story 4-4"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-5.webp" alt="Story 4-5"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-6.webp" alt="Story 4-6"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-7.webp" alt="Story 4-7"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-8.webp" alt="Story 4-8"></div>
+                <div class="story-slide"><img src="assets/moments/story4/moments-9.webp" alt="Story 4-9"></div>
+            </div>
+            <!-- Progress Bar -->
+            <div class="story-progress-container">
+                <!-- Story 1 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-0"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-1"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-2"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-3"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-4"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-5"></div></div>
+                <!-- Story 2 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-6"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-7"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-8"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-9"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-10"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-11"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-12"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-13"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-14"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-15"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-16"></div></div>
+                <!-- Story 3 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-17"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-18"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-19"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-20"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-21"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-22"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-23"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-24"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-25"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-26"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-27"></div></div>
+                <!-- Story 4 Bars -->
+                <div class="story-bar"><div class="story-fill" id="fill-28"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-29"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-30"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-31"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-32"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-33"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-34"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-35"></div></div>
+                <div class="story-bar"><div class="story-fill" id="fill-36"></div></div>
+                <!-- <div class="story-bar"><div class="story-fill" id="fill-37"></div></div> -->
+
+            </div>
+        </div>
+      </div>
+
+      <!-- Styles for Section & Modal -->
+      <style>
+        /* Highlight Grid Hover Effect */
+        .highlight-card {
+            cursor: pointer;
+            background-color: #d11f2f; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            height: 480px; 
+            position: relative; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        .highlight-card:hover { transform: scale(1.02); }
+        .highlight-card img {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .story-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.15); /* Very light tint */
+            backdrop-filter: blur(5px); /* Gentle blur */
+            -webkit-backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        .story-content {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 85vh; /* Slightly taller */
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .story-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .story-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+        .story-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Show full image */
+            display: block;
+        }
+
+        /* Navigation */
+        /* Navigation */
+        .story-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 36px; height: 36px;
+            font-size: 24px;
+            color: #fff;
+            background: #d81f2a; /* Brand Red */
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10001;
+            display: grid;
+            place-items: center;
+            padding: 0 0 2px 1px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .story-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px; height: 44px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10001;
+            display: grid; place-items: center;
+            transition: background 0.2s;
+        }
+        .story-nav:hover { background: rgba(255,255,255,0.4); }
+        .story-prev { left: 16px; }
+        .story-next { right: 16px; }
+
+        /* Progress Bars */
+        .story-progress-container {
+            position: absolute;
+            top: 10px; left: 10px; right: 10px;
+            display: flex; gap: 6px;
+            z-index: 2;
+        }
+        .story-bar {
+            flex: 1;
+            height: 3px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .story-fill {
+            height: 100%;
+            width: 0;
+            background: #fff;
+            transition: width 0.1s linear;
+        }
+        .story-fill.active { width: 100%; }
+
+        @media (max-width: 980px) {
+           .highlight-grid {
+             grid-template-columns: repeat(2, 1fr) !important; 
+           }
+        }
+        @media (max-width: 600px) {
+           .highlight-grid {
+             grid-template-columns: 1fr !important;
+             gap: 16px !important;
+           }
+           .highlight-card {
+             height: 360px !important; /* Shorter cards on mobile */
+           }
+           /* Mobile Story Modal: Almost full screen but floating */
+           .story-content { 
+             width: 100%; 
+             height: 100%;
+             max-width: 100%;
+             border-radius: 0;
+           }
+           .story-close {
+             top: 20px; right: 20px; 
+             background: #ffffff; /* White bg */
+             color: #d81f2a; /* Brand Red Icon */
+             display: grid !important; /* Force show */
+             z-index: 10002 !important; /* Always on top */
+           }
+           .story-slide {
+             background: #000;
+           }
+           .story-slide img {
+             width: 100%;
+             height: 100%;
+             object-fit: contain !important; /* Ensure image fits within screen without cropping */
+           }
+        }
+      </style>
+
+      <!-- Script for functionality -->
+      <script>
+        let currentStory = 0;
+        let storySetStart = 0;
+        let storySetCount = 0;
+        
+        // Total physical slides in DOM
+        const absoluteTotal = 38;
+        
+        const modal = document.getElementById('story-modal');
+        const track = document.getElementById('story-track'); 
+
+        // New signature: openStory(startIndex, count)
+        function openStory(index, count) {
+            currentStory = index;
+            storySetStart = index;
+            storySetCount = count;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; /* Lock scroll */
+            updateCarousel();
+        }
+
+        function closeStory() {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; /* Unlock scroll */
+        }
+
+        function nextStory() {
+            // Local index within the set
+            let localIndex = currentStory - storySetStart;
+            
+            if (localIndex < storySetCount - 1) {
+                currentStory++;
+            } else {
+                currentStory = storySetStart; // Loop back to start of THIS set
+            }
+            updateCarousel();
+        }
+
+        function prevStory() {
+            let localIndex = currentStory - storySetStart;
+            
+            if (localIndex > 0) {
+                currentStory--;
+            } else {
+                currentStory = storySetStart + storySetCount - 1; // Loop to end of THIS set
+            }
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            // Move track based on global index logic
+            const offset = -currentStory * 100;
+            track.style.transform = `translateX(${offset}%)`;
+
+            // Update Bars: Only show bars relevant to the current set
+            for (let i = 0; i < absoluteTotal; i++) {
+                const barWrapper = document.getElementById(`fill-${i}`).parentElement;
+                
+                // Show/Hide bar wrapper based on set usage
+                if (i >= storySetStart && i < (storySetStart + storySetCount)) {
+                    barWrapper.style.display = 'block';
+                    barWrapper.style.flex = '1'; /* Ensure they take space */
+                } else {
+                    barWrapper.style.display = 'none';
+                }
+                
+                // Update fill
+                const fill = document.getElementById(`fill-${i}`);
+                if (i < currentStory) {
+                    fill.style.width = '100%';
+                    fill.style.transition = 'none'; 
+                } else if (i === currentStory) {
+                    fill.style.width = '100%'; 
+                    fill.style.transition = 'width 5s linear'; 
+                } else {
+                    fill.style.width = '0%';
+                    fill.style.transition = 'none';
+                }
+            }
+        }
+        
+        // Close on clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeStory();
+        });
+
+        /* --- ENQUIRY MODAL LOGIC --- */
+        const enquiryModal = document.getElementById('enquiry-modal');
+        function openEnquiry() {
+            enquiryModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeEnquiry() {
+            enquiryModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        enquiryModal.addEventListener('click', (e) => {
+            if (e.target === enquiryModal) closeEnquiry();
+        });
+
+        /* --- SCROLL LISTENER FOR FIXED BAR --- */
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('spox-fixed-bar');
+            // Show after scrolling past 600px (approx height of hero + about start)
+            if (window.scrollY > 600) {
+                bar.style.transform = "translateX(-50%) translateY(0)";
+            } else {
+                bar.style.transform = "translateX(-50%) translateY(200%)";
+            }
+        });
+
+        /* --- SWIPE SUPPORT FOR STORY --- */
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const storyContainer = document.querySelector('.story-content'); 
+        
+        if(storyContainer) {
+            storyContainer.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            storyContainer.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+        }
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextStory();
+            if (touchEndX > touchStartX + 50) prevStory();
+        }
+      </script>
+
+      <!-- Enquiry Modal (Same Form as Hero) -->
+      <div id="enquiry-modal" class="story-modal" style="display:none; z-index: 10000;">
+         <div style="position: relative; width: 100%; max-width: 420px; border-radius: 20px;">
+             <!-- Close Btn -->
+             <button onclick="closeEnquiry()" style="position: absolute; right: 10px; top: 10px; background: rgba(255,255,255,0.2); border: none; font-size: 24px; color: #fff; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; z-index: 2;">&times;</button>
+             
+             <!-- Reused Glass Form Style -->
+             <div class="glass-form-card" style="box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+                 <div class="glass-header">
+                    <h3 style="text-align: center; text-transform: uppercase;">ENQUIRE</h3>
+                    <div style="width: 50px; height: 4px; background: #d6336c; margin: -16px auto 24px; border-radius: 2px;"></div>
+                 </div>
+                 <form>
+                    <div class="glass-field">
+                        <label class="glass-label">Name</label>
+                        <input type="text" class="glass-input" placeholder="Name" />
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Email ID</label>
+                        <input type="email" class="glass-input" placeholder="Email ID" />
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Mobile number</label>
+                        <input type="tel" class="glass-input" placeholder="Mobile number" />
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Ashiana Care Home</label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none;">
+                                <option value="ashiana-care-home" selected>Ashiana Care Home</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">▼</div>
+                        </div>
+                    </div>
+                    <div class="glass-field">
+                        <label class="glass-label">Rental</label>
+                        <div style="position: relative;">
+                            <select class="glass-input" style="appearance: none;">
+                                <option value="rental" selected>Rental</option>
+                            </select>
+                            <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">▼</div>
+                        </div>
+                    </div>
+                    <div class="glass-checkbox">
+                        <input type="checkbox" checked />
+                        <span>Please contact me, <a href="#" style="color: #fca510; text-decoration: underline;">TERMS OF SERVICE</a> and <a href="#" style="color: #fca510; text-decoration: underline;">PRIVACY POLICY</a></span>
+                    </div>
+                    <button type="submit" class="glass-submit-btn">SUBMIT</button>
+                 </form>
+             </div>
+         </div>
+      </div>
+    </section>
+
+    <!-- WORDS OF EXPERT -->
+    <section class="spox-section" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Words of Expert</h2>
+        
+        <div class="expert-row" style="display: flex; gap: 30px; align-items: stretch;">
+            
+            <!-- Left: Red Card -->
+            <div style="flex: 2; background-color: #d11f2f; border-radius: 24px; padding: 40px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="opacity: 0.5; margin-bottom: 20px;"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"/></svg>
+                <p style="font-size: 20px; line-height: 1.6; margin: 0 0 24px;">
+                    “Caregivers at Ashiana Care Homes are selected carefully and they undergo 114 hour training on basics of geriatric care, health, hygiene, incident / emergency management, soft skills, and managing conditions like dementia etc. Due to this training, caregivers can effectively handle a wide range of behaviour issues which may range from anxiety to anger and agitation to depression. From organising an outing to creating a song and dance party, they do everything to keep residents positive and happy. Caregivers pick up on the body-language of residents to know if they are hungry, irritated, anxious or going through a health problem. Apart from human qualities like warmth.”
+                </p>
+                
+                <div style="margin-bottom: 24px;">
+                    <h4 style="margin: 0; font-size: 22px; font-weight: 700;">Dr. Nishant</h4>
+                    <p style="margin: 4px 0 0; opacity: 0.9;">(Care Home Manager Bhiwadi)</p>
+                </div>
+
+                <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                    <button class="spox-btn" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 8px; cursor: pointer;">
+                        Leave a query to our expert
+                    </button>
+                    <button class="spox-btn" style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); padding: 12px 24px; font-weight: 700; border-radius: 8px; cursor: pointer;">
+                        Schedule a Call
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Image -->
+            <div style="flex: 1; min-height: 400px;">
+                <img src="assets/expert.webp" alt="Expert Dr. Nishant" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
+            </div>
+
+        </div>
+      </div>
+
+      <style>
+          /* Expert Section Mobile */
+          @media (max-width: 768px) {
+              .expert-row { flex-direction: column; }
+              .expert-row > div { width: 100%; }
+              /* Hide the image container (2nd child) on mobile */
+              .expert-row > div:last-child { display: none; }
+          }
+      </style>
+    </section>
+
+
+    <!-- Title Bar -->
+    <div style="background: #fff; padding: 24px; text-align: center;">
+      <h2 style="margin: 0; color: #111827; font-size: 36px; font-weight: 600;">Image Gallery</h2>
+    </div>
+
+    <!-- Gallery Content with Slider -->
+    <section class="spox-section" id="gallery" style="background-color: #fafbfc; padding: 60px 0;">
+      <div class="spox-container">
+        
+        <!-- Slider Container relative for arrows -->
+        <div class="gallery-slider-container" style="position: relative; overflow: hidden; padding: 0 20px;">
+          
+          <!-- Left Arrow -->
+          <div class="gallery-arrow gallery-prev" onclick="moveGallery(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.5); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 50%; z-index: 10;">&lt;</div>
+          
+          <!-- Right Arrow -->
+          <div class="gallery-arrow gallery-next" onclick="moveGallery(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(0,0,0,0.5); color: #fff; display: grid; place-items: center; cursor: pointer; border-radius: 50%; z-index: 10;">&gt;</div>
+
+          <!-- Track -->
+          <div class="gallery-track" id="gallery-track" style="display: flex; gap: 30px; transition: transform 0.5s ease-in-out;">
+            
+            <!-- Item 1: Swimming Pool -->
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-1.webp" alt="Swimming Pool" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Swimming Pool
+                 </div> -->
+               </div>
+            </div>
+
+            <!-- Item 2: Cards -->
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-2.webp" alt="Cards" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Cards
+                 </div> -->
+               </div>
+            </div>
+
+            <!-- Item 3: Meditation -->
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-3.webp" alt="Meditation" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Meditation
+                 </div> -->
+               </div>
+            </div>
+
+             <!-- Item 4: Gardening (Duplicate/Extra for slide demo) -->
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-4.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-5.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+            <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-6.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+              <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-7.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+              <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-8.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+             <div class="gallery-item" style="min-width: calc(33.333% - 20px); background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+               <div style="position: relative; height: 320px; overflow: hidden; border-radius: 8px;">
+                 <img src="assets/gallery/moments-9.webp" alt="Gardening" style="width: 100%; height: 100%; object-fit: cover;" />
+                 <!-- <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); padding: 8px 24px; border-radius: 4px; font-weight: 800; color: #111; font-size: 18px; white-space: nowrap;">
+                    Gardening
+                 </div> -->
+               </div>
+            </div>
+          </div>  
+        </div>
+
+      </div>
+      
+      <style>
+         @media (max-width: 900px) {
+            .gallery-item {
+               min-width: 100% !important; /* Full width on mobile */
+            }
+            .gallery-track {
+                gap: 0 !important; /* Remove gap on mobile to simplify math or keep it consistent */
+            }
+         }
+      </style>
+
+      <script>
+        const galleryTrack = document.getElementById('gallery-track');
+        let galleryIndex = 0;
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const totalGalleryItems = galleryItems.length;
+        let galleryInterval;
+
+        // Function to move gallery
+        function moveGallery(direction) {
+            const itemsVisible = window.innerWidth <= 900 ? 1 : 3;
+            const itemWidth = 100 / itemsVisible; // Percentage
+            
+            galleryIndex += direction;
+
+            // Loop logic
+            if (galleryIndex > totalGalleryItems - itemsVisible) {
+                galleryIndex = 0;
+            } else if (galleryIndex < 0) {
+                galleryIndex = totalGalleryItems - itemsVisible;
+            }
+
+            // Calculation for transform
+            // We need to account for the gap if we want precision, but for simplicity with percentage width:
+            // If itemsVisible is 1, translate is index * 100%
+            // If itemsVisible is 3, translate is index * (33.333% + gap compensation?)
+            // A simpler approach for the gap is to use a container width based shift or just percent.
+            // Let's use simple percent based on item count.
+            
+            // Adjust translation. 
+            // Note: The 'gap: 30px' in CSS might mess up exact % based translation if not careful.
+            // For a robust slider with gaps, usually we calculate px widths.
+            // Let's stick to a simpler approximation or remove gap in JS calculation contexts.
+            
+            // Re-selecting to ensure responsiveness
+            const trackWidth = galleryTrack.parentElement.offsetWidth;
+            const singleItemWidth = galleryTrack.children[0].offsetWidth; 
+            const gap = 30; // matched css
+            
+            // Calculate move distance in pixels
+            const moveAmount = (singleItemWidth + gap) * galleryIndex;
+            
+            galleryTrack.style.transform = `translateX(-${moveAmount}px)`;
+            
+            resetGalleryTimer();
+        }
+
+        function startGalleryTimer() {
+            galleryInterval = setInterval(() => {
+                moveGallery(1);
+            }, 3000); // 3 seconds
+        }
+
+        function resetGalleryTimer() {
+             clearInterval(galleryInterval);
+             startGalleryTimer();
+        }
+
+        // Initialize
+        startGalleryTimer();
+        
+        // Handle Resize to reset positions or re-calc
+        window.addEventListener('resize', () => {
+            moveGallery(0); // Recalculate position
+        });
+      </script>
+    </section>
+
+    <!-- TESTIMONIES -->
+    <section class="spox-section" id="testimonials" style="background-color: #fff; padding: 60px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Testimonies</h2>
+        
+        <div class="testimonies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+           
+           
+           <!-- Video Card 1 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/LdL84elJXEk?si=eFDWFhscJj3-H3NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>
+           </div>
+
+           <!-- Video Card 2 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+<iframe width="100%" height="100%" style="border: none;" src="https://www.youtube.com/embed/Ia_OgZ9H9Tg?si=WSVWSZ56NdDkfFWV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>           </div>
+
+           <!-- Video Card 3 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+<iframe width="100%" height="100%" style="border: none;" src="https://www.youtube.com/embed/jWPo14CDfHA?si=pTbGBwrhO_E-y6Pa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>           </div>
+
+        </div>
+      </div>
+
+      <style>
+        @media (max-width: 900px) {
+           .testimonies-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
+           .testimonies-grid { grid-template-columns: 1fr !important; }
+           .testimony-card { height: 220px !important; }
+        }
+      </style>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="spox-section" id="faq" style="background-color: #f9f9fb; padding: 80px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: left; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Frequently Asked Questions</h2>
+
+        <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- Question 1 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    What services are included in assisted living?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Our assisted living plans cover 24/7 nursing support, daily housekeeping, nutritious meals, laundry services, and recreational activities designed for senior wellness.
+                </div>
+            </details>
+
+            <!-- Question 2 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    Is there a doctor available on campus?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Yes, we have on-call doctors available for regular check-ups and emergencies. We also have a dedicated nursing station functional 24 hours a day.
+                </div>
+            </details>
+
+            <!-- Question 3 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    Can family members visit?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Absolutely. We encourage family visits and have dedicated guest rooms if they wish to stay overnight. Visiting hours are flexible to ensure quality family time.
+                </div>
+            </details>
+
+            <!-- Question 4 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    Do you provide specialized care for dementia patients?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    Yes, we offer specialized Dementia Care programs that focus on memory support, safety, and cognitive engagement in a secure environment.
+                </div>
+            </details>
+
+            <!-- Question 5 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    What are the dining options?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    We serve freshly prepared, nutritionist-approved vegetarian meals. Special dietary requirements (e.g., diabetic-friendly, low sodium) are catered to with care.
+                </div>
+            </details>
+
+            <!-- Question 6 -->
+            <details class="spox-faq-item">
+                <summary class="spox-faq-summary">
+                    How secure is the facility?
+                    <svg class="spox-faq-icon" width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <div class="spox-faq-answer">
+                    The entire campus is under CCTV surveillance with 24/7 security guards. We also have emergency pull cords in rooms and bathrooms for immediate assistance.
+                </div>
+            </details>
+
+        </div>
+      </div>
+      
+    
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section class="spox-section" id="blog" style="background-color: #fffbf0; padding: 80px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: left; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Latest Insights</h2>
+
+        <div class="blog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            
+            <!-- Blog Card 1 -->
+            <div class="blog-card" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
+                <div style="height: 220px; overflow: hidden;">
+                    <img src="https://image.pollinations.ai/prompt/interior%20design%20luxury%20living%20room%20india" alt="Blog 1" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+                </div>
+                <div style="padding: 24px; flex: 1; display: flex; flex-direction: column;">
+                    <div style="color: #db2b39; font-weight: 600; font-size: 14px; margin-bottom: 8px;">30 Jun, 2023</div>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #111; margin: 0 0 12px; line-height: 1.4;">5 Tips for Renting Out Your Home in Jaipur</h3>
+                    <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0 0 24px; flex: 1;">
+                        Renting out your home/flat is one of the most common methods of passive income for most people. Renting out your home brings several benefits. It off...
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="color: #999; font-size: 13px; font-weight: 600;">5 mins read</span>
+                        <a href="#" class="blog-arrow-btn" style="width: 40px; height: 40px; background: #d11f2f; border-radius: 50%; display: grid; place-items: center; color: #fff; text-decoration: none; transition: transform 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
+                <div style="height: 220px; overflow: hidden;">
+                    <img src="https://image.pollinations.ai/prompt/nurse%20talking%20to%20elderly%20woman%20smiling%20hospital%20garden" alt="Blog 2" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+                </div>
+                <div style="padding: 24px; flex: 1; display: flex; flex-direction: column;">
+                    <div style="color: #db2b39; font-weight: 600; font-size: 14px; margin-bottom: 8px;">26 Feb, 2022</div>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #111; margin: 0 0 12px; line-height: 1.4;">What is a residential care home for elderly & steps to follow?</h3>
+                    <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0 0 24px; flex: 1;">
+                        According to the last Census conducted in 2011, India has 104 million senior citizens and is expected to increase 3 times to 340 million by 2050. A su...
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="color: #999; font-size: 13px; font-weight: 600;">5 mins read</span>
+                        <a href="#" class="blog-arrow-btn" style="width: 40px; height: 40px; background: #d11f2f; border-radius: 50%; display: grid; place-items: center; color: #fff; text-decoration: none; transition: transform 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
+                <div style="height: 220px; overflow: hidden;">
+                    <img src="https://image.pollinations.ai/prompt/group%20of%20elderly%20indian%20people%20socializing%20living%20room" alt="Blog 3" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+                </div>
+                <div style="padding: 24px; flex: 1; display: flex; flex-direction: column;">
+                    <div style="color: #db2b39; font-weight: 600; font-size: 14px; margin-bottom: 8px;">15 Dec, 2015</div>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #111; margin: 0 0 12px; line-height: 1.4;">13 Things You Probably Don't Know About Retirement Communities</h3>
+                    <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0 0 24px; flex: 1;">
+                        A continuing care retirement community (CCRC) is an alternative residential option for senior citizens (usually 65 years of age and older) who wa...
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="color: #999; font-size: 13px; font-weight: 600;">5 mins read</span>
+                        <a href="#" class="blog-arrow-btn" style="width: 40px; height: 40px; background: #d11f2f; border-radius: 50%; display: grid; place-items: center; color: #fff; text-decoration: none; transition: transform 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+      
+      <style>
+          .blog-arrow-btn:hover {
+              transform: translateX(4px);
+              background: #e68200 !important;
+          }
+          @media (max-width: 900px) {
+              .blog-grid { grid-template-columns: 1fr !important; }
+          }
+      </style>
+
+    <!-- FIXED BOTTOM BAR -->
+    <div id="spox-fixed-bar" class="spox-fixed-bar-api">
+      <div class="fixed-bar-inner">
+        
+        <div class="fixed-bar-left">
+           <div class="fixed-bar-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+           </div>
+           <div class="fixed-bar-text">
+              <div class="fixed-bar-head">Need help choosing?</div>
+              <div class="fixed-bar-sub">Talk to our care experts.</div>
+           </div>
+        </div>
+
+        <div class="fixed-bar-actions">
+            <!-- Call Button -->
+            <button class="spox-btn btn-call" onclick="openEnquiry()" style="background: #fff; color: #d11f2f; border: none; padding: 12px 24px; font-weight: 700; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <!-- <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 17 17 0 0017 17c.55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg> -->
+              Enquire Now
+            </button>   
+            
+            <!-- Site Visit Button -->
+            <button class="spox-btn btn-visit" style="background: #d11f2f; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 12px 24px; font-weight: 600; border-radius: 50px; cursor: pointer; font-size: 14px; white-space: nowrap; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.4)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
+              Site Visit
+            </button>
+        </div>
+
+      </div>
+    </div>
+    
+    <style>
+      .spox-fixed-bar-api {
+        position: fixed; 
+        bottom: 30px; 
+        left: 50%; 
+        transform: translateX(-50%) translateY(200%); 
+        z-index: 9999; 
+        width: 94%; 
+        max-width: 1000px;
+        transition: transform 0.3s ease;
+      }
+      .fixed-bar-inner {
+        background: #000; 
+        border-radius: 100px; 
+        padding: 12px 16px 12px 32px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 20px; 
+        box-shadow: 0 16px 40px rgba(0,0,0,0.3);  
+        border: 2px solid rgba(255,255,255,0.1);
+      }
+      .fixed-bar-left {
+        display: flex; align-items: center; gap: 16px; flex: 1;
+      }
+      .fixed-bar-icon {
+        width: 48px; height: 48px; 
+        background: rgba(255,255,255,0.2); 
+        border-radius: 50%; 
+        display: grid; place-items: center; flex-shrink: 0;
+      }
+      .fixed-bar-text { color: #fff; }
+      .fixed-bar-head { font-weight: 800; font-size: 16px; line-height: 1.2; }
+      .fixed-bar-sub { font-size: 13px; opacity: 0.9; }
+      .fixed-bar-actions { display: flex; gap: 10px; align-items: center; }
+
+      /* Responsive Logic */
+      @media (max-width: 768px) {
+         .fixed-bar-sub { display: none; }
+         .fixed-bar-icon { width: 40px; height: 40px; }
+         .fixed-bar-head { font-size: 14px; }
+         .fixed-bar-inner { padding-left: 16px; }
+      }
+      @media (max-width: 600px) {
+         .fixed-bar-icon { display: none; }
+         .fixed-bar-inner { padding: 10px; justify-content: center; }
+         .fixed-bar-left { flex: 0 0 auto; margin-right: auto; } /* Keep text on left */
+         .fixed-bar-actions button { padding: 10px 16px !important; font-size: 13px !important; }
+      }
+      @media (max-width: 480px) {
+         .spox-fixed-bar-api { width: 72%; bottom: 12px; }
+         .fixed-bar-text { display: none; } /* Hide text completely, show buttons only */
+         .fixed-bar-inner { padding: 8px; gap: 8px; }
+         .fixed-bar-actions { width: 100%; gap: 8px; }
+         .fixed-bar-actions button { flex: 1; justify-content: center; }
+         .fixed-bar-left { display: none; }
+      }
+    </style>
+    
+    <!-- ZOOM WIDGET -->
+    <div id="spox-zoom-widget-container" class="spox-zoom-widget">
+        <button class="spox-zoom-btn" onclick="updateSpoxZoom(0.1)" title="Zoom In">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="spox-zoom-level" onclick="resetSpoxZoom()" title="Reset Zoom">100%</div>
+        <button class="spox-zoom-btn" onclick="updateSpoxZoom(-0.1)" title="Zoom Out">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+    </div>
+
+    <style>
+        .spox-zoom-widget {
+            position: fixed;
+            bottom: 140px;
+            right: 24px;
+            z-index: 9990;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .spox-zoom-widget:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .spox-zoom-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.05);
+            background: #fff;
+            color: #111827;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .spox-zoom-btn:hover {
+            background: #d11f2f;
+            color: #fff;
+            border-color: #d11f2f;
+            transform: scale(1.1);
+        }
+        .spox-zoom-btn:active {
+            transform: scale(0.95);
+        }
+        .spox-zoom-level {
+            font-size: 11px;
+            font-weight: 800;
+            color: #111;
+            padding: 4px 6px;
+            background: rgba(0,0,0,0.04);
+            border-radius: 6px;
+            cursor: pointer;
+            min-width: 36px;
+            text-align: center;
+            user-select: none;
+        }
+        .spox-zoom-level:hover {
+            background: rgba(0,0,0,0.08);
+            color: #d11f2f;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .spox-zoom-widget {
+                bottom: 110px; /* Shifted slightly to clear bottom fixed bar */
+                right: 16px;
+                transform: scale(0.95); /* Slightly bigger on tablets than previous */
+            }
+        }
+        @media (max-width: 480px) {
+            .spox-zoom-widget {
+                bottom: 100px;
+                right: 12px;
+                padding: 6px;
+                gap: 6px;
+                transform: none; /* Keep natural size for touch targets */
+            }
+            .spox-zoom-btn {
+                width: 40px; height: 40px; /* Slightly smaller but still touchable */
+            }
+        }
+    </style>
+
+    <script>
+        let currentSpoxZoomLvl = 1.0;
+        const spoxZoomDisplay = document.querySelector('.spox-zoom-level');
+
+        function updateSpoxZoom(delta) {
+            currentSpoxZoomLvl += delta;
+            // Clamp
+            if (currentSpoxZoomLvl < 0.5) currentSpoxZoomLvl = 0.5;
+            if (currentSpoxZoomLvl > 2.0) currentSpoxZoomLvl = 2.0;
+            
+            applySpoxZoomEffect();
+        }
+
+        function resetSpoxZoom() {
+            currentSpoxZoomLvl = 1.0;
+            applySpoxZoomEffect();
+        }
+
+        function applySpoxZoomEffect() {
+            // Update Text
+            if(spoxZoomDisplay) {
+                spoxZoomDisplay.innerText = Math.round(currentSpoxZoomLvl * 100) + '%';
+            }
+            // Apply Zoom
+            document.body.style.zoom = currentSpoxZoomLvl;
+        }
+    </script>
+      
+    <!-- COPYRIGHT FOOTER -->
+    <!-- <footer style="background: #0b1220; color: #6b7280; padding: 60px 0 100px; text-align: center; font-size: 14px;">
+        <div class="spox-container">
+            &copy; 2024 Ashiana Housing Ltd. All Rights Reserved.
+        </div>
+    </footer> -->
+  </body>
+</html>
