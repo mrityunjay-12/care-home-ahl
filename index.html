@@ -2344,7 +2344,8 @@ We provide specialised support for seniors managing progressive health condition
      <!-- HIGHLIGHT MOMENTS -->
     <section class="spox-section" id="highlight-moments" style="background-color: #fff; padding: 60px 0;">
       <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Moments That Matter
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Everyday Moments of Care and Joy
+
         </h2>
         
         <!-- Grid of 4 Tall Cards -->
@@ -2353,21 +2354,45 @@ We provide specialised support for seniors managing progressive health condition
             <!-- Card 1 -->
             <div class="highlight-card" onclick="openStory(0, 6)">
                <img src="assets/moments/story1/moments-1main.webp" alt="Moment 1" />
+               <div class="highlight-overlay">
+                   <div class="highlight-icon">
+                       <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                   </div>
+                   <div class="highlight-title">Our Care in Action</div>
+               </div>
             </div>
 
             <!-- Card 2 -->
             <div class="highlight-card" onclick="openStory(6, 11)">
                <img src="assets/moments/story2/moments-2main.webp" alt="Moment 2" />
+               <div class="highlight-overlay">
+                   <div class="highlight-icon">
+                       <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                   </div>
+                   <div class="highlight-title">Daily Life Engagements</div>
+               </div>
             </div>
 
             <!-- Card 3 -->
             <div class="highlight-card" onclick="openStory(17, 11)">
                <img src="assets/moments/story3/moments-3main.webp" alt="Moment 3" />
+                <div class="highlight-overlay">
+                   <div class="highlight-icon">
+                       <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                   </div>
+                   <div class="highlight-title">Trusted Care Standards</div>
+               </div>
             </div>
 
             <!-- Card 4 -->
             <div class="highlight-card" onclick="openStory(28, 10)">
                <img src="assets/moments/story4/moments-4main.webp" alt="Moment 4" />
+               <div class="highlight-overlay">
+                   <div class="highlight-icon">
+                       <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                   </div>
+                   <div class="highlight-title">Freshness to Life</div>
+               </div>
             </div>
 
         </div>
@@ -2495,6 +2520,46 @@ We provide specialised support for seniors managing progressive health condition
         .highlight-card:hover { transform: scale(1.02); }
         .highlight-card img {
             width: 100%; height: 100%; object-fit: cover; opacity: 0.9;
+        }
+
+        /* Overlay Styles */
+        .highlight-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        .highlight-card:hover .highlight-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%);
+        }
+        .highlight-icon {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            width: 38px; height: 38px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            padding: 8px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .highlight-title {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            transform: translateY(0);
+            transition: transform 0.3s;
+            padding-right: 48px;
+        }
+        .highlight-card:hover .highlight-title {
+            transform: translateY(-4px);
         }
 
         /* Modal Styles */
