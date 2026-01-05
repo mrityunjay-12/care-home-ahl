@@ -1046,11 +1046,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .item-monitoring, .item-medical, .item-rooms, .item-physio, .item-meals, .item-doctors {
             grid-column: auto !important; grid-row: auto !important; height: 260px;
         }
-        .spox-services-grid { grid-template-columns: 1fr; }
-        .usp-grid-responsive { grid-template-columns: 1fr !important; text-align: center !important; }
-        .usp-left-col, .usp-right-col { text-align: center !important; }
-        .usp-item { flex-direction: column !important; align-items: center !important; }
-        .usp-center-circles { display: none; }
+        .spox-services-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .spox-service-card { padding: 15px; gap: 10px; }
+        .service-title { font-size: 13px; line-height: 1.3; }
+        .service-icon-circle { width: 50px; height: 50px; }
+        .service-icon-circle svg { width: 24px; height: 24px; }
+        .usp-grid-responsive { grid-template-columns: 1fr !important; gap: 30px !important; }
+        .usp-center-circles { 
+            display: flex !important; 
+            order: -1; 
+            justify-content: center; 
+            margin-bottom: 20px;
+        }
+        /* Make image container square-ish/rectangular */
+        .usp-center-circles > div:first-child {
+            border-radius: 20px !important; 
+            width: 100% !important; 
+            height: 300px !important; 
+            border: none !important;
+        }
+        /* Hide decorative ring */
+        .usp-center-circles > div:last-child {
+            display: none !important; 
+        }
+        .usp-left-col, .usp-right-col { text-align: left !important; gap: 30px !important; }
+        
+        /* Force Icon Left, Text Right layout for both columns */
+        .usp-item { align-items: flex-start !important; gap: 16px !important; }
+        
+        /* Left Column (Text first in HTML): Reverse row to put Icon first visually */
+        .usp-left-col .usp-item {
+            flex-direction: row-reverse !important;
+            justify-content: flex-end !important;
+            text-align: left !important;
+        }
+        
+        /* Right Column (Icon first in HTML): Standard row */
+        .usp-right-col .usp-item {
+            flex-direction: row !important;
+            justify-content: flex-start !important;
+            text-align: left !important;
+        }
+
+        /* Mobile Icon Size */
+        .usp-icon-shape { width: 48px; height: 48px; min-width: 48px; }
+        .usp-icon-shape svg { width: 24px; height: 24px; }
       }
 
       /* Bento Grid Styles */
@@ -1923,7 +1963,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>    </header>
 <div id="spox-zoom-container">
     <!-- HERO -->
-    <section class="spox-hero">
+    <section class="spox-hero" style="background-color: #ffffff;">
       <div class="spox-hero-banner">
         <!-- Replace with your real banner -->
         <img src="https://www.ashianahousing.com/assets/images/care-home-desktop-banner-new.webp" alt="Care Home Hero" />
@@ -1939,39 +1979,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <form>
                     <!-- Name Field -->
                     <div class="glass-field">
-                        <label class="glass-label">
+                        <!-- <label class="glass-label">
                             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                             Name
                         </label>
-                        <input type="text" class="glass-input" placeholder="Name" />
+                         -->
+                        <div style="position: relative;">
+                            <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; pointer-events: none;">
+                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                            </span>
+                            <input type="text" class="glass-input" placeholder="Name" style="padding-left: 40px !important;" />
+                        </div>
                     </div>
 
                     <!-- Email Field -->
                     <div class="glass-field">
-                        <label class="glass-label">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        <!-- <label class="glass-label">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             Email ID
-                        </label>
-                        <input type="email" class="glass-input" placeholder="Email ID" />
+                        </label> -->
+                        <div style="position: relative;">
+                            <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; pointer-events: none;">
+                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            </span>
+                            <input type="email" class="glass-input" placeholder="Email ID" style="padding-left: 40px !important;" />
+                        </div>
                     </div>
 
                     <!-- Phone Field -->
                     <div class="glass-field">
-                        <label class="glass-label">
+                        <!-- <label class="glass-label">
                             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                             Mobile number
-                        </label>
-                        <input type="tel" class="glass-input" placeholder="Mobile number" />
+                        </label> -->
+                        <div style="position: relative;">
+                            <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; pointer-events: none;">
+                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                            </span>
+                            <input type="tel" class="glass-input" placeholder="Mobile number" style="padding-left: 40px !important;" />
+                        </div>
                     </div>
 
                     <!-- Property Dropdown -->
                     <div class="glass-field">
-                        <label class="glass-label">
+                        <!-- <label class="glass-label">
                             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM9 10a1 1 0 011-1h4a1 1 0 110 2h-4a1 1 0 01-1-1z" /></svg>
                             Ashiana Care Home
-                        </label>
+                        </label> -->
                         <div style="position: relative;">
-                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9);">
+                            <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; pointer-events: none;">
+                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM9 10a1 1 0 011-1h4a1 1 0 110 2h-4a1 1 0 01-1-1z" /></svg>
+                            </span>
+                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9); padding-left: 40px !important;">
                                 <option value="ashiana-care-home" selected>Ashiana Care Home</option>
                             </select>
                             <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">
@@ -1982,12 +2041,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <!-- Rental Dropdown -->
                     <div class="glass-field">
-                        <label class="glass-label">
+                        <!-- <label class="glass-label">
                             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
                             Rental
-                        </label>
+                        </label> -->
                         <div style="position: relative;">
-                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9);">
+                            <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; pointer-events: none;">
+                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                            </span>
+                            <select class="glass-input" style="appearance: none; cursor: pointer; background-color: rgba(235, 237, 240, 0.9); padding-left: 40px !important;">
                                 <option value="rental" selected>Rental</option>
                             </select>
                             <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #555;">
@@ -2010,7 +2072,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
      <!-- ABOUT + RIGHT INFO -->
     <!-- 2ND SECTION - INLINE STYLED AS REQUESTED -->
-    <section style="background-color: #ffffff; padding: 72px 0; position: relative;">
+    <section style="background-color: #ffffff; padding: 20px 0; position: relative;">
       <div class="spox-container">
         
         <!-- Header -->
@@ -2057,7 +2119,7 @@ We provide specialised support for seniors managing progressive health condition
             <div class="spox-featured-grid">
                 
                 <!-- Left: Property Card -->
-                <div class="spox-prop-card">
+                <div class="spox-prop-card" style="border-radius: 20px;">
                     <div class="spox-prop-img">
                         <!-- Use a real image -->
                         <img src="https://www.ashianahousing.com/uploads/property/370x200_1-1738836679.jpg" alt="Property Image" />
@@ -2086,7 +2148,7 @@ We provide specialised support for seniors managing progressive health condition
                 </div>
 
                 <!-- Right: Video -->
-                <div class="spox-prop-video">
+                <div class="spox-prop-video" style="border-radius: 20px;">
                     <!-- YouTube Embed -->
                     <iframe width="660" height="315" src="https://www.youtube.com/embed/CasNYKBDjDM?si=Y-0pmXjp_wWetTLq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
 
@@ -2094,8 +2156,44 @@ We provide specialised support for seniors managing progressive health condition
         </div>
     </section>
 
+<!-- TESTIMONIES -->
+    <section class="spox-section" id="testimonials" style="background-color: #fff; padding: 20px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Stories That Speak
+        </h2>
+        
+        <div class="testimonies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+           
+           
+           <!-- Video Card 1 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/LdL84elJXEk?si=eFDWFhscJj3-H3NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>
+           </div>
+
+           <!-- Video Card 2 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/Ia_OgZ9H9Tg?si=WSVWSZ56NdDkfFWV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
+
+           <!-- Video Card 3 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/jWPo14CDfHA?si=pTbGBwrhO_E-y6Pa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
+
+        </div>
+      </div>
+
+      <style>
+        @media (max-width: 900px) {
+           .testimonies-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
+           .testimonies-grid { grid-template-columns: 1fr !important; }
+           .testimony-card { height: 220px !important; }
+        }
+      </style>
+    </section>
+
    <!-- AMENITIES - FEATURES (Bento Grid) -->
-    <section class="spox-section" id="amenities" style="background-color: #fff;">
+    <section class="spox-section" id="amenities" style="background-color: #fff; padding: 20px 0;">
       <div class="spox-container">
         <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 30px; font-weight: 600; color: #111827;">Wellness Focused Amenities
           </h2>
@@ -2153,20 +2251,15 @@ We provide specialised support for seniors managing progressive health condition
     </section>
 
      <!-- WHY US - USPs -->
-    <!-- Title Bar -->
-    <div style="background: #fff; padding: 24px; text-align: center;">
-      <h2 style="margin: 0; color: #111827; font-size: 36px; font-weight: 600;">Why We Stand Apart
-          </h2>
-    </div>
-
     <!-- Main Content with White BG -->
-    <section class="spox-section" id="whyus" style="background-color: #fff; padding: 60px 0;">
+    <section class="spox-section" id="whyus" style="background-color: #fff; padding: 20px 0;">
       <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 30px; font-weight: 600; color: #111827;">Why We Stand Apart</h2>
         
         <div class="usp-grid-responsive" style="display: grid; grid-template-columns: 1fr 300px 1fr; gap: 40px; align-items: center;">
           
           <!-- LEFT COLUMN -->
-          <div class="usp-left-col" style="display: flex; flex-direction: column; gap: 40px; text-align: right;">
+          <div class="usp-left-col" style="display: flex; flex-direction: column; gap: 30px; text-align: right;">
             
             <!-- Item 1 -->
             <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
@@ -2211,7 +2304,10 @@ We provide specialised support for seniors managing progressive health condition
                </div>
             </div>
 
+            <!-- Divider for mobile/desktop if needed -->
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
           </div>
+            <!-- <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div> -->
 
           <!-- CENTER IMAGE -->
           <div class="usp-center-circles" style="position: relative; display: flex; justify-content: center;">
@@ -2223,7 +2319,7 @@ We provide specialised support for seniors managing progressive health condition
           </div>
 
           <!-- RIGHT COLUMN -->
-          <div class="usp-right-col" style="display: flex; flex-direction: column; gap: 40px; text-align: left;">
+          <div class="usp-right-col" style="display: flex; flex-direction: column; gap: 30px; text-align: left;">
             
             <!-- Item 4 -->
             <div class="usp-item" style="display: flex; align-items: center; justify-content: flex-start; gap: 18px;">
@@ -2233,7 +2329,7 @@ We provide specialised support for seniors managing progressive health condition
                <div style="flex: 1;">
                  <h4 style="color: #d11f2f; font-size: 18px; font-weight: 800; margin: 0 0 6px;">Luxurious Standards</h4>
                  <p style="color: #444; font-size: 15px; line-height: 1.5; margin: 0;">
-                   Thoughtfully designed spaces reflecting a commitment to luxury and cherished memories.
+                   Thoughtfully designed spaces reflecting a commitment to cherished memories.
                  </p>
                </div>
             </div>
@@ -2266,7 +2362,9 @@ We provide specialised support for seniors managing progressive health condition
                    Harmony of body, mind, and spirit. Celebrating the beauty of growing older.
                  </p>
                </div>
+               
             </div>
+            <div style="border-bottom: 1px dashed rgba(0,0,0,0.1);"></div>
 
           </div>
 
@@ -2275,12 +2373,12 @@ We provide specialised support for seniors managing progressive health condition
     </section>
 
    <!-- CARE & SERVICES - ICON GRID -->
-    <section class="spox-section" style="background-color: #fafbfc;">
+    <section class="spox-section" style="background-color: #fafbfc; ">
       <div class="spox-container">
         <h2 class="spox-h2" style="text-align: center; font-size: 36px; color: #111827; font-weight: 600; margin-bottom: 30px;">Personalised Care Services
             </h2>
 
-        <div class="spox-services-grid">
+        <div class="spox-services-grid " style="padding: 20px 0;">
           <!-- 1. Assisted Living -->
           <div class="spox-service-card">
             <div class="service-icon-circle">
@@ -2307,7 +2405,14 @@ We provide specialised support for seniors managing progressive health condition
             </div>
             <h3 class="service-title">24/7 Emergency Care for Seniors</h3>
           </div>
-
+ <!-- 5. Parkinson's Disease Care -->
+          <div class="spox-service-card">
+            <div class="service-icon-circle">
+               <!-- Social/Group -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            <h3 class="service-title">Social Engagement for Seniors</h3>
+          </div>
           <!-- 4. Palliative Care -->
           <div class="spox-service-card">
             <div class="service-icon-circle">
@@ -2317,14 +2422,7 @@ We provide specialised support for seniors managing progressive health condition
             <h3 class="service-title">Comprehensive Facilities for a Comfortable Lifestyle</h3>
           </div>
 
-          <!-- 5. Parkinson's Disease Care -->
-          <div class="spox-service-card">
-            <div class="service-icon-circle">
-               <!-- Social/Group -->
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-            </div>
-            <h3 class="service-title">Enriching Social Engagement for Seniors</h3>
-          </div>
+         
 
           <!-- 6. Recovery & Rehabilitation -->
           <div class="spox-service-card">
@@ -2342,14 +2440,14 @@ We provide specialised support for seniors managing progressive health condition
  
 
      <!-- HIGHLIGHT MOMENTS -->
-    <section class="spox-section" id="highlight-moments" style="background-color: #fff; padding: 60px 0;">
+    <section class="spox-section" id="highlight-moments" style="background-color: #fff; padding: 10px 0;">
       <div class="spox-container">
         <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Everyday Moments of Care and Joy
 
         </h2>
         
         <!-- Grid of 4 Tall Cards -->
-        <div class="highlight-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+        <div class="highlight-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 20px 0;">
             
             <!-- Card 1 -->
             <div class="highlight-card" onclick="openStory(0, 6)">
@@ -2892,11 +2990,11 @@ We provide specialised support for seniors managing progressive health condition
       </div>
     </section>
 <!-- WORDS OF EXPERT -->
-    <section class="spox-section" style="background-color: #fff; padding: 60px 0;">
+    <section class="spox-section" style="background-color: #fff; padding: 20px 0;">
       <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Words of Expert</h2>
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 30px; color: #111827; font-weight: 600;">Words of Expert</h2>
         
-        <div class="expert-row" style="display: flex; gap: 30px; align-items: stretch;">
+        <div class="expert-row" style="display: flex; gap: 30px; align-items: stretch; padding: 20px 0;">
             
             <!-- Left: Red Card -->
             <div style="flex: 2; background-color: #d11f2f; border-radius: 24px; padding: 40px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
@@ -2941,13 +3039,13 @@ We provide specialised support for seniors managing progressive health condition
 
 
      <!-- Title Bar -->
-    <div style="background: #fff; padding: 24px; text-align: center;">
+    <div style="background: #fff; padding: 24px; text-align: center; padding: 20px 0;">
       <h2 style="margin: 0; color: #111827; font-size: 36px; font-weight: 600;">Life at a Glance
 </h2>
     </div>
 
     <!-- Gallery Content with Slider -->
-    <section class="spox-section" id="gallery" style="background-color: #fafbfc; padding: 60px 0;">
+    <section class="spox-section" id="gallery" style="background-color: #fafbfc;  padding: 20px 0;">
       <div class="spox-container">
         
         <!-- Slider Container relative for arrows -->
@@ -3124,48 +3222,14 @@ We provide specialised support for seniors managing progressive health condition
       </script>
     </section>
 
-  <!-- TESTIMONIES -->
-    <section class="spox-section" id="testimonials" style="background-color: #fff; padding: 60px 0;">
-      <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Stories That Speak
-        </h2>
-        
-        <div class="testimonies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-           
-           
-           <!-- Video Card 1 (YouTube) -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
-              <iframe style="width: 404px; height: 260px" src="https://www.youtube.com/embed/LdL84elJXEk?si=eFDWFhscJj3-H3NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>
-           </div>
-
-           <!-- Video Card 2 (YouTube) -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
-              <iframe style="width: 404px; height: 260px" src="https://www.youtube.com/embed/Ia_OgZ9H9Tg?si=WSVWSZ56NdDkfFWV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
-
-           <!-- Video Card 3 (YouTube) -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
-              <iframe style="width: 404px; height: 260px" src="https://www.youtube.com/embed/jWPo14CDfHA?si=pTbGBwrhO_E-y6Pa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
-
-        </div>
-      </div>
-
-      <style>
-        @media (max-width: 900px) {
-           .testimonies-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 600px) {
-           .testimonies-grid { grid-template-columns: 1fr !important; }
-           .testimony-card { height: 220px !important; }
-        }
-      </style>
-    </section>
+  
 
     <!-- FAQ SECTION -->
-    <section class="spox-section" id="faq" style="background-color: #f9f9fb; padding: 80px 0;">
+    <section class="spox-section" id="faq" style="background-color: #f9f9fb; padding: 20px 0;">
       <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: left; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Frequently Asked Questions</h2>
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Frequently Asked Questions</h2>
 
-        <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px; padding: 20px 0;">
             
             <!-- Question 1 -->
             <details class="spox-faq-item">
@@ -3239,11 +3303,11 @@ We provide specialised support for seniors managing progressive health condition
     
     </section>
 
-   <section class="spox-section" id="blog" style="background-color: #fffbf0; padding: 80px 0;">
+   <section class="spox-section" id="blog" style="background-color: #fffbf0; padding: 20px 0;">
       <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: left; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Latest Insights</h2>
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Latest Insights</h2>
 
-            <div class="blog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            <div class="blog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 20px 0;">
             
             <!-- Blog Card 1 -->
             <div class="blog-card" style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column;">
