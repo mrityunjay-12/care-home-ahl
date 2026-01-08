@@ -566,9 +566,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .spox-hero-overlay {
         position: absolute;
         inset: 0;
-        background:
+        /* background:
           linear-gradient(90deg, rgba(0,0,0,0.78), rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.1)),
-          radial-gradient(800px 500px at 20% 40%, rgba(216,31,42,0.22), transparent 60%);
+          radial-gradient(800px 500px at 20% 40%, rgba(216,31,42,0.22), transparent 60%); */
       }
       .spox-hero-content {
         position: relative;
@@ -1046,40 +1046,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .item-monitoring, .item-medical, .item-rooms, .item-physio, .item-meals, .item-doctors {
             grid-column: auto !important; grid-row: auto !important; height: 260px;
         }
-        .spox-services-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .spox-service-card { padding: 12px 10px; gap: 8px; }
-        .service-title { font-size: 12px; line-height: 1.25; }
-        .service-icon-circle { width: 40px; height: 40px; margin-bottom: 4px; }
-        .service-icon-circle svg { width: 20px; height: 20px; }
-        
-        /* USP Section Optimized */
-        .usp-grid-responsive { grid-template-columns: 1fr !important; gap: 20px !important; }
+        .spox-services-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .spox-service-card { padding: 15px; gap: 10px; }
+        .service-title { font-size: 13px; line-height: 1.3; }
+        .service-icon-circle { width: 50px; height: 50px; }
+        .service-icon-circle svg { width: 24px; height: 24px; }
+        .usp-grid-responsive { grid-template-columns: 1fr !important; gap: 30px !important; }
         .usp-center-circles { 
             display: flex !important; 
             order: -1; 
             justify-content: center; 
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         /* Make image container square-ish/rectangular */
         .usp-center-circles > div:first-child {
-            border-radius: 16px !important; 
+            border-radius: 20px !important; 
             width: 100% !important; 
-            height: 250px !important; 
+            height: 300px !important; 
             border: none !important;
         }
         /* Hide decorative ring */
         .usp-center-circles > div:last-child {
             display: none !important; 
         }
-        .usp-left-col, .usp-right-col { text-align: left !important; gap: 20px !important; }
+        .usp-left-col, .usp-right-col { text-align: left !important; gap: 30px !important; }
         
         /* Force Icon Left, Text Right layout for both columns */
-        .usp-item { align-items: flex-start !important; gap: 12px !important; }
+        .usp-item { align-items: flex-start !important; gap: 16px !important; }
         
-        /* Override inline styles for better mobile readability */
-        .usp-item h4 { font-size: 16px !important; margin-bottom: 4px !important; }
-        .usp-item p { font-size: 13px !important; line-height: 1.4 !important; }
-
         /* Left Column (Text first in HTML): Reverse row to put Icon first visually */
         .usp-left-col .usp-item {
             flex-direction: row-reverse !important;
@@ -1095,8 +1089,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         /* Mobile Icon Size */
-        .usp-icon-shape { width: 42px; height: 42px; min-width: 42px; border-radius: 12px !important; }
-        .usp-icon-shape svg { width: 20px; height: 20px; }
+        .usp-icon-shape { width: 48px; height: 48px; min-width: 48px; }
+        .usp-icon-shape svg { width: 24px; height: 24px; }
       }
 
       /* Bento Grid Styles */
@@ -1221,9 +1215,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         /* NEW Glass Form Styles */
         .glass-form-card {
-            background: linear-gradient(135deg, rgba(108, 108, 115, 0.8), rgba(17, 17, 20, 0.6));
-            -webkit-backdrop-filter: blur(1px);
-            backdrop-filter: blur(1px);
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.18);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             border-radius: 20px;
@@ -1975,88 +1969,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="https://www.ashianahousing.com/assets/images/care-home-desktop-banner-new.webp" alt="Care Home Hero" />
         <div class="spox-hero-overlay"></div>
 
-        <!-- HERO TEXT CONTENT (NEW) -->
-        <div class="spox-hero-content" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: 2; padding-left: 8%; width: 45%; max-width: 600px;">
-           <!-- Trust Badge -->
-           <div class="spox-hero-kicker" style="background: rgba(16, 10, 10, 0.15); backdrop-filter: blur(6px); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(224, 26, 26, 0.2); margin-bottom: 24px;">
-              <span style="color: rgb(247, 196, 76); margin-right: 8px;">★★★★★</span> 
-              <span style="color: #fff; font-weight: 700; letter-spacing: 1px;">TRUSTED BY 16,000+ FAMILIES</span>
-           </div>
-           
-           <!-- Headline -->
-           <h1 class="spox-hero-title" style="font-size: 44px; line-height: 1.1; margin-bottom: 16px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
-              More Than a Home.<br>
-              <span style="color: #ffdde0;">A Family That Cares.</span>
-           </h1>
-           
-           <!-- Subheadline -->
-           <p class="spox-hero-sub" style="font-size: 18px; line-height: 1.6; margin-bottom: 32px; color: rgba(255,255,255,0.95); font-weight: 500;">
-              Experience peace of mind with 24/7 medical support, engaging social life, and a compassionate community designed for your loved ones.
-           </p>
-
-           <!-- Trust Icons / Actions -->
-           <div class="spox-hero-actions" style="display: flex; gap: 16px; flex-wrap: wrap;">
-               <div style="display: flex; align-items: center; gap: 10px; background: #fff; padding: 8px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
-                   <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#000"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                   <span style="color: #000; font-weight: 700; font-size: 13px;">Compassionate Care</span>
-               </div>
-               <div style="display: flex; align-items: center; gap: 10px; background: #d81f2a; padding: 8px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
-                   <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                   <span style="color: #fff; font-weight: 700; font-size: 13px;">Medical Support</span>
-               </div>
-           </div>
-        </div>
-
-        <style>
-           @media (max-width: 980px) {
-              .spox-hero-content {
-                 position: relative !important;
-                 transform: none !important;
-                 top: auto !important; left: auto !important;
-                 width: 100% !important;
-                 padding: 30px 20px 0 !important;
-                 margin-bottom: 20px;
-                 text-align: center;
-                 display: flex; flex-direction: column; align-items: center;
-              }
-              .spox-hero-kicker {
-                 display: inline-flex !important;
-                 visibility: visible !important;
-                 opacity: 1 !important;
-                 z-index: 10;
-                 margin-top: 60px !important;
-              }
-              .spox-hero-title { font-size: 32px !important; }
-              .spox-hero-sub { font-size: 16px !important; margin-bottom: 20px !important; }
-              
-              /* Force buttons to one row on mobile */
-              .spox-hero-actions { 
-                 justify-content: center; 
-                 flex-wrap: nowrap !important; 
-                 gap: 8px !important;
-                 width: 100%;
-                 overflow-x: auto; /* Just in case */
-              }
-              .spox-hero-actions > div {
-                 padding: 8px 10px !important;
-                 white-space: nowrap;
-                 flex: 0 0 auto;
-              }
-              .spox-hero-actions span {
-                 font-size: 11px !important;
-              }
-              .spox-hero-actions svg {
-                 width: 18px !important; height: 18px !important;
-              }
-           }
-        </style>
-
         <!-- Enquiry Form Left Side -->
         <div class="hero-enquiry-container">
             <div class="glass-form-card">
                 <div class="glass-header">
-                    <h3 style="text-align: center; text-transform: uppercase;">GET A FREE CONSULTATION</h3>
-                    <div style="width: 50px; height: 4px; background: #d63333; margin: -16px auto 24px; border-radius: 2px;"></div>
+                    <h3 style="text-align: center; text-transform: uppercase;">ENQUIRE</h3>
+                    <div style="width: 50px; height: 4px; background: #d6336c; margin: -16px auto 24px; border-radius: 2px;"></div>
                 </div>
                 <form>
                     <!-- Name Field -->
@@ -2082,7 +2000,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </label> -->
                         <div style="position: relative;">
                             <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; pointer-events: none;">
-                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             </span>
                             <input type="email" class="glass-input" placeholder="Email ID" style="padding-left: 40px !important;" />
                         </div>
@@ -2145,7 +2063,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span>Please contact me, <a href="#" style="color: #fca510; text-decoration: underline;">TERMS OF SERVICE</a> and <a href="#" style="color: #fca510; text-decoration: underline;">PRIVACY POLICY</a></span>
                     </div>
 
-                    <button type="submit" class="glass-submit-btn">SCHEDULE A HOME VISIT</button>
+                    <button type="submit" class="glass-submit-btn">SUBMIT</button>
                 </form>
             </div>
         </div>
@@ -2195,6 +2113,84 @@ We provide specialised support for seniors managing progressive health condition
       </div>
     </section>
 
+      <!-- FEATURED PROPERTY (New Section) -->
+    <section class="spox-section" style="background: #ffffff; padding-bottom: 50px;">
+        <div class="spox-container">
+            <div class="spox-featured-grid">
+                
+                <!-- Left: Property Card -->
+                <div class="spox-prop-card" style="border-radius: 20px;">
+                    <div class="spox-prop-img">
+                        <!-- Use a real image -->
+                        <img src="https://www.ashianahousing.com/uploads/property/370x200_1-1738836679.jpg" alt="Property Image" />
+                    </div>
+                    <div class="spox-prop-body">
+                        <h3 class="spox-prop-title">Ashiana Care Home</h3>
+                        <p class="spox-prop-loc">Bhiwadi</p>
+                        
+                        <div class="spox-prop-badge">
+                            <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Ready to move in
+                        </div>
+                        
+                        <div style="font-size: 15px; color: #777; margin-bottom: 6px;">
+                            Available : <span class="spox-prop-tag">Single and double occupancy</span>
+                        </div>
+                        
+                        <div style="margin-top: 14px; border-top: 1px solid #f0f0f0; padding-top: 14px; font-size: 15px; color: #555;">
+                            Rental Starting: <b style="color: #222; font-size: 15px;">₹80 Thousand - ₹1.20 Thousand</b>
+                        </div>
+                        
+                        <div class="spox-prop-action">
+                             <button class="spox-btn-enquire" onclick="openEnquiry()">Enquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Video -->
+                <div class="spox-prop-video" style="border-radius: 20px;">
+                    <!-- YouTube Embed -->
+                    <iframe width="660" height="315" src="https://www.youtube.com/embed/CasNYKBDjDM?si=Y-0pmXjp_wWetTLq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- TESTIMONIES -->
+    <section class="spox-section" id="testimonials" style="background-color: #fff; padding: 20px 0;">
+      <div class="spox-container">
+        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Stories That Speak
+        </h2>
+        
+        <div class="testimonies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+           
+           
+           <!-- Video Card 1 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/LdL84elJXEk?si=eFDWFhscJj3-H3NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>
+           </div>
+
+           <!-- Video Card 2 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/Ia_OgZ9H9Tg?si=WSVWSZ56NdDkfFWV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
+
+           <!-- Video Card 3 (YouTube) -->
+           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/jWPo14CDfHA?si=pTbGBwrhO_E-y6Pa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
+
+        </div>
+      </div>
+
+      <style>
+        @media (max-width: 900px) {
+           .testimonies-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
+           .testimonies-grid { grid-template-columns: 1fr !important; }
+           .testimony-card { height: 220px !important; }
+        }
+      </style>
+    </section>
 
    <!-- AMENITIES - FEATURES (Bento Grid) -->
     <section class="spox-section" id="amenities" style="background-color: #fff; padding: 20px 0;">
@@ -2254,7 +2250,7 @@ We provide specialised support for seniors managing progressive health condition
       </div>
     </section>
 
-         <!-- WHY US - USPs -->
+     <!-- WHY US - USPs -->
     <!-- Main Content with White BG -->
     <section class="spox-section" id="whyus" style="background-color: #fff; padding: 20px 0;">
       <div class="spox-container">
@@ -2375,87 +2371,6 @@ We provide specialised support for seniors managing progressive health condition
         </div>
       </div>
     </section>
-      <!-- FEATURED PROPERTY (New Section) -->
-    <section class="spox-section" style="background: #ffffff; padding-bottom: 50px;">
-        <div class="spox-container">
-            <div class="spox-featured-grid">
-                
-                <!-- Left: Property Card -->
-                <div class="spox-prop-card" style="border-radius: 20px;">
-                    <div class="spox-prop-img">
-                        <!-- Use a real image -->
-                        <img src="https://www.ashianahousing.com/uploads/property/370x200_1-1738836679.jpg" alt="Property Image" />
-                    </div>
-                    <div class="spox-prop-body">
-                        <h3 class="spox-prop-title">Ashiana Care Home</h3>
-                        <p class="spox-prop-loc">Bhiwadi</p>
-                        
-                        <div class="spox-prop-badge">
-                            <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Ready to move in
-                        </div>
-                        
-                        <div style="font-size: 15px; color: #777; margin-bottom: 6px;">
-                            Available : <span class="spox-prop-tag">Single and double occupancy</span>
-                        </div>
-                        
-                        <div style="margin-top: 14px; border-top: 1px solid #f0f0f0; padding-top: 14px; font-size: 15px; color: #555;">
-                            Rental Starting: <b style="color: #222; font-size: 15px;">₹80 Thousand - ₹1.20 Thousand</b>
-                        </div>
-                        
-                        <div class="spox-prop-action">
-                             <button class="spox-btn-enquire" onclick="openEnquiry()">Enquire</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Video -->
-                <div class="spox-prop-video" style="border-radius: 20px;">
-                    <!-- YouTube Embed -->
-                    <iframe width="660" height="315" src="https://www.youtube.com/embed/CasNYKBDjDM?si=Y-0pmXjp_wWetTLq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
-
-            </div>
-        </div>
-    </section>
-
-<!-- TESTIMONIES -->
-    <section class="spox-section" id="testimonials" style="background-color: #fff; padding: 20px 0;">
-      <div class="spox-container">
-        <h2 class="spox-h2" style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #111827; font-weight: 600;">Stories That Speak
-        </h2>
-        
-        <div class="testimonies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-           
-           
-           <!-- Video Card 1 (YouTube) -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
-              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/LdL84elJXEk?si=eFDWFhscJj3-H3NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>
-           </div>
-
-           <!-- Video Card 2 (YouTube) -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
-              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/Ia_OgZ9H9Tg?si=WSVWSZ56NdDkfFWV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
-
-           <!-- Video Card 3 (YouTube) -->
-           <div class="testimony-card" style="position: relative; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;">
-              <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/jWPo14CDfHA?si=pTbGBwrhO_E-y6Pa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none;"></iframe>           </div>
-
-        </div>
-      </div>
-
-      <style>
-        @media (max-width: 900px) {
-           .testimonies-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 600px) {
-           .testimonies-grid { grid-template-columns: 1fr !important; }
-           .testimony-card { height: 220px !important; }
-        }
-      </style>
-    </section>
-
-
-
 
    <!-- CARE & SERVICES - ICON GRID -->
     <section class="spox-section" style="background-color: #fafbfc; ">
