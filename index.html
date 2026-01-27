@@ -2185,9 +2185,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div style="flex: 1; min-width: 300px;">
             <p style="margin: 0; font-size: 18px; line-height: 1.8; color: #333; text-align: justify; font-weight: 500;">
              Assisted Living offers senior residents personalised care tailored to their medical and wellness needs, while ensuring a warm, familiar, home-like environment. With premium services, modern amenities, and round-the-clock support, seniors receive the attention they deserve while maintaining their independence and dignity in everyday living.
+              <span id="about-hidden-text" class="about-text-content">
               <br><br>
 We provide specialised support for seniors managing progressive health conditions such as Alzheimer’s, Dementia, Parkinson’s, Arthritis, and age-related mobility challenges. Our care approach focuses on comfort, safety, and emotional well-being, helping residents live with confidence, reassurance, and peace of mind.
+              </span>
+              <span id="about-read-more-btn" onclick="toggleReadMore()">Read more</span>
             </p>
+            <style>
+                #about-read-more-btn { display: none; color: #d81f2a; font-weight: 700; cursor: pointer; margin-left: 5px; text-decoration: underline; }
+                .about-text-content { display: inline; }
+                @media (max-width: 980px) {
+                    .about-text-content { display: none; }
+                    .about-text-content.expanded { display: inline; }
+                    #about-read-more-btn { display: inline; }
+                }
+            </style>
+            <script>
+                function toggleReadMore() {
+                    var content = document.getElementById("about-hidden-text");
+                    var btn = document.getElementById("about-read-more-btn");
+                    if (content.classList.contains("expanded")) {
+                        content.classList.remove("expanded");
+                        btn.innerHTML = "Read more";
+                    } else {
+                        content.classList.add("expanded");
+                        btn.innerHTML = "Read less";
+                    }
+                }
+            </script>
             <div style="margin-top: 30px;">
                 <button class="spox-btn-enquire" onclick="openEnquiry()">Get Care Consultation Today</button>
             </div>
