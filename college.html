@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acadia University</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-brand: #006636; /* New Primary Green */
+            --primary-dark: #004d29;
+            --accent-purple: #3f0066; /* From palette */
+            --light-bg: #f9fafb;
+            --text-dark: #111827;
+            --text-gray: #4b5563;
+            --white: #ffffff;
+            --font-sans: "General Sans", "Open Sans", sans-serif;
+            --font-serif: "General Sans", "Open Sans", sans-serif;
+            --font-body: "General Sans", "Open Sans", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Top Bar --- */
+        .top-bar {
+            background-color: var(--primary-brand);
+            color: white;
+            padding: 10px 0;
+            font-size: 13px;
+            font-family: var(--font-sans);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-left div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-right ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-right a {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .top-right a:hover {
+            opacity: 1;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            position: absolute;
+            top: 40px; /* Height of topbar roughly */
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+            background: rgb(29, 27, 27); /* Subtle darkening for readability */
+            backdrop-filter: blur(2px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            height: 32px;
+            width: auto;
+            fill: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-link svg {
+            width: 12px;
+            opacity: 0.8;
+        }
+
+        .search-icon {
+            color: white;
+            cursor: pointer;
+        }
+
+        .apply-btn {
+            border: 1px solid rgba(255,255,255,0.6);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: white;
+            color: var(--primary-brand);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2670&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            color: white;
+            width: 100%;
+            text-align: center;
+            margin-top: 60px; /* Offset for navbar */
+        }
+
+        .hero-sub {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 20px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-family: var(--font-sans);
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            text-transform: capitalize;
+        }
+
+        .enroll-btn {
+            background-color: var(--primary-brand);
+            color: white;
+            padding: 18px 48px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .enroll-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* --- Stats Cards --- */
+        .features-section {
+            position: relative;
+            padding-bottom: 80px;
+            margin-top: -100px; /* Overlap Hero */
+            z-index: 10;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            background: #ecfdf5;
+            color: var(--primary-brand);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .icon-box svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .feature-title {
+            font-family: var(--font-sans);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .feature-desc {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .learn-more {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .learn-more:hover {
+            gap: 10px;
+        }
+
+        /* --- Green Stats Bar --- */
+        .stats-section {
+            background-color: var(--primary-brand);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Pattern */
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .stats-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.2);
+            padding: 0 20px;
+            color: white;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            font-style: italic;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 56px; }
+            .features-grid { gap: 20px; }
+            .feature-card { padding: 30px 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { display: none; } /* Hide top bar on mobile */
+            .navbar { top: 0; background: rgba(0,0,0,0.8); position: fixed; }
+            .menu-toggle { display: block; }
+            .nav-menu, .apply-btn, .search-icon { display: none; }
+            
+            .hero-title { font-size: 42px; }
+            .features-section { margin-top: 0; padding-top: 40px; }
+            .features-grid { grid-template-columns: 1fr; }
+            
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            .stat-item { border-right: none; }
+        }
+    /* Mobile Menu Styles */
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            gap: 15px;
+        }
+        .nav-menu.active {
+            display: flex;
+        }
+        .nav-link {
+            color: #111;
+            font-size: 18px;
+            justify-content: space-between;
+        }
+        /* Mobile Apply Button in Menu */
+        .mobile-apply {
+            display: block;
+            text-align: center;
+            background: var(--primary-brand);
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-left">
+                <div>
+                   <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                   <span>7500k Followers</span>
+                </div>
+                <div>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>+(402) 763 282 46</span>
+                </div>
+                <div>
+                    <img src="https://flagcdn.com/w20/gb.png" alt="UK" style="width: 16px; height: auto;">
+                    <span>English</span>
+                    <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                </div>
+            </div>
+            <div class="top-right">
+                <ul>
+                    <li><a href="#">Campus</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Staffs</a></li>
+                    <li><a href="#">Alumni</a></li>
+                    <li><a href="#">Help Desk</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <img src="https://pxl-v6-stiracuk.terminalfour.net/prod01/cdn/media/dist/css/images/logos/logo.svg" alt="Acadia University" style="height: 40px;">
+            </a>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+            </div>
+
+            <div class="nav-menu">
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Home <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Academics <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Admissions <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Pages <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Blog <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
+                </div>
+                <!-- <a href="#" class="mobile-apply">Apply Now</a> -->
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div class="search-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <a href="#" class="apply-btn">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <p class="hero-sub">BE THE DIFFERENCE</p>
+            <h1 class="hero-title">A Prestigious UK Degree<br>in the Heart of the UAE.</h1>
+            <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Get a world-class education from the University of Stirling, ranked top 500 globally. 
+                Fast-track your career with industry-accredited courses and 96% student satisfaction.
+            </p>
+            <button class="enroll-btn" onclick="window.location.href='#'">
+                Explore Courses 
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Features Cards -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="feature-title">UK Accredited Degree</h3>
+                    <p class="feature-desc">Graduate with a globally recognized degree from the University of Stirling, UK, without leaving the UAE.</p>
+                    <a href="#" class="learn-more">Why Stirling? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+                </div>
+
+                 <!-- Card 2 -->
+                 <div class="feature-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="feature-title">Fast-Track Career</h3>
+                    <p class="feature-desc">Our Accounting & Finance graduates get up to 9 ACCA and 6 ICAEW exemptions, launching their careers faster.</p>
+                    <a href="#" class="learn-more">View Accreditations <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+                </div>
+
+                 <!-- Card 3 -->
+                 <div class="feature-card">
+                    <div class="icon-box">
+                       <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="feature-title">Affordable Excellence</h3>
+                    <p class="feature-desc">Experience 5-star rated teaching and facilities in RAK with competitive tuition fees and scholarship opportunities.</p>
+                    <a href="#" class="learn-more">Scholarships <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">QS Stars Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">Student Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">91%</div>
+                    <div class="stat-label">Graduate Employment</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">88k+</div>
+                    <div class="stat-label">Global Alumni</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About University Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Left: Image Collage -->
+                <div class="about-images">
+                    <div class="img-small">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2670&auto=format&fit=crop" alt="Students talking">
+                    </div>
+                    <div class="img-large">
+                        <img src="https://pxl-v6-stiracuk.terminalfour.net/fit-in/920x520/filters:quality(75)/filters:format(webp)/0x15:1240x716/prod01/cdn/media/stirling/global-assets/campus-life/large/UoS-PG-Open-Day-2024-25.jpg" alt="Student portrait">
+                    </div>
+                    <div class="exp-badge">
+                        <span class="exp-number">50+</span>
+                        <span class="exp-text">Years of<br>Excellence</span>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="about-content">
+                    <div class="watermark-bg">
+                        <!-- <img src="faviocon.png" alt=""> -->
+                    </div>
+                    <span class="section-label">ABOUT UNIVERSITY OF STIRLING, RAK</span>
+                    <h2 class="section-title">Redefine your future<br>with a <span class="highlight-text">Global Degree</span></h2>
+                    
+                    <div class="about-desc">
+                        <p>We are a global university with a reputation for high-quality teaching and research. Our Ras Al Khaimah (RAK) campus offers you the unique opportunity to earn a prestigious UK degree while studying in the dynamic environment of the UAE. We connect people, innovate, and transform the lives of our students.</p>
+                    </div>
+
+                    <div class="about-features">
+                        <div class="af-item">
+                            <div class="af-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg> 
+                            </div>
+                            <div class="af-text">
+                                <h3>Global Recognition</h3>
+                                <p>Consistently ranked among the top 500 universities worldwide.</p>
+                            </div>
+                        </div>
+                        <div class="af-item">
+                            <div class="af-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5zM3 13h8v2H3v-2zm0 4h8v2H3v-2z"/></svg>
+                            </div>
+                            <div class="af-text">
+                                <h3>Employability Focus</h3>
+                                <p>Courses designed with industry leaders to ensure career readiness.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn-primary">Book a Consultation <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+     <section class="programs-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">Undergraduate <span class="highlight-text">Programs</span></h2>
+            <div class="programs-grid">
+                <!-- Card 1: Accounting -->
+                <div class="program-card">
+                    <div class="pc-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2672&auto=format&fit=crop" alt="Accounting">
+                    </div>
+                    <div class="pc-content">
+                        <h3>BA (Hons) Accounting & Finance</h3>
+                        <p>Launch your finance career with significant ACCA (9 papers) and ICAEW (6 papers) exemptions.</p>
+                        <div class="pc-meta">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                            <span>Finance & Business</span>
+                        </div>
+                        <a href="#" class="pc-apply">View Course</a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Software Engineering -->
+                <div class="program-card">
+                    <div class="pc-image">
+                         <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=2670&auto=format&fit=crop" alt="Software Engineering">
+                    </div>
+                    <div class="pc-content">
+                        <h3>BSc (Hons) Software Engineering</h3>
+                        <p>Master the design and maintenance of software systems for a high-demand tech career.</p>
+                        <div class="pc-meta">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H9v-2h6v2zm-3-7l-2.5-2.5L12 6l2.5 2.5L12 11zm7-4h-2l2-2h2v2z"/></svg>
+                            <span>Computing Science</span>
+                        </div>
+                        <a href="#" class="pc-apply">View Course</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Computing Science -->
+                <div class="program-card">
+                    <div class="pc-image">
+                         <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=2670&auto=format&fit=crop" alt="Computing Science">
+                    </div>
+                    <div class="pc-content">
+                        <h3>BSc (Hons) Computing Science</h3>
+                        <p>Gain deep technical knowledge and problem-solving skills essential for the digital age.</p>
+                        <div class="pc-meta">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 16l-5 2.72L7 16v-3.73L12 15l5-2.73V16z"/></svg>
+                            <span>Technology</span>
+                        </div>
+                        <a href="#" class="pc-apply">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="programs-footer">
+                <p>Explore all our undergraduate offerings. <a href="#">View all Programs -></a></p>
+            </div>
+        </div>
+     </section>
+
+    <style>
+        /* --- About Section --- */
+        .about-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            height: 550px; /* Slight increase to accommodate layout */
+            width: 100%;
+        }
+
+        .img-small {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45%; 
+            height: 90%; /* Taller profile */
+            overflow: hidden;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .img-large {
+            position: absolute;
+            top: 10%;
+            right: 0;
+            width: 65%;
+            height: 80%;
+            overflow: hidden;
+            border-radius: 12px;
+            z-index: 2;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .img-small img, .img-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .exp-badge {
+            position: absolute;
+            bottom: 60px;
+            left: 15%; /* Positioned to overlap transition */
+            background: white;
+            padding: 20px 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .exp-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--primary-brand);
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .exp-text {
+            font-size: 16px;
+            color: var(--primary-brand);
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .section-label {
+            color: var(--primary-brand);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-family: var(--font-serif);
+            color: #222;
+        }
+        
+        .highlight-text {
+            color: var(--primary-brand);
+            position: relative;
+        }
+        /* Underline decoration simulation */
+        /* .highlight-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-brand);
+            border-radius: 2px;
+        } */
+
+        /* Watermark Styles */
+        .about-content {
+            position: relative;
+            z-index: 0;
+        }
+        
+        .watermark-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-30%, -70%);
+            width: 80%;
+            max-width: 400px;
+            opacity: 0.04; 
+            z-index: -1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .watermark-bg img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-desc {
+            border-left: 4px solid #e1b4b9; /* light accent line */
+            border-left-color: var(--primary-brand);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            opacity: 0.6; /* lighter border */
+        }
+        
+        .about-desc p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .af-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .af-icon {
+            width: 50px;
+            height: 50px;
+            background: #fff0f1;
+            background: rgba(0, 102, 54, 0.1); /* Light Brand Green */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-brand);
+            flex-shrink: 0;
+        }
+
+        .af-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .af-text p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .btn-primary {
+            background: var(--primary-brand);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* --- Programs Section --- */
+        .programs-section {
+            padding: 80px 0;
+            background: #fdfaf8; /* Warm light bg from grid image */
+            background: #f9f9f9;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pc-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        .pc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pc-content {
+            padding: 25px;
+        }
+
+        .pc-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .pc-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .pc-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+        
+        .pc-apply {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            color: var(--primary-brand);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .pc-apply:hover {
+            background: var(--primary-brand);
+            color: white;
+            border-color: var(--primary-brand);
+        }
+
+        .programs-footer {
+            text-align: center;
+            font-size: 15px;
+            color: #666;
+        }
+        
+        .programs-footer a {
+            color: var(--primary-brand);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+
+    </style>
+
+    <!-- Join Community Section -->
+    <section class="join-section" style="padding: 40px 0;">
+        <div class="container">
+            <div class="join-card">
+                <div class="join-content">
+                    <h2>Scholarships to<br>Support Your<br>Ambition.</h2>
+                    <p>We believe in rewarding potential. Discover our range of scholarships designed to support talented students from across the globe in achieving their academic goals at our RAK campus.</p>
+                    <a href="#" class="enroll-btn" style="background-color: white; color: var(--primary-brand);">Check Eligibility</a>
+                </div>
+                <div class="join-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop" alt="Students studying">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px; font-weight: 700;">University News & Events</h2>
+            
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <article class="news-card">
+                    <div class="nc-img">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2670&auto=format&fit=crop" alt="News 1">
+                    </div>
+                    <div class="nc-body">
+                        <h4>Senior Fellow of Higher Education Academy Achievement</h4>
+                        <div class="nc-meta">Latest Achievement | Faculty</div>
+                    </div>
+                </article>
+
+                <!-- News Card 2 -->
+                <article class="news-card">
+                    <div class="nc-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2669&auto=format&fit=crop" alt="News 2">
+                    </div>
+                    <div class="nc-body">
+                        <h4>Join our next Skill Enhancement Workshop Series</h4>
+                        <div class="nc-meta">Upcoming Event | Student Life</div>
+                    </div>
+                </article>
+
+                <!-- News Card 3 -->
+                <article class="news-card">
+                    <div class="nc-img">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2670&auto=format&fit=crop" alt="News 3">
+                    </div>
+                    <div class="nc-body">
+                        <h4>A warm welcome to our new undergraduate cohort</h4>
+                        <div class="nc-meta">Campus News | Admissions</div>
+                    </div>
+                </article>
+
+                <!-- News Card 4 -->
+                <article class="news-card">
+                    <div class="nc-img">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop" alt="News 4">
+                    </div>
+                    <div class="nc-body">
+                        <h4>Commendation Teaching Impact Award 2020</h4>
+                        <div class="nc-meta">Awards | Excellence</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* --- Join Section --- */
+        .join-card {
+            background-color: var(--primary-brand); /* #006636 */
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            min-height: 450px;
+        }
+
+        .join-content {
+            flex: 1;
+            padding: 60px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .join-content h2 {
+            font-size: 42px;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .join-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 450px;
+        }
+
+        .btn-lime {
+            background-color: #bef264; /* Lime green like image */
+            color: #1a2e05;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .btn-lime:hover {
+            transform: scale(1.05);
+            background-color: #d9f99d;
+        }
+
+        .join-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .join-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- News Section --- */
+        .news-section {
+            padding: 80px 0;
+            background-color: #eff6ef; /* Very light green tint */
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nc-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .nc-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nc-body h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nc-meta {
+            font-size: 13px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+
+    </style>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: 100px 0;">
+        <div class="container">
+            <div class="faq-header" style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-family: var(--font-sans); font-size: 42px; font-weight: 700; margin-bottom: 15px;">Frequently asked questions</h2>
+                <p style="color: #666; font-size: 16px;">Allowing learners to find the information they need independently</p>
+            </div>
+
+            <div class="faq-grid" style="display: grid; grid-template-columns: 4fr 6fr; gap: 60px; align-items: start;">
+                <!-- FAQ Image -->
+                <div class="faq-image" style="border-radius: 20px; overflow: hidden; height: 500px;">
+                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2670&auto=format&fit=crop" alt="Student with headphones" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="faq-list" style="display: flex; flex-direction: column; gap: 20px;">
+                    <details class="faq-item" open>
+                        <summary class="faq-question">
+                            What degrees are offered at the RAK Campus?
+                            <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>We offer globally recognized UK undergraduate and postgraduate degrees in Accounting & Finance, Computing Science, and Software Engineering, identical to those awarded at our UK home campus.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            Is the degree recognized internationally?
+                            <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Yes, your degree is awarded by the University of Stirling, UK, which is QS 5-Star rated and globally accredited. It holds the same value and recognition as a degree earned in the UK.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            Are scholarships available for new students?
+                            <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Absolutely! We offer Academic Merit Scholarships of up to 50% for high-achieving students. Contact our admissions team to check your eligibility.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            Can I transfer to the UK campus?
+                            <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Yes, students have the opportunity to transfer to the UK home campus after completing their first or second year in RAK, subject to academic performance.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <section class="cta-banner" style="background-color: var(--primary-brand); padding: 40px 0; color: white; position: relative; overflow: hidden;">
+        <!-- Background Pattern (Subtle) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background: radial-gradient(circle at 10% 20%, white 1px, transparent 1px) 0 0 / 20px 20px;"></div>
+        
+        <div class="container mobile-col-center" style="display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1;">
+            <div class="cta-logo-text-group" style="display: flex; align-items: center; gap: 30px;">
+                <!-- Logo Shield Placeholder using SVG -->
+                <div class="cta-icon-box" style="width: 80px; height: 90px; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                     <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>
+                </div>
+                <div class="cta-text-group">
+                    <div class="cta-text-small" style="font-size: 14px; font-style: italic; opacity: 0.9; margin-bottom: 5px; font-family: var(--font-serif);">COURSES FOR FREE, REGISTER NOW</div>
+                    <div class="cta-text-large" style="font-size: 28px; font-weight: 700; font-family: var(--font-sans); line-height: 1.2;">CREATIVE IN RESEARCH AND TEACHING.</div>
+                </div>
+            </div>
+            
+            <a href="#" style="background: white; color: var(--primary-brand); padding: 14px 32px; border-radius: 6px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                Apply Now 
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <style>
+        /* CSS for FAQ Section appended here */
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .faq-item[open] {
+            background-color: #f0fdf4; /* Light green bg for open item */
+            border-color: transparent;
+        }
+
+        .faq-question {
+            list-style: none;
+            padding: 24px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px 24px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .faq-item[open] .chevron {
+            transform: rotate(180deg);
+        }
+        
+
+        .chevron {
+            transition: transform 0.3s;
+        }
+
+        /* --- Footer Styles --- */
+        .main-footer {
+            background-color: #383833; /* Dark earthy olive */
+            color: white;
+            padding: 80px 0 40px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .social-icons svg:hover {
+            opacity: 1;
+        }
+
+        .footer-contact p, .footer-contact address {
+            color: #d1d5db;
+            font-style: normal;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .ask-link {
+            display: inline-block;
+            color: white;
+            text-decoration: underline;
+            margin-top: 10px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .footer-logo-placeholder {
+            height: 40px;
+            opacity: 0.8;
+        }
+
+        .footer-slogan {
+            font-family: var(--font-sans);
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid white;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        .back-to-top {
+            background-color: var(--primary-brand);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: #004d29;
+        }
+
+        @media (max-width: 900px) {
+            .about-grid, .programs-grid, .news-grid, .faq-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .about-images {
+                height: 400px;
+                margin-bottom: 40px;
+            }
+            .section-title, .faq-header h2 {
+                font-size: 32px !important;
+            }
+            .watermark-bg {
+                 width: 100%;
+                 max-width: 300px;
+                 transform: translate(-50%, -50%); /* Re-center on mobile if needed or keep offset */
+            }
+            
+            .mobile-col-center {
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                text-align: left; /* Keep text left aligned relative to icon if row */
+            }
+            
+            .cta-logo-text-group {
+                flex-direction: row; /* Ensure side by side */
+                gap: 20px !important; /* Reduce gap */
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-text-large {
+                font-size: 24px !important; /* Adjust for fit */
+            }
+            
+            .cta-text-small {
+                font-size: 12px !important;
+            }
+
+            .cta-icon-box {
+                width: 70px !important;
+                height: 80px !important;
+            }
+            
+            .faq-image {
+                height: 300px !important;
+            }
+
+            .join-card {
+                flex-direction: column;
+            }
+            .join-image {
+                height: 250px;
+            }
+            .join-content {
+                padding: 30px;
+            }
+            .join-content h2 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .stat-item {
+                border-right: none;
+                padding: 0;
+            }
+            .stat-number {
+                font-size: 48px;
+            }
+            .hero-title {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            .hero-sub {
+                font-size: 16px;
+            }
+            .enroll-btn, .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+            .feature-card {
+                padding: 25px 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center; /* Center align for consistency */
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-slogan {
+                font-size: 20px;
+                border-bottom: 2px solid white;
+            }
+            .footer-logos {
+                justify-content: center;
+            }
+            .back-to-top {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+    </style>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Follow Us -->
+                <div class="footer-col">
+                    <h3>Follow us</h3>
+                    <div class="social-icons">
+                        <!-- Facebook -->
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+                        <!-- Instagram -->
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <!-- Twitter/X -->
+                        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                        <!-- Youtube -->
+                        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"></polygon></svg>
+                        <!-- Linkedin -->
+                        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </div>
+                </div>
+
+                <!-- Column 2: Popular Links -->
+                <div class="footer-col">
+                    <h3>Popular links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Faculties</a></li>
+                        <li><a href="#">Professional services</a></li>
+                        <li><a href="#">Alumni</a></li>
+                        <li><a href="#">Jobs at Stirling</a></li>
+                        <li><a href="#">Getting here</a></li>
+                        <li><a href="#">Students’ Union</a></li>
+                        <li><a href="#">Online shop</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Current students</a></li>
+                        <li><a href="#">Staff</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Site Information -->
+                <div class="footer-col">
+                    <h3>Site information</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Policy, Legal and Cookies</a></li>
+                        <li><a href="#">Accessibility statement</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Modern Slavery Statement</a></li>
+                        <li><a href="#" style="pointer-events: none; text-decoration: none; opacity: 0.7;">Scottish Charity No SC011159</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us -->
+                <div class="footer-col" style="position: relative;">
+                    <h3>Contact us</h3>
+                    <div class="footer-contact">
+                        <p>Tel: +44 (0) 1786 473171</p>
+                        <address>
+                            University of Stirling<br>
+                            Stirling<br>
+                            FK9 4LA<br>
+                            Scotland UK
+                        </address>
+                        <a href="#" class="ask-link">Ask us a question ›</a>
+                    </div>
+                    <!-- UK Map Graphic (Simplified as an image/svg placeholder) -->
+                    <div style="position: absolute; right: -20px; top: 0; opacity: 0.8; pointer-events: none;">
+                        <img src="https://www.stir.ac.uk/media/dist/css/images/maps/footer-map-scotland.svg" alt="Scotland Map" style="height: 140px; width: auto;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-logos">
+                    <!-- Text placeholders for logos as creating complex SVGs is out of scope, but using icons -->
+                    <div style="font-weight: 700; color: white;">Athena<br>Swan</div>
+                    <div style="font-weight: 700; color: white;">QAA</div>
+                    <div style="font-weight: 700; color: white;">SCQF</div>
+                </div>
+                
+                <div style="text-align: right; margin-right: 60px;">
+                    <div class="footer-slogan">BE THE DIFFERENCE</div>
+                </div>
+
+                <a href="#" class="back-to-top" title="Back to top">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('toggle', (e) => {
+                if (item.open) {
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.open) {
+                            otherItem.removeAttribute('open');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Stats Counter Animation
+        const stats = document.querySelectorAll('.stat-number');
+        
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const originalText = target.innerText;
+                    // Extract number and any non-numeric suffix
+                    const match = originalText.match(/(\d+)(\D*)/);
+                    
+                    if (match) {
+                        const finalValue = parseInt(match[1], 10);
+                        const suffix = match[2] || '';
+                        let startTimestamp = null;
+                        const duration = 2000; // 2 seconds animation
+
+                        const step = (timestamp) => {
+                            if (!startTimestamp) startTimestamp = timestamp;
+                            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                            const currentValue = Math.floor(progress * finalValue);
+                            
+                            target.innerText = currentValue + suffix;
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                target.innerText = finalValue + suffix;
+                            }
+                        };
+                        
+                        window.requestAnimationFrame(step);
+                    }
+                    
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stats.forEach(stat => {
+            statsObserver.observe(stat);
+        });
+    </script>
+</body>
+</html>
